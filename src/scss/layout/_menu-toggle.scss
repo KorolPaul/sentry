@@ -1,0 +1,30 @@
+.menu-toggle {
+    @include button-reset;
+    position: fixed;
+    top: 16px;
+    right: $indent;
+    width: 24px;
+    height: 36px;
+    z-index: 10;
+    @include desktop {
+        display: none;
+    }
+
+    .header__static & {
+        @include tablet {
+            display: block;
+        }
+        @include desktop {
+            display: none;
+        }
+    }
+    
+    &_line {
+        top: 50%;
+        left: 0;
+        width: 24px;
+        height: 2px;
+        background: url(#{$img}/burger-line.svg) no-repeat center center / 100% 100%;
+        margin: 7px 0;
+    }
+}
