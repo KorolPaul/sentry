@@ -1,0 +1,33 @@
+.advantages {
+    background: url(#{$img}/city.svg) no-repeat center bottom / 100% auto;
+
+    &_holder {
+        @include layout;
+    }
+    &_item {
+        display: flex;
+        gap: 90px;
+        justify-content: space-between;
+        margin: 0 0 120px;
+    }
+    &_title {
+        font-size: 32px;
+        line-height: 120%;
+        color: $cBright;
+        margin: 0 0 32px;
+    }
+    &_description {
+        max-width: 445px;
+
+        .advantages_item:nth-of-type(even) {
+            order: 2;
+        }
+    }
+    &_item {
+        max-width: 445px;
+
+        .advantages_item:nth-of-type(even) {
+            order: 1;
+        }
+    }
+}
