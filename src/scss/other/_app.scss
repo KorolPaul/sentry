@@ -1,0 +1,66 @@
+.app {
+    &_holder {
+        @include layout;
+        width: 100%;
+    }
+    &_video {
+        margin: -420px 0 150px;
+        padding: 0 0 56%;
+        position: relative;
+
+        iframe {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+        }
+    }
+    &_section {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 90px;
+    }
+    &_section-title[class] {
+        color: $cBright;
+        text-align: left;
+        width: 40%;
+    }
+    &_section-content {
+        width: 40%;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 140%;
+    }
+    &_section-links {
+        margin-top: 40px;
+    }
+    &_screens {
+        position: relative;
+        margin: 0 0 200px;
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+    &_screens-wrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+    }
+    &_screens-bg {
+        position: absolute;
+        left: 50%;
+        width: 100vw;
+        bottom: 50px;
+        transform: translateX(-50%);
+        z-index: -1;
+    }
+    &_slide {
+        text-align: center;
+    }
+
+    .tns-outer {
+        margin: 0 0 170px;
+    }
+}

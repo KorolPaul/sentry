@@ -15,7 +15,23 @@ roadSlider.forEach(el => {
         autoplay: false,
         nav: true,
         navPosition: 'bottom',
-        controls: false,
+        controls: true,
+        loop: false,
+    });
+})
+
+const appSlider = document.querySelectorAll('.app_slider');
+appSlider.forEach(el => {
+    tns({
+        container: el,
+        items: 1,
+        center: true,
+        gutter: 16,
+        mouseDrag: true,
+        autoplay: false,
+        nav: true,
+        navPosition: 'bottom',
+        controls: true,
         loop: false,
     });
 })

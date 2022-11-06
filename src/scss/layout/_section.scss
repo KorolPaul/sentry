@@ -6,9 +6,6 @@
         padding-bottom: 150px;
     }
 
-    &__no-indent {
-        padding: 0;
-    }
     &__grey {
         background-color: $cGrey;
     }
@@ -22,6 +19,13 @@
         background-color: $cBright;
         padding-top: 80px;
         padding-bottom: 80px;
+    }
+    &__no-indent {
+        padding: 0;
+    }
+
+    &__big-bottom-indent {
+        padding-bottom: 350px;
     }
 
     &_holder {

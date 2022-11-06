@@ -1,5 +1,6 @@
 .tns-outer {
     padding: 0 !important;
+    position: relative;
 }
 .tns-outer [hidden] {
     display: none !important;
@@ -123,22 +124,23 @@
 
 .tns-controls {
     display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-    margin: 0 0 40px;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    @include tablet {
+        width: 50%;
+    }
 
     button {
         @include button-reset;
-        width: 50px;
-        height: 50px;
+        width: 25px;
+        height: 25px;
         font-size: 0;
         line-height: 0;
         transition: .2s $easing opacity;
-        @include desktop {
-            position: absolute;
-            top: 230px;
-            z-index: 2;
-        }
 
         &:hover {
             opacity: .6;
@@ -151,37 +153,35 @@
 
     button[data-controls="prev"]{
         background: url(#{$img}/prev.svg) no-repeat center / 100% auto;
-        @include desktop {
-            left: -75px;
-        }
     }
     button[data-controls="next"]{
         background: url(#{$img}/next.svg) no-repeat center / 100% auto;
-        @include desktop {
-            right: -75px;
-        }
     }
 }
 
 .tns-nav {
     display: flex;
     justify-content: center;
-    gap: 24px;
-    margin: 20px 0 0;
+    gap: 26px;
+    margin: 40px 0 0;
 
     button {
         @include button-reset;
-        height: 12px;
-        width: 12px;
-        border-radius: 50%;
-        background-color: rgba(#000, .2);
+        height: 8px;
+        width: 8px;
+        border-radius: 4px;
+        background-color: $color;
+        transition: .3s $easing background,
+                    .3s $easing opacity,
+                    .3s $easing width;
 
-        &.tns-nav-active,
-        &:hover {
-            background-color: #000;
+        &.tns-nav-active {
+            background-color: $cBright;
+            width: 50px;
         }
         &:hover {
             opacity: .6;
+            background-color: $cBright;
         }
         &:active {
             opacity: .8;
