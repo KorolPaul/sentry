@@ -7,20 +7,17 @@ input[type="tel"] {
     @include placeholder-color($color);
     color: $color;
     background: transparent;
-    border: none;
-    border-bottom: 1px dashed currentColor;
-    border-radius: 0;
+    border: 1px solid #9CA3AF;
+    border-radius: 8px;
     box-sizing: border-box;
-    font: 18px $font-family;
-    height: 55px;
+    font: 400 16px $font-family;
+    height: 56px;
     line-height: 34px;
-    padding: 0 0 0 8px;
+    padding: 0 0 0 20px;
     width: 100%;
-    transition: .2s ease-in border-color,
-                .2s ease-in color;
+    transition: .2s ease-in border-color;
 
     &:focus {
-        color: $color;
         border-color: $color;
     }
 

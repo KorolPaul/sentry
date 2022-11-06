@@ -1,0 +1,33 @@
+.transportation-stats {
+    &_title {
+        margin: 0 auto 40px;
+        max-width: 840px;
+
+        span {
+            color: $bg_color;
+            display: block;
+        }
+    }
+    &_cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 30px;
+    }
+    &_card {
+        background-color: $bg_color;
+        border-radius: 16px;
+        padding: 18px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        gap: 20px;
+    }
+    &_card-title {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 140%;
+    }
+}

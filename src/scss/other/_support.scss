@@ -1,0 +1,38 @@
+.support {
+    padding: 40px 0 0;
+
+    &_columns {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+    }
+    &_grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 0 30px;
+        max-width: 920px;
+        margin: auto;
+    }
+    &_item {
+        background: rgba(239, 98, 56, .3) url(#{$img}/check.svg) no-repeat left 40px center / 25px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 140%;
+        display: block;
+        padding: 26px 20px 26px 90px;
+        border-radius: 10px;
+        margin: 0 0 16px;
+    }
+    &_icon {
+        display: block;
+        margin: 0 auto 32px;
+    }
+    &_title {
+        margin: 0 0 16px;
+        text-align: center;
+    }
+    &_columns-title {
+        margin: 80px 0 40px;
+    }
+}

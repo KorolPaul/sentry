@@ -1,0 +1,31 @@
+.clients {
+    text-align: center;
+
+    &_subtitle {
+        font-size: 24px;
+        line-height: 120%;
+        margin: 0 0 32px;
+    }
+    &_categories {
+        margin: 0 0 54px;
+    }
+    &_category {
+        display: inline-block;
+        color: #fff;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 27px;
+        padding: 10px 24px;
+        background-color: $cBright;
+        border-radius: 10px;
+        margin: 0 4px 16px;
+    }
+    &_cards {
+        @include desktop {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+            gap: 24px 30px;
+        }
+    }
+}

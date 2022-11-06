@@ -1,0 +1,41 @@
+.tabs {
+    display: flex;
+    gap: 100px;
+
+    &_buttons {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 0;
+        gap: 32px;
+    }
+    &_button {
+        @include button-reset;
+        color: $color;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 120%;
+        text-align: left;
+        transition: .2s $easing color;
+
+
+        &:hover,
+        &.active {
+            color: $cBright;
+        }
+    }
+
+    &_content-holder {
+        flex-grow: 1;
+    }
+    &_content {
+        display: none;
+
+        @include desktop {
+            flex-grow: 1;
+        }
+
+        &.active {
+            display: block;
+        }
+    }
+}

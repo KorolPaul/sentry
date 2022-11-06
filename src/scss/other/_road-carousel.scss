@@ -1,0 +1,56 @@
+.road-carousel {
+    position: relative;
+    
+    &_wrapper {
+        width: 500px;
+        margin: auto;
+    }
+
+    &_bg {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    &_slides {
+        
+    }
+    &_slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        text-align: center;
+    }
+    &_slide-title {
+        display: block;
+        margin: 0 0 30px;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 1.2;
+        color: rgba(28, 30, 35, .4);
+        transform: scale(.65);
+        transform-origin: center bottom;
+        transition: .5s $easing all;
+
+        .tns-slide-active & {
+            color: $cBright;
+            font-weight: 600;
+            transform: scale(1);
+        }
+    }
+    &_slide-image {
+        width: 183px;
+        transform: scale(.66);
+        transform-origin: center bottom;
+        transition: .5s $easing transform;
+
+        .tns-slide-active & {
+            transform: scale(1);
+        }
+    }
+    
+    .tns-ovh {
+        overflow: visible;
+    }
+}

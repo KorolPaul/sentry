@@ -1,0 +1,31 @@
+.stats {
+    h2 {
+        margin: 0 0 40px;
+    }
+
+    &_items {
+        @include tablet {
+            display: flex;
+            justify-content: center;
+            gap: 44px;
+        }
+    }
+    &_item {
+        text-align: center;
+        min-width: 280px;
+    }
+    &_item-value {
+        color: $cBright;
+        font-weight: 600;
+        font-size: 70px;
+        line-height: 80px;
+        margin: 0 0 24px;
+        display: block;
+        white-space: nowrap;
+    }
+    &_item-title {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 120%;
+    }
+}

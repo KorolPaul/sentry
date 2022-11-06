@@ -1,0 +1,27 @@
+.checklist {
+    padding: 0;
+    margin: 0;
+
+    &_item {
+        padding: 40px 80px 40px 190px;
+        border-radius: 16px;
+        background: $cBright;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 120%;
+        color: $color;
+        margin: 0 0 24px;
+
+        &::before {
+            background: url(#{$img}/check-big.svg) no-repeat;
+            height: 70px;
+            width: 70px;
+            top: 30%;
+            left: 65px;
+        }
+    }
+    &_title {
+        margin: 0 0 24px;
+        color: $bg_color;
+    }
+}

@@ -1,0 +1,36 @@
+.team {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 40px 30px;
+
+    &_item {
+        text-align: center;
+
+        &__big {
+            grid-column: span 1 / span 2;
+        }
+    }
+    &_image-wrapper {
+        margin: 0 0 16px;
+        border-radius: 50%;
+    }
+    &_image {
+        border-radius: 50%;
+        transition: .6s $easeOutCirc border-radius;
+
+        .team_item:hover & {
+            border-radius: 0%;
+        }
+    }
+    &_name,
+    &_position {
+        display: block;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 120%;
+    }
+    &_name {
+        color: $cBright;
+    }
+}

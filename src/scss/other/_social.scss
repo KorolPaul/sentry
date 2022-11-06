@@ -1,0 +1,9 @@
+.social {
+    display: flex;
+    gap: 24px;
+
+    &_social-link-image {
+        width: 32px;
+        height: 32px;
+    }
+}

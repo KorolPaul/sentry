@@ -1,0 +1,31 @@
+.contacts {
+    &_title[class] {
+        text-align: left;
+    }
+    &_bg {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 0;
+        width: 100%;
+    }
+    &_info {
+        display: flex;
+        gap: 90px;
+    }
+    &_info-column {
+        width: 285px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+    }
+    &_info-title {
+        color: $cBright;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 120%;
+        display: block;
+        margin: 0 0 16px;
+    }
+}
