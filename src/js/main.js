@@ -36,6 +36,22 @@ appSlider.forEach(el => {
     });
 })
 
+const stepsSlider = document.querySelectorAll('.steps_slider');
+stepsSlider.forEach(el => {
+    tns({
+        container: el,
+        items: 3.5,
+        fixedWidth: 350,
+        gutter: 30,
+        mouseDrag: true,
+        autoplay: false,
+        nav: true,
+        navPosition: 'bottom',
+        controls: true,
+        loop: false,
+    });
+})
+
 
 // menu
 const menuToggleElement = document.querySelector('.menu-toggle');
@@ -198,3 +214,31 @@ faqElements.forEach(el => {
         e.currentTarget.parentElement.classList.toggle('opened');
     });
 });
+
+/* themes buttons */
+const themesButtons = document.querySelectorAll('.themes_button');
+themesButtons.forEach(el => {
+
+    el.addEventListener('click', (e) => {
+        themesButtons.forEach(el => {
+            if (el !== e.target) {
+                el.classList.remove('active')
+            }
+        });
+        e.currentTarget.classList.add('active');
+
+        const tab = e.currentTarget.dataset.tab || 1;
+
+        document.querySelectorAll('.themes_image').forEach(el => {
+            if (el !== e.target) {
+                el.classList.remove('active')
+            }
+        });
+        document.querySelector(`.themes_image[data-tab="${tab}"]`).classList.add('active');
+    });
+});
+
+/* custom select input */
+if (NiceSelect) {
+    NiceSelect.bind(document.querySelector('select'));
+}
