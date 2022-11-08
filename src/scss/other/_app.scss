@@ -4,8 +4,8 @@
         width: 100%;
     }
     &_video {
-        margin: -420px 0 150px;
-        padding: 0 0 56%;
+        margin: -440px 0 150px;
+        padding: 0 0 50%;
         position: relative;
 
         iframe {
@@ -19,7 +19,7 @@
     &_section {
         display: flex;
         justify-content: space-between;
-        margin: 0 0 90px;
+        margin: 0 0 74px;
     }
     &_section-title[class] {
         color: $cBright;
@@ -27,7 +27,7 @@
         width: 40%;
     }
     &_section-content {
-        width: 40%;
+        width: 47%;
         font-weight: 500;
         font-size: 18px;
         line-height: 140%;
@@ -37,7 +37,7 @@
     }
     &_screens {
         position: relative;
-        margin: 0 0 200px;
+        margin: 0 0 150px;
 
         &:last-child {
             margin: 0;

@@ -1,3 +1,17 @@
+@mixin roll-out($left, $duration, $delay) {
+    animation: roll-out $duration $easingSmooth $delay forwards;
+
+    @keyframes roll-out {
+        from {
+            transform: translateX($left);
+        }
+
+        to {
+            transform: translateX(0);
+        }
+    }
+}
+
 .showcase {
     text-align: center;
 
@@ -6,7 +20,10 @@
     }
     &_top {
         background: url(#{$img}/main.png) no-repeat center bottom / 100% auto;
-        height: 70vw;
+        position: relative;
+        @include desktop {
+            height: 750px;
+        }
     }
     &_bottom {
         background-color: $color;
@@ -39,4 +56,31 @@
     &_stats-number {
         display: block;
     }
+    &_ambulance {
+        @include roll-out(-300%, 4s, 0s);
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+    }
+    &_car-green {
+        @include roll-out(-500%, 4s, 0s);
+        position: absolute;
+        bottom: 38px;
+        left: 75%;
+    }
+    &_car-front {
+        @include roll-out(-200%, 4s, 0s);
+        position: absolute;
+        bottom: 15px;
+        left: 20%;
+    }
+    &_car-back {
+        @include roll-out(-200%, 4s, 0s);
+        position: absolute;
+        bottom: 38px;
+        left: 6%;
+    }
 }
+
+
+

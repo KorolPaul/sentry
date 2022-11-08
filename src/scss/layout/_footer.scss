@@ -30,6 +30,15 @@
         line-height: 140%;
         margin: 0 0 24px;
         max-width: 190px;
+        transition: .2s $easing color,
+                    .2s $easing opacity;
+
+        &:hover {
+            color: $cBright;
+        }
+        &:active {
+            opacity: .8;
+        }
     }
     &_social {
         display: flex;

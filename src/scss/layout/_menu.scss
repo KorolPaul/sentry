@@ -59,22 +59,17 @@
     &_link {
         font-size: 24px;
         color: $color;
-        transition: .3s $easing opacity;
+        transition: .3s $easing color;
         @include desktop {
-            color: $bg_color;
             font-size: 16px;
             opacity: 1;
         }
-
        
-
         &.active {
-            opacity: 1;
+            color: $cBright;
         }
         &:hover {
-            @include desktop {
-                opacity: 1;
-            }
+            color: $cBright;
         }
 
     }
