@@ -9,6 +9,9 @@
 
     &_content {
         text-align: left;
+        @include tablet {
+            max-width: 45%;
+        }
     }
     &_text {
         font-weight: 500;

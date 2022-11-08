@@ -3,7 +3,7 @@
     margin: 0;
 
     &_item {
-        padding: 40px 80px 40px 190px;
+        padding: 40px 80px 56px 190px;
         border-radius: 16px;
         background: $cBright;
         font-weight: 500;
@@ -21,7 +21,7 @@
         }
     }
     &_title {
-        margin: 0 0 24px;
+        margin: 0 0 18px;
         color: $bg_color;
     }
 }
