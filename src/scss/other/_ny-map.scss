@@ -4,11 +4,13 @@
     position: relative;
 
     &_content {
-        position: absolute;
-        left: 0;
-        top: 80px;
-        width: 610px;
-        max-width: 50%;
+        @include tablet {
+            position: absolute;
+            left: 0;
+            top: 110px;
+            width: 610px;
+            max-width: 50%;
+        }
 
         h3 {
             margin: 0 0 40px;

@@ -1,11 +1,11 @@
 .logo {
     position: absolute;
-    top: $indent;
+    top: 30px;
     left: $indent;
     z-index: 2;
     transition: .5s linear opacity;
     @include desktop {
-        left: 74px;
+        left: 0;
     }
 
     &:hover {

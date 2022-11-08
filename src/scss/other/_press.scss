@@ -12,6 +12,10 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: stretch;
+        box-sizing: border-box;
+        @include tablet {
+            min-height: 500px;
+        }
     }
     &_image {
         border-radius: 16px;

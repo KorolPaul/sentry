@@ -13,6 +13,8 @@
     &_item {
         text-align: center;
         min-width: 280px;
+        flex-grow: 1;
+        width: 33%;
     }
     &_item-value {
         color: $cBright;
@@ -27,5 +29,7 @@
         font-weight: 500;
         font-size: 24px;
         line-height: 120%;
+        max-width: 350px;
+        display: block;
     }
 }
