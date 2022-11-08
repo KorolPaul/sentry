@@ -30,6 +30,9 @@
     &__big-bottom-indent {
         padding-bottom: 350px;
     }
+    &__small-bottom-indent {
+        padding-bottom: 80px;
+    }
 
     &_holder {
         @include layout;

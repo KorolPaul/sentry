@@ -9,6 +9,7 @@
         right: 0;
         z-index: 0;
         width: 100%;
+        opacity: .2;
     }
     &_info {
         display: flex;
@@ -19,6 +20,10 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 140%;
+
+        p {
+            margin: 0;
+        }
     }
     &_info-title {
         color: $cBright;
