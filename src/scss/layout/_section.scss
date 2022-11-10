@@ -26,9 +26,14 @@
     &__no-top-indent {
         padding-top: 0;
     }
-
+    &__no-bottom-indent {
+        padding-bottom: 0;
+    }
     &__big-bottom-indent {
         padding-bottom: 350px;
+    }
+    &__small-top-indent {
+        padding-top: 80px;
     }
     &__small-bottom-indent {
         padding-bottom: 80px;
@@ -47,10 +52,18 @@
         z-index: 0;
         width: 100%;
         opacity: .2;
+        pointer-events: none;
+
+        &__big {
+            opacity: 1;
+        }
     }
 
     h1,
     h2 {
         text-align: center;
+    }
+    h1 {
+        margin-top: -8px;
     }
 }

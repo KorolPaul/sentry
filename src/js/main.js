@@ -239,6 +239,17 @@ themesButtons.forEach(el => {
 });
 
 /* custom select input */
-if (NiceSelect) {
+if ('NiceSelect' in window) {
     NiceSelect.bind(document.querySelector('select'));
 }
+
+/* steps accordion */
+const stepTitleElements = document.querySelectorAll('.step_title');
+stepTitleElements.forEach(el => {
+
+    el.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        e.currentTarget.classList.toggle('opened');
+    });
+});

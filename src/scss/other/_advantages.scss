@@ -1,4 +1,6 @@
 .advantages {
+    position: relative;
+    z-index: 1;
 
     &_holder {
         @include layout;
@@ -8,6 +10,10 @@
         gap: 90px;
         justify-content: space-between;
         margin: 0 0 120px;
+
+        &:last-child {
+            margin: 0;
+        }
     }
     &_title {
         font-size: 32px;
@@ -17,6 +23,11 @@
     }
     &_description {
         max-width: 445px;
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
         .advantages_item:nth-of-type(even) & {
             order: 2;

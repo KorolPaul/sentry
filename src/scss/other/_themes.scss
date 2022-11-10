@@ -4,8 +4,9 @@
     }
     &_columns {
         display: flex;
-        align-items: stretch;
         gap: 30px;
+        align-items: stretch;
+        margin: 80px 0 0;
     }
     &_buttons {
         width: 50%;
@@ -18,7 +19,7 @@
         color: $color;
         width: 100%;
         text-align: left;
-        padding: 32px 0;
+        padding: 34px 0;
         border-bottom: 1px solid $color;
         transition: .3s ease color;
 
@@ -29,19 +30,25 @@
             color: $cBright;
         }
     }
+    &_button-title {
+        display: block;
+        margin: 0 0 16px;
+    }
     &_button-subtitle {
         font-weight: 500;
         font-size: 20px;
         line-height: 140%;
         color: $color;
         display: block;
-        margin: 16px 0 0;
         overflow: hidden;
         max-height: 0;
         transition: .3s ease max-height;
     
         .active & {
-            max-height: 200px;
+            max-height: 100px;
+            @include tablet {
+                max-height: 50px;
+            }
         }
     }
     &_holder {
@@ -50,11 +57,11 @@
     }
     &_image {
         position: absolute;
-        top: 50%;
+        top: 0;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, 0);
         opacity: 0;
-        transition: .3s $easingSmooth oapcity;
+        transition: .3s $easingSmooth opacity;
 
         &.active {
             opacity: 1;

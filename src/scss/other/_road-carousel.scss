@@ -1,15 +1,20 @@
 .road-carousel {
     position: relative;
-    
+    overflow: hidden;
+    margin: 100px 0 0;
+    padding: 0 0 80px;
+
     &_wrapper {
         width: 500px;
         margin: auto;
+        margin-bottom: 110px;
     }
 
     &_bg {
         position: absolute;
-        bottom: 50px;
+        bottom: 140px;
         left: 50%;
+        min-width: 100vw;
         transform: translateX(-50%);
     }
     &_slides {
@@ -24,13 +29,14 @@
     }
     &_slide-title {
         display: block;
-        margin: 0 0 30px;
+        margin: 0 0 25px;
         font-weight: 500;
         font-size: 32px;
         line-height: 1.2;
         color: rgba(28, 30, 35, .4);
         transform: scale(.65);
         transform-origin: center bottom;
+        min-height: 76px;
         transition: .5s $easing all;
 
         .tns-slide-active & {
@@ -52,5 +58,13 @@
     
     .tns-ovh {
         overflow: visible;
+    }
+    .tns-controls {
+        width: 100%;
+        bottom: -118px;
+    }
+    .tns-nav {
+        position: relative;
+        top: 110px;
     }
 }

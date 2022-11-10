@@ -22,7 +22,7 @@
         background: url(#{$img}/main.png) no-repeat center bottom / 100% auto;
         position: relative;
         @include desktop {
-            height: 750px;
+            padding-bottom: 36vw;
         }
     }
     &_bottom {
@@ -32,7 +32,9 @@
     }
     &_points {
         display: flex;
+        justify-content: space-between;
         gap: 74px;
+        margin-top: -7px;
     }
     &_point {
         background: url(#{$img}/arrow.svg) no-repeat left center;
@@ -42,16 +44,30 @@
         display: flex;
         justify-content: space-between;
         gap: 30px;
+        margin-top: -12px;
     }
     &_stats-item {
         background: $cBright;
-        padding: 32px 24px;
+        padding: 30px 16px 26px;
         border-radius: 16px;
+        color: $color;
+        font-weight: 500;
+        flex-grow: 1;
+        width: calc(33% - 60px);
+
+        p {
+            margin: 0;
+            font-size: 22px;
+            line-height: 27px;
+        }
     }
     &_stats-title {
         font-size: 44px;
-        line-height: 53px;
+        line-height: 48px;
         display: block;
+        font-weight: 600;
+        color: $bg_color;
+        margin-bottom: 24px;
     }
     &_stats-number {
         display: block;
