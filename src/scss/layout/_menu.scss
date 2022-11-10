@@ -1,21 +1,18 @@
 
 .menu {
-    background-color: $bg_color;
+    background-color: $color;
     box-sizing: border-box;
     position: fixed;
     z-index: 11;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
     height: 100%;
+    padding: 180px 0 0;
     overflow-y: auto;
     left: 100%;
     top: 0;
     width: 100%;
     transform: translateX(0);
-    transition: .6s $easingSmooth transform,
-                .3s $easingSmooth opacity .1s;
+    transition: .4s $easingSmooth transform,
+                .2s $easingSmooth opacity .1s;
     @include desktop {
         background: none;
         right: 0;
@@ -36,10 +33,11 @@
         flex-grow: 1;
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
         gap: 32px;
-        @include desktop {
+        padding: 0 30px;
+        @include tablet {
+            padding: 0;
             flex-direction: row;
             align-items: stretch;
             text-align: right;
@@ -47,18 +45,15 @@
             z-index: 1;
             mix-blend-mode: difference;
         }
-
-        .header__static & {
-            @include desktop {
-                display: none;
-            }
-        }
     }
     &_link {
-        font-size: 24px;
-        color: $color;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 140%;
+        color: #fff;
         transition: .3s $easing color;
-        @include desktop {
+        @include tablet {
+            color: $color;
             font-size: 16px;
             opacity: 1;
         }

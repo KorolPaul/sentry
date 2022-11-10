@@ -61,7 +61,9 @@
 
     h1,
     h2 {
-        text-align: center;
+        @include tablet {
+            text-align: center;
+        }
     }
     h1 {
         margin-top: -8px;

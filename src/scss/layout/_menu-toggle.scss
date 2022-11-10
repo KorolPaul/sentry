@@ -1,30 +1,45 @@
 .menu-toggle {
     @include button-reset;
     position: fixed;
-    top: 16px;
-    right: $indent;
-    width: 24px;
-    height: 36px;
-    z-index: 10;
+    top: 28px;
+    right: 30px;
+    width: 26px;
+    height: 20px;
+    z-index: 12;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    transition: .2s linear filter;
     @include desktop {
         display: none;
     }
-
-    .header__static & {
-        @include tablet {
-            display: block;
-        }
-        @include desktop {
-            display: none;
-        }
-    }
     
+    .menu-opened & {
+        filter: invert(100%);
+    }
+
     &_line {
-        top: 50%;
-        left: 0;
-        width: 24px;
+        width: 100%;
         height: 2px;
-        background: url(#{$img}/burger-line.svg) no-repeat center center / 100% 100%;
-        margin: 7px 0;
+        background: $color;
+        border-radius: 1px;
+        transform-origin: center;
+        transition: .2s linear transform,
+                    .2s linear opacity;
+
+        &:last-child {
+            width: 50%;
+        }
+
+        .menu-opened &:first-child {
+            transform: rotate(45deg) translate(8px, 10px);
+        }
+        .menu-opened &:nth-child(2) {
+            transform: rotate(-45deg) translate(-4px, 2px);
+        }
+        .menu-opened &:last-child {
+            transform: scale(0);
+        }
     }
 }
