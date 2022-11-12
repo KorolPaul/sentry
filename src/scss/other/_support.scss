@@ -2,37 +2,94 @@
     padding: 20px 0 0;
 
     &_columns {
-        display: flex;
-        justify-content: space-between;
-        gap: 30px;
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
     }
     &_grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-        gap: 0 30px;
-        max-width: 920px;
-        margin: auto;
+        @include tablet {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+            gap: 0 30px;
+            max-width: 920px;
+            margin: auto;
+        }
     }
     &_item {
-        background: rgba(239, 98, 56, .3) url(#{$img}/check.svg) no-repeat left 40px center / 25px;
+        background: rgba(239, 98, 56, .3) url(#{$img}/check.svg) no-repeat left 25px center / 25px;
         font-weight: 500;
-        font-size: 20px;
+        font-size: 18px;
         line-height: 140%;
         display: block;
-        padding: 26px 20px 26px 90px;
+        padding: 26px 20px 26px 72px;
         border-radius: 10px;
-        margin: 0 0 16px;
+        margin: 0 0 10px;
+        @include tablet {
+            font-size: 20px;
+            margin: 0 0 16px;
+            padding: 26px 20px 26px 90px;
+            background-position: left 40px center;
+        }
     }
     &_icon {
         display: block;
         margin: 0 auto 32px;
+        width: 125px;
+        @include tablet {
+            width: auto;
+        }
     }
     &_title {
         margin: 0 0 13px;
-        text-align: center;
+        @include tablet {
+            text-align: center;
+        }
+    }
+    &_column {
+        margin: 0 0 45px;
+        @include tablet {
+            margin: 0;
+        }
+
+        &:last-child {
+            margin: 0;
+        }
     }
     &_columns-title {
         margin: 68px 0 40px;
+    }
+    &_mobile {
+        @include tablet {
+            display: none;
+        }
+    }
+    &_desktop {
+        display: none;
+        @include tablet {
+            display: block;
+        }
+    }
+    &_image {
+        display: block;
+        width: 100%;
+        margin: 0 0 44px;
+    }
+    &_mobile-item {
+        margin: 0 0 40px;
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+    &_mobile-value {
+        color: $cBright;
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 120%;
+        margin: 0 0 8px;
+        display: block;
     }
 }

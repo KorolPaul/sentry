@@ -1,25 +1,42 @@
 .contacts {
     &_title[class] {
+        color: $cBright;
         text-align: left;
     }
     &_bg {
         position: absolute;
-        left: 0;
+        left: 50%;
         bottom: 0;
-        right: 0;
         z-index: 0;
-        width: 100%;
+        max-width: 200%;
+        min-width: 100%;
+        transform: translateX(-50%);
         opacity: .2;
+        @include tablet {
+            left: 0;
+            width: 100%;
+            transform: none;
+        }
     }
     &_info {
-        display: flex;
-        gap: 90px;
+        margin: 70px 0 0;
+        @include tablet {
+            display: flex;
+            gap: 90px;
+            margin: 0;
+        }
     }
     &_info-column {
-        width: 285px;
+        margin: 0 0 30px;
         font-weight: 500;
-        font-size: 16px;
-        line-height: 140%;
+        font-size: 18px;
+        line-height: 150%;
+        width: 285px;
+        @include tablet {
+            margin: 0;
+            font-size: 16px;
+            line-height: 140%;
+        }
 
         p {
             margin: 0;
@@ -27,10 +44,14 @@
     }
     &_info-title {
         color: $cBright;
-        font-weight: 600;
-        font-size: 24px;
+        font-weight: 700;
+        font-size: 26px;
         line-height: 120%;
         display: block;
         margin: 0 0 16px;
+        @include tablet {
+            font-weight: 600;
+            font-size: 24px;
+        }
     }
 }

@@ -1,9 +1,14 @@
 .map {
-    display: flex;
+    @include tablet {
+
+        display: flex;
+    }
 
     &_holder {
         position: relative;
-        width: 60%;
+        @include tablet {
+            width: 60%;
+        }
 
         iframe,
         img {
@@ -14,12 +19,18 @@
     }
     &_info {
         background: $cBright;
-        width: 40%;
         box-sizing: border-box;
-        padding: 40px 96px;
+        padding: 60px 36px 20px;
+        @include tablet {
+            width: 40%;
+            padding: 40px 96px;
+        }
     }
     &_info-item {
-        margin: 0 0 28px;
+        margin: 0 0 40px;
+        @include tablet {
+            margin-bottom: 28px;
+        }
     }
     &_info-title {
         margin: 0 0 16px;
