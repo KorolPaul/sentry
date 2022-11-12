@@ -1,22 +1,39 @@
 .team {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 40px 30px;
+    @include tablet {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px 30px;
+    }
 
     &_item {
-        text-align: center;
-        width: calc(33% - 60px);
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin: 0 0 30px;
+        @include tablet {
+            display: block;
+            text-align: center;
+            width: calc(33% - 60px);
+            margin: 0;
+        }
 
         &__big {
-            width: calc(50% - 30px);
+            @include tablet {
+                width: calc(50% - 30px);
+            }
         }
     }
     &_image-wrapper {
-        margin: 0 0 16px;
+        width: 70px;
         border-radius: 50%;
+        @include tablet {
+            width: 255px;
+            margin: 0 auto 16px;
+        }
     }
     &_image {
+        width: 100%;
         border-radius: 50%;
         transition: .6s $easeOutCirc border-radius;
 
@@ -27,8 +44,12 @@
     &_name,
     &_position {
         display: block;
-        font-size: 24px;
-        line-height: 120%;
+        font-size: 15px;
+        line-height: 150%;
+        @include tablet {
+            font-size: 24px;
+            line-height: 120%;
+        }
     }
     &_name {
         font-weight: 600;

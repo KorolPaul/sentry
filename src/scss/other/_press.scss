@@ -1,8 +1,10 @@
 .press {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    gap: 40px 30px;
+    @include tablet {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 40px 30px;
+    }
 
     &_card {
         border-radius: 16px;
@@ -15,7 +17,9 @@
         box-sizing: border-box;
         transition: .2s $easing background;
         position: relative;
+        margin: 0 0 20px;
         @include tablet {
+            margin-bottom: 0;
             min-height: 500px;
         }
 
@@ -40,25 +44,46 @@
     }
     &_image {
         border-radius: 16px;
-        margin-bottom: 32px;
+        margin-bottom: 20px;
+        width: 100%;
+        @include tablet {
+            margin-bottom: 32px;
+        }
     }
     &_card-title {
-        font-weight: 600;
-        font-size: 24px;
+        font-size: 18px;
         line-height: 120%;
+        font-weight: 600;
         margin: 0 0 20px;
         color: $color;
+        @include tablet {
+            font-size: 24px;
+        }
+    }
+    &_card-bottom {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        @include tablet {
+            display: block;
+        }
     }
     &_card-logo {
-        display: block;
-        margin-bottom: 16px;
+        @include tablet {
+            display: block;
+            margin-bottom: 16px;
+        }
     }
     &_card-source {
         display: block;
         font-weight: 500;
         font-size: 12px;
         line-height: 15px;
-        color: #A9A9A9;
-        width: 75%;
+        color: $color;
+        width: 40%;
+        @include tablet{
+            color: #A9A9A9;
+            width: 75%;
+        }
     }
 }

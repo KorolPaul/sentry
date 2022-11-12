@@ -2,19 +2,20 @@
     font-family: $font-family;
     font-size: 44px;
     line-height: 1.14;
-    font-weight: 600;
+    font-weight: 700;
     margin: 0 0 40px;
-    @include desktop {
+    @include tablet {
         font-size: 70px;
+        font-weight: 600;
     }
 }
 %heading-2 {
     font-family: $font-family;
-    font-size: 26px;
+    font-size: 36px;
     line-height: 1.2;
     font-weight: 600;
     margin: 0 0 40px;
-    @include desktop {
+    @include tablet {
         font-size: 44px;
     }
 }
@@ -24,7 +25,7 @@
     line-height: 1.4;
     font-weight: 600;
     margin: 0 0 24px;
-    @include desktop {
+    @include tablet {
         font-size: 32px;
     }
 }
@@ -33,7 +34,7 @@
     font-size: 24px;
     line-height: 1.2;
     font-weight: 500;
-    @include desktop {
+    @include tablet {
         font-size: 32px;
     }
 }
@@ -42,9 +43,10 @@
     font-size: 20px;
     line-height: 1.2;
     font-weight: 600;
-    margin: 32px 0 16px 0;
-    @include desktop {
+    margin: 50px 0 30px 0;
+    @include tablet {
         font-size: 24px;
+        margin: 32px 0 16px 0;
     }
 }
 

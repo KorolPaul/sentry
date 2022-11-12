@@ -1,7 +1,12 @@
 .transportation-stats {
-    &_title {
-        margin: 0 auto 40px;
-        max-width: 840px;
+    &_title[class] {
+        font-size: 26px;
+        width: 100%;
+        @include tablet {
+            font-size: 36px;
+            margin: 0 auto 40px;
+            max-width: 840px;
+        }
 
         span {
             color: $bg_color;
@@ -9,10 +14,12 @@
         }
     }
     &_cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto;
-        gap: 30px;
+        @include tablet {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+            gap: 30px;
+        }
     }
     &_card {
         background-color: $bg_color;
@@ -24,14 +31,53 @@
         justify-content: flex-start;
         text-align: center;
         gap: 20px;
+        box-sizing: border-box;
+        height: 300px;
+        user-select: none;
+        @include tablet {
+            height: auto;
+            min-height: 340px;
+        }
     }
     &_card-title {
+        font-size: 14px;
+        line-height: 1.5;
         font-weight: 500;
-        font-size: 20px;
-        line-height: 140%;
         min-height: 60px;
+        @include tablet {
+            font-size: 20px;
+            line-height: 140%;
+        }
     }
     &_card-image {
         margin: 6px 0 0;
+    }
+
+    .tns-outer {
+        margin-left: -30px;
+        margin-right: -30px;
+    }
+    .tns-ovh {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .tns-nav {
+        margin-top: 40px;
+
+        button {
+            &.tns-nav-active {
+                background-color: #fff;
+                width: 50px;
+            }
+        
+            &:hover {
+                opacity: .6;
+                background-color: #fff;
+            }
+        
+            &:active {
+                opacity: .8;
+            }
+        }
     }
 }

@@ -36,7 +36,7 @@
         justify-content: center;
         gap: 32px;
         padding: 0 30px;
-        @include tablet {
+        @include desktop {
             padding: 0;
             flex-direction: row;
             align-items: stretch;
@@ -52,7 +52,7 @@
         line-height: 140%;
         color: #fff;
         transition: .3s $easing color;
-        @include tablet {
+        @include desktop {
             color: $color;
             font-size: 16px;
             opacity: 1;

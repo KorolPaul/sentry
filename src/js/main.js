@@ -51,6 +51,26 @@ stepsSlider.forEach(el => {
         loop: false,
     });
 })
+const transportationStatsSlider = document.querySelectorAll('.transportation-stats_cards');
+transportationStatsSlider.forEach(el => {
+    tns({
+        container: el,
+        items: 1.4,
+        fixedWidth: 230,
+        gutter: 20,
+        mouseDrag: true,
+        autoplay: false,
+        nav: true,
+        navPosition: 'bottom',
+        controls: false,
+        loop: false,
+        responsive: {
+            744: {
+                disable: true
+            }
+        }
+    });
+})
 
 
 // menu

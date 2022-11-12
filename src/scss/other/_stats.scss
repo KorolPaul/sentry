@@ -4,32 +4,47 @@
     }
 
     &_items {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
         @include tablet {
-            display: flex;
+            flex-direction: row;
             justify-content: center;
             gap: 44px;
         }
     }
     &_item {
-        text-align: center;
-        min-width: 280px;
-        flex-grow: 1;
-        width: 33%;
+        @include tablet {
+            text-align: center;
+            min-width: 280px;
+            flex-grow: 1;
+            width: 33%;
+        }
     }
     &_item-value {
         color: $cBright;
-        font-weight: 600;
-        font-size: 70px;
-        line-height: 80px;
-        margin: 0 0 24px;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 120%;
+        margin: 0 0 10px;
         display: block;
         white-space: nowrap;
+        @include tablet {
+            font-weight: 600;
+            font-size: 70px;
+            line-height: 80px;
+            margin-bottom: 10px;
+        }
     }
     &_item-title {
+        font-size: 18px;
+        line-height: 140%;
         font-weight: 500;
-        font-size: 24px;
-        line-height: 120%;
-        max-width: 350px;
         display: block;
+        @include tablet {
+            font-size: 24px;
+            line-height: 120%;
+            max-width: 350px;
+        }
     }
 }

@@ -1,6 +1,8 @@
 .intro {
+    display: flex;
+    flex-direction: column;
     @include tablet {
-        display: flex;
+        flex-direction: row;
         justify-content: space-between;
         gap: 40px;
         align-items: center;
@@ -9,7 +11,9 @@
 
     &_content {
         text-align: left;
+        display: contents;
         @include tablet {
+            display: block;
             max-width: 45%;
         }
     }
@@ -17,11 +21,27 @@
         font-weight: 500;
         font-size: 20px;
         line-height: 140%;
+        order: 3;
+        @include tablet {
+            order: inherit;
+        }
+    }
+    &_image {
+        order: 2;
+        margin: 0 0 54px;
+        @include tablet {
+            margin: 0;
+            order: inherit;
+        }
     }
 
     h1 {
         color: $cBright;
         margin: 0 0 24px;
         text-align: left;
+        order: 1;
+        @include tablet {
+            order: inherit;
+        }
     }
 }

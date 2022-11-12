@@ -5,7 +5,7 @@ html {
 body {
     color: $color;
     background: #fff;
-    font: #{$font-size__small}/#{1.5} $font-family;
+    font: 500 #{$font-size__small}/#{1.5} $font-family;
     padding: 0;
     scroll-behavior: smooth;
     @include tablet {
