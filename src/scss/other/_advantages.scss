@@ -7,23 +7,40 @@
     }
     &_item {
         display: flex;
-        gap: 90px;
+        flex-direction: column;
         justify-content: space-between;
-        margin: 0 0 120px;
+        margin: 0 0 80px;
+        @include tablet {
+            margin: 0 0 120px;
+            gap: 90px;
+            flex-direction: row;
+        }
 
         &:last-child {
             margin: 0;
         }
     }
     &_title {
-        font-size: 32px;
+        font-weight: 700;
+        font-size: 26px;
         line-height: 120%;
         color: $cBright;
-        margin: 0 0 32px;
+        margin: 0 0 26px;
+        order: 2;
+        @include tablet {
+            font-weight: 700;
+            font-size: 32px;
+            order: initial;
+            margin: 0 0 32px;
+        }
     }
     &_description {
         max-width: 445px;
+        order: 3;
+        font-size: 18px;
+        line-height: 150%;
         @include tablet {
+            order: initial;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -34,6 +51,12 @@
         }
     }
     &_icon {
+        order: 1;
+        margin: 0 0 40px;
+        @include tablet {
+            order: initial;
+            margin: 0;
+        }
 
         .advantages_item:nth-of-type(even) & {
             order: 1;

@@ -79,6 +79,12 @@
         &__big {
             opacity: 1;
         }
+        &__desktop {
+            display: none;
+            @include tablet {
+                display: block;
+            }
+        }
     }
 
     h1,

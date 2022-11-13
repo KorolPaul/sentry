@@ -14,15 +14,40 @@
 
 .showcase {
     text-align: center;
+    overflow: hidden;
+
+    h1 {
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 140%;
+        text-align: left;
+        width: 100%;
+        @include tablet {
+            font-weight: 600;
+            font-size: 70px;
+            line-height: 80px;
+            text-align: center
+        }
+    }
+    h2 {
+        text-align: left;
+        width: 90%;
+        @include tablet {
+            text-align: center;
+            width: 70%;
+        }
+    }
 
     &_holder {
         @include layout;
     }
     &_top {
-        background: url(#{$img}/main.png) no-repeat center bottom / 100% auto;
+        background: url(#{$img}/main.png) no-repeat center bottom / auto 300px;
         position: relative;
+        padding-bottom: 330px;
         @include desktop {
             padding-bottom: 36vw;
+            background-size: 100% auto;
         }
     }
     &_bottom {
@@ -31,29 +56,55 @@
         padding: 60px 0 80px;
     }
     &_points {
-        display: flex;
-        justify-content: space-between;
-        gap: 74px;
+        text-align: left;
         margin-top: -7px;
+        font-size: 18px;
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            gap: 74px;
+            text-align: center;
+        }
     }
     &_point {
-        background: url(#{$img}/arrow.svg) no-repeat left center;
+        background: url(#{$img}/arrow.svg) no-repeat left center / 23px;
         padding-left: 46px;
+        margin: 0 0 22px;
+        display: block;
+        line-height: 28px;
+        @include tablet {
+            margin: 0;
+            background-size: auto;
+        }
+
+        &:last-child {
+            margin: 0;
+        }
     }
     &_stats {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
         gap: 30px;
-        margin-top: -12px;
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: -12px;
+        }
     }
     &_stats-item {
         background: $cBright;
-        padding: 30px 16px 26px;
+        padding: 30px 25px;
         border-radius: 16px;
         color: $color;
         font-weight: 500;
-        flex-grow: 1;
-        width: calc(33% - 60px);
+        text-align: left;
+        @include tablet {
+            flex-grow: 1;
+            width: calc(33% - 60px);
+            text-align: center;
+            padding: 30px 16px 26px;
+        }
 
         p {
             margin: 0;
@@ -62,39 +113,64 @@
         }
     }
     &_stats-title {
-        font-size: 44px;
-        line-height: 48px;
+        font-size: 36px;
+        line-height: 1;
         display: block;
         font-weight: 600;
         color: $bg_color;
-        margin-bottom: 24px;
+        margin-bottom: 30px;
+        @include tablet {
+            font-size: 44px;
+            line-height: 48px;
+            margin-bottom: 24px;
+        }
     }
     &_stats-number {
         display: block;
     }
     &_ambulance {
-        @include roll-out(-300%, 4s, 0s);
+        @include roll-out(-300%, 2s, 0s);
         position: absolute;
         bottom: 15px;
-        left: 50%;
+        left: 40%;
+        height: 130px;
+        @include tablet {
+            @include roll-out(-300%, 4s, 0s);
+            left: 50%;
+            height: auto;
+        }
     }
     &_car-green {
         @include roll-out(-500%, 4s, 0s);
         position: absolute;
         bottom: 38px;
         left: 75%;
+        display: none;
+        @include tablet {
+            display: block;
+        }
     }
     &_car-front {
         @include roll-out(-200%, 4s, 0s);
         position: absolute;
         bottom: 15px;
-        left: 20%;
+        left: 5%;
+        height: 72px;
+        z-index: 2;
+        @include tablet {
+            left: 20%;
+            height: auto
+        }
     }
     &_car-back {
         @include roll-out(-200%, 4s, 0s);
         position: absolute;
         bottom: 38px;
         left: 6%;
+        display: none;
+        @include tablet {
+            display: block;
+        }
     }
 }
 

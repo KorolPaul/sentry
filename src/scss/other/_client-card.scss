@@ -1,17 +1,27 @@
 .client-card {
+    display: block;
     border-radius: 16px;
     text-align: left;
     background-color: $bg_color;
-    padding: 32px 22px 32px 32px;
+    padding: 30px 25px;
     color: $color;
+    margin: 0 0 20px;
+    @include tablet {
+        margin: 0;
+        padding: 32px 22px 32px 32px;
+    }
 
     &_icon {
         margin: 0 0 20px;
     }
     &_title {
         font-weight: 600;
-        font-size: 23px;
-        margin: 0 0 8px;
+        font-size: 18px;
+        margin: 0 0 15px;
+        @include tablet {
+            font-size: 23px;
+            margin: 0 0 8px;
+        }
     }
     &_text {
         font-weight: 400;

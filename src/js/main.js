@@ -15,8 +15,13 @@ roadSlider.forEach(el => {
         autoplay: false,
         nav: true,
         navPosition: 'bottom',
-        controls: true,
+        controls: false,
         loop: false,
+        responsive: {
+            744: {
+                controls: true,
+            }
+        }
     });
 })
 

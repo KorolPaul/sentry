@@ -7,15 +7,16 @@
     &_header {
         cursor: pointer;
         display: block;
-        font-size: 32px;
+        font-size:18px;
         line-height: 1.2;
-        padding: 32px 40px 32px 0;
+        padding: 32px 55px 32px 0;
         border-bottom: 1px solid $color;
         position: relative;
         font-weight: 600;
         transition: .2s $easing opacity;
         user-select: none;
         @include tablet {
+            font-size: 32px;
             padding: 32px 40px 32px 0;
         }
 
@@ -31,12 +32,14 @@
             color: $cBright;
         }
         .faq_item:first-child & {
-            border-top: 1px solid $color;
+            @include tablet {
+                border-top: 1px solid $color;
+            }
         }
     }
 
     &_header-arrow {
-        background: url(#{$img}/faq-arrow.svg) no-repeat center / 25px 15px;
+        background: url(#{$img}/faq-arrow.svg) no-repeat center / 17px 10px;
         height: 32px;
         width: 32px;
         position: absolute;
@@ -47,6 +50,9 @@
         pointer-events: none;
         transform: rotate(-180deg);
         transition: .2s linear transform;
+        @include tablet {
+            background-size: 25px 15px;
+        }
 
         .opened & {
             transform: rotate(0deg);
@@ -68,6 +74,9 @@
         }
     }
     &_text {
-        padding: 40px 0;
+        padding: 20px 0;
+        @include tablet {
+            padding: 40px 0;
+        }
     }
 }

@@ -1,28 +1,57 @@
 .clients {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+        display: block;
+    }
 
+    h1 {
+        order: 1;
+        text-align: left;
+        @include tablet {
+            text-align: center;
+        }
+    }
     &_subtitle {
-        font-size: 24px;
+        font-size: 18px;
         line-height: 120%;
         margin: 0 auto 32px;
         font-weight: 500;
         max-width: 640px;
+        text-align: left;
+        order: 3;
+        @include tablet {
+            font-size: 24px;
+            text-align: center;
+        }
     }
     &_categories {
         margin: 0 0 44px;
+        order: 2;
+        text-align: left;
+        @include tablet {
+            text-align: center;
+        }
     }
     &_category {
+        font-size: 15px;
+        line-height: 18px;
         display: inline-block;
         color: #fff;
         font-weight: 600;
-        font-size: 22px;
-        line-height: 27px;
         padding: 10px 24px;
         background-color: $cBright;
         border-radius: 10px;
-        margin: 0 4px 16px;
+        margin: 0 1px 5px 0;
+        @include tablet {
+            font-size: 22px;
+            line-height: 27px;
+            margin: 0 4px 16px;
+        }
     }
     &_cards {
+        order: 4;
         @include desktop {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
