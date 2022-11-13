@@ -2,11 +2,20 @@
     &_holder {
         @include layout;
         width: 100%;
+        box-sizing: border-box;
+    }
+    &_video-title {
+        margin: 30px 0;
+        @include tablet {
+            display: none;
+        }
     }
     &_video {
-        margin: -440px 0 150px;
-        padding: 0 0 50%;
         position: relative;
+        padding-bottom: 50%;
+        @include tablet {
+            margin: 80px 0 -340px;
+        }
 
         iframe {
             position: absolute;
@@ -17,51 +26,136 @@
         }
     }
     &_section {
-        display: flex;
-        justify-content: space-between;
-        margin: 0 0 74px;
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 0 74px;
+        }
     }
     &_section-title[class] {
         color: $cBright;
         text-align: left;
-        width: 40%;
+        font-weight: 700;
+        @include tablet {
+            font-weight: 600;
+            width: 40%;
+        }
     }
     &_section-content {
-        width: 47%;
         font-weight: 500;
         font-size: 18px;
         line-height: 140%;
+        @include tablet {
+            width: 47%;
+        }
     }
     &_section-links {
         margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        @include tablet {
+            justify-content: flex-start;
+        }
+
+        &__mobile {
+            padding: 0 30px;
+            margin: 50px 0 90px;
+            @include tablet {
+                display: none;
+            }
+        }
+        &__desktop {
+            display: none;
+            @include tablet {
+                display: block;
+            }
+        }
     }
     &_screens {
         position: relative;
-        margin: 0 0 150px;
+        margin: 0 0 50px;
+        overflow: hidden;
+        @include tablet {
+            margin: 0 0 150px;
+        }
 
         &:last-child {
             margin: 0;
+        }
+
+        .tns-ovh[id] {
+            @include tablet {
+                padding: 0;
+            }
         }
     }
     &_screens-wrapper {
         display: flex;
         justify-content: space-between;
-        gap: 40px;
+        gap: 10px;
+    }
+    &_screen {
+        width: 80vw;
+        margin: auto;
+        display: block;
+        @include tablet {
+            width: auto;
+        }
     }
     &_screens-bg {
         position: absolute;
         left: 50%;
-        width: 100vw;
         bottom: 50px;
-        transform: translateX(-50%);
+        width: 1200px;
+        max-width: none;
+        transform: translateX(-65%);
         z-index: -1;
+        @include media(500px) {
+            bottom: 100px;
+        }
+        @include tablet {
+            width: 100vw;
+            bottom: 50px;
+            max-width: 100%;
+            transform: translateX(-50%);
+        }
+    }
+    &_slider-wrapper {
+        overflow: hidden;
+
+        .tns-outer[id] {
+            @include tablet {
+                margin: 0 0 170px;
+            }
+        }
     }
     &_slide {
         text-align: center;
+
+        img {
+            display: block;
+            width: 90%;
+            margin: auto;
+            @include desktop {
+                width: auto;
+            }
+        }
     }
 
     .tns-outer {
-        margin: 0 0 170px;
+        margin-left: -30px;
+        margin-right: -30px;
+        @include tablet {
+            margin: 0;
+        }
+    }
+    .tns-ovh {
+        padding-left: 30px;
+        padding-right: 30px;
+        @include tablet {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
     }
 }
 

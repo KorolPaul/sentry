@@ -18,6 +18,11 @@
             padding-top: 80px;
             padding-bottom: 80px;
         }
+
+        .section_holder h1,
+        .section_holder h2 {
+            width: 100%;
+        } 
     }
     &__bright {
         background-color: $cBright;
@@ -38,8 +43,10 @@
     &__no-bottom-indent {
         padding-bottom: 0;
     }
-    &__big-bottom-indent {
-        padding-bottom: 350px;
+    &__big-top-indent {
+        @include tablet {
+            padding-top: 400px;
+        }
     }
     &__small-top-indent {
         padding-top: 80px;

@@ -1,5 +1,8 @@
 .operations {
-    margin: 60px 0 0;
+    margin: 40px 0 0;
+    @include tablet {
+        margin: 60px 0 0;
+    }
 
     &_title {
         font-weight: 600;
@@ -16,11 +19,13 @@
     }
 
     &_columns {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto;
-        gap: 16px 30px;
-        margin: 0 0 76px;
+        @include tablet {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            gap: 16px 30px;
+            margin: 0 0 76px;
+        }
 
         &:last-child {
             margin: 0;
@@ -28,13 +33,20 @@
     }
     
     &_column {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        justify-content: center;
-        background-color: $cGrey;
-        border-radius: 16px;
-        padding: 40px 44px;
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            justify-content: center;
+            background-color: $cGrey;
+            border-radius: 16px;
+            padding: 40px 44px;
+            margin: 0;
+        }
+    }
+
+    .tns-outer {
+        margin: 0 0 60px;
     }
 }
 
@@ -55,6 +67,7 @@
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
+    user-select: none;
 
     &_title {
         display: block;

@@ -4,24 +4,34 @@
     }
     &_columns {
         display: flex;
+        flex-direction: column;
         gap: 30px;
         align-items: stretch;
         margin: 80px 0 0;
+        @include tablet {
+            flex-direction: row;
+        }
     }
     &_buttons {
-        width: 50%;
+        order: 2;
+        @include tablet {
+            width: 50%;
+            order: initial;
+        }
     }
     &_button {
         @include button-reset;
         font-weight: 600;
-        font-size: 32px;
-        line-height: 120%;
+
         color: $color;
         width: 100%;
         text-align: left;
-        padding: 34px 0;
+        padding: 26px 0 14px;
         border-bottom: 1px solid $color;
         transition: .3s ease color;
+        @include tablet {
+            padding: 34px 0 22px;
+        }
 
         &:first-child {
             border-top: 1px solid $color;
@@ -31,18 +41,27 @@
         }
     }
     &_button-title {
+        font-size: 18px;
+        line-height: 120%;
         display: block;
-        margin: 0 0 16px;
+        margin: 0 0 10px;
+        @include tablet {
+            font-size: 32px;
+            margin: 0 0 16px;
+        }
     }
     &_button-subtitle {
         font-weight: 500;
-        font-size: 20px;
+        font-size: 14px;
         line-height: 140%;
         color: $color;
         display: block;
         overflow: hidden;
         max-height: 0;
         transition: .3s ease max-height;
+        @include tablet {
+            font-size: 20px;
+        }
     
         .active & {
             max-height: 100px;
@@ -52,16 +71,28 @@
         }
     }
     &_holder {
-        width: 50%;
         position: relative;
+        order: 1;
+        height: 210px;
+        margin: 0 0 20px;
+        @include tablet {
+            height: auto;
+            width: 50%;
+            order: initial;
+            margin: 0;
+        }
     }
     &_image {
+        height: 100%;
         position: absolute;
         top: 0;
         left: 50%;
         transform: translate(-50%, 0);
         opacity: 0;
         transition: .3s $easingSmooth opacity;
+        @include tablet {
+            height: auto;
+        }
 
         &.active {
             opacity: 1;

@@ -31,8 +31,13 @@ appSlider.forEach(el => {
         autoplay: false,
         nav: true,
         navPosition: 'bottom',
-        controls: true,
+        controls: false,
         loop: false,
+        responsive: {
+            744: {
+                controls: true,
+            }
+        }
     });
 })
 
@@ -40,17 +45,25 @@ const stepsSlider = document.querySelectorAll('.steps_slider');
 stepsSlider.forEach(el => {
     tns({
         container: el,
-        items: 3.5,
-        fixedWidth: 350,
+        items: 1.1,
+        fixedWidth: 230,
         gutter: 30,
         mouseDrag: true,
         autoplay: false,
         nav: true,
         navPosition: 'bottom',
-        controls: true,
+        controls: false,
         loop: false,
+        responsive: {
+            744: {
+                items: 3.5,
+                fixedWidth: 350,
+                controls: true,
+            }
+        }
     });
-})
+});
+
 const transportationStatsSlider = document.querySelectorAll('.transportation-stats_cards');
 transportationStatsSlider.forEach(el => {
     tns({
@@ -70,7 +83,51 @@ transportationStatsSlider.forEach(el => {
             }
         }
     });
-})
+});
+
+const appScreensSlider = document.querySelectorAll('.app_screens-wrapper');
+appScreensSlider.forEach(el => {
+    tns({
+        container: el,
+        items: 2,
+        gutter: 30,
+        mouseDrag: true,
+        autoplay: false,
+        nav: true,
+        gap: 0,
+        center: true,
+        navPosition: 'bottom',
+        controls: false,
+        loop: false,
+        responsive: {
+            744: {
+                disable: true
+            }
+        }
+    });
+});
+
+const operationsSlider = document.querySelectorAll('.operations_column');
+operationsSlider.forEach(el => {
+    tns({
+        container: el,
+        items: 1.5,
+        gutter: 20,
+        mouseDrag: true,
+        autoplay: false,
+        nav: true,
+        gap: 0,
+        center: true,
+        navPosition: 'bottom',
+        controls: false,
+        loop: false,
+        responsive: {
+            744: {
+                disable: true
+            }
+        }
+    });
+});
 
 
 // menu
