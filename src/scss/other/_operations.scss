@@ -9,16 +9,39 @@
         font-size: 24px;
         line-height: 120%;
         color: $cBright;
-        text-align: center;
         min-height: 58px;
-        margin: auto;
-        width: 80%;
         display: flex;
         align-items: flex-end;
-        justify-content: center;
+        @include tablet {
+            margin: auto;
+            justify-content: center;
+            width: 80%;
+            text-align: center;
+        }
+
+        &:nth-child(1) {
+            order: 1;
+            @include tablet {
+                order: initial;
+            }
+        }
+        &:nth-child(2) {
+            order: 3;
+            @include tablet {
+                order: initial;
+            }
+        }
+        &:nth-child(3) {
+            order: 5;
+            @include tablet {
+                order: initial;
+            }
+        }
     }
 
     &_columns {
+        display: flex;
+        flex-direction: column;
         @include tablet {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -46,36 +69,83 @@
     }
 
     .tns-outer {
+        margin: 0 -30px;
+        @include tablet {
+            margin: 0;
+            background-color: $cGrey;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &:nth-child(4) {
+            order: 2;
+            @include tablet {
+                order: initial;
+            }
+        }
+    
+        &:nth-child(5) {
+            order: 4;
+            @include tablet {
+                order: initial;
+            }
+        }
+    
+        &:nth-child(6) {
+            order: 6;
+            @include tablet {
+                order: initial;
+            }
+        }
+    }
+    .tns-ovh {
+        padding: 30px;
+        @include tablet {
+            padding: 0;
+        }
+    }
+    .tns-nav {
         margin: 0 0 60px;
     }
 }
 
 .operation {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 116.5%;
-    text-align: center;
     color: rgba(#000, .5);
-    padding: 16px;
-    box-shadow: 0px 0px 32px #DADADA;
+    padding: 32px 22px 22px;
+    box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.05);
     border-radius: 16px;
     background-color: #fff;
-    min-height: 184px;
+    min-height: 280px;
     display: flex;
     gap: 16px;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     box-sizing: border-box;
     user-select: none;
+    @include tablet {
+        justify-content: space-between;
+        box-shadow: 0px 0px 32px #DADADA;
+        text-align: center;
+        font-size: 16px;
+        padding: 16px;
+        min-height: 184px;
+    }
 
     &_title {
         display: block;
         font-weight: 600;
-        font-size: 18px;
+        font-size: 16px;
         line-height: 116.5%;
         margin: 0 0 8px;
         display: block;
         color: $cBright;
+        @include tablet {
+            font-size: 18px;
+        }
     }
 }
