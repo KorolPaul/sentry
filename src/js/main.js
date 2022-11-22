@@ -335,3 +335,27 @@ stepTitleElements.forEach(el => {
         e.currentTarget.classList.toggle('opened');
     });
 });
+
+// odometer
+const odometerBlocks = document.querySelectorAll('.odometer');
+odometerBlocks.forEach(el => {
+    let od = new Odometer({
+        el: el,
+        value: 0,
+        format: '',
+        theme: 'default',
+        duration: 8000, 
+    });
+    
+    const observer = new IntersectionObserver((e) => {
+        if (e[0].intersectionRatio > 0.8) {
+            od.update(parseInt(el.dataset.value));
+        }
+    }, {
+        rootMargin: '0px 0px 0px 0px',
+        threshold: thresholdSteps,
+        root: null
+    });
+    observer.observe(el);
+    
+})
