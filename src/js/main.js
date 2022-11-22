@@ -263,7 +263,7 @@ initTabs()
 
 
 /* animation */
-const animatedElements = document.querySelectorAll('.none');
+const animatedElements = document.querySelectorAll('.js-animation');
 animateElements();
 function animateElements() {
     animatedElements.forEach(el => {

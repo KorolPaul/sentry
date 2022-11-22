@@ -6,4 +6,14 @@
         width: 32px;
         height: 32px;
     }
+    &_link {
+        transition: .2s $easing opacity;
+
+        &:hover {
+            opacity: .6;
+        }
+        &:active {
+            opacity: .8;
+        }
+    }
 }

@@ -32,6 +32,8 @@
     h2 {
         text-align: left;
         width: 90%;
+        margin-left: auto;
+        margin-right: auto;
         @include tablet {
             text-align: center;
             width: 70%;
