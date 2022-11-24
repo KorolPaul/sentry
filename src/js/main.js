@@ -271,6 +271,10 @@ function animateElements() {
             const {target, intersectionRatio} = e[0];
             if (intersectionRatio > 0.6) {
                 target.classList.add('animated');
+
+                setTimeout(() => {
+                    target.classList.remove('js-animation');
+                }, 2000);
             }
         };
 
@@ -357,5 +361,23 @@ odometerBlocks.forEach(el => {
         root: null
     });
     observer.observe(el);
-    
-})
+});
+
+// clients Categories filter
+const clientsCategoriesLinks = document.querySelectorAll('.clients_category');
+const clientsCategoriesCards = document.querySelectorAll('.client-card');
+clientsCategoriesLinks.forEach(el => el.addEventListener('click', function(e) {
+    e.preventDefault();
+    const category = e.target.dataset.category;
+
+    clientsCategoriesLinks.forEach(link => link.classList.add('inactive'));
+    e.target.classList.remove('inactive');
+
+    clientsCategoriesCards.forEach(card => {
+        if (card.dataset.category === category) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+}));
