@@ -136,8 +136,11 @@
 
     button {
         @include button-reset;
+        box-sizing: content-box;
         width: 25px;
         height: 25px;
+        padding: 20px;
+        margin: 0 0 -20px;
         font-size: 0;
         line-height: 0;
         transition: .2s $easing opacity;
@@ -152,10 +155,12 @@
     }
 
     button[data-controls="prev"]{
-        background: url(#{$img}/prev.svg) no-repeat center / 100% auto;
+        background: url(#{$img}/prev.svg) no-repeat center / 25px auto;
+        margin-left: 20px;
     }
     button[data-controls="next"]{
-        background: url(#{$img}/next.svg) no-repeat center / 100% auto;
+        background: url(#{$img}/next.svg) no-repeat center / 25px auto;
+        margin-right: 20px;
     }
 }
 

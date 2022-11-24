@@ -14,6 +14,9 @@
 @mixin desktop() {
     @media all and (min-width: 1000px) { @content; }
 }
+@mixin desktop-medium() {
+    @media all and (min-width: 1400px) { @content; }
+}
 @mixin desktop-large() {
     @media all and (min-width: 1920px) { @content; }
 }

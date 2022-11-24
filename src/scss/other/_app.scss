@@ -74,7 +74,7 @@
     &_screens {
         position: relative;
         margin: 0 0 50px;
-        overflow: hidden;
+        // overflow: hidden;
         @include tablet {
             margin: 0 0 150px;
         }
@@ -114,8 +114,9 @@
             bottom: 100px;
         }
         @include tablet {
-            width: 100vw;
+            width: calc(100vw + 1px);
             bottom: 50px;
+            margin-left: -1px;
             max-width: 100%;
             transform: translateX(-50%);
         }
@@ -138,6 +139,7 @@
             margin: auto;
             @include desktop {
                 width: auto;
+                max-width: $max-width;
             }
         }
     }
@@ -162,4 +164,13 @@
 .app-link {
     display: inline-block;
     margin: 0 24px 0 0;
+    transition: .2s $easing opacity;
+    
+    &:hover {
+        opacity: .6;
+    }
+
+    &:active {
+        opacity: .8;
+    }
 }

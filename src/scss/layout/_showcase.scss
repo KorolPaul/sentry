@@ -15,6 +15,9 @@
 .showcase {
     text-align: center;
     overflow: hidden;
+    @include desktop {
+        padding-top: 50px;
+    }
 
     h1 {
         font-weight: 700;
@@ -25,8 +28,11 @@
         @include tablet {
             font-weight: 600;
             font-size: 70px;
-            line-height: 80px;
+            line-height: 1.14;
             text-align: center
+        }
+        @include desktop {
+            font-size: 44px;
         }
     }
     h2 {
@@ -48,7 +54,7 @@
         position: relative;
         padding-bottom: 330px;
         @include desktop {
-            padding-bottom: 36vw;
+            padding-bottom: 26vw;
             background-size: 100% auto;
         }
     }
