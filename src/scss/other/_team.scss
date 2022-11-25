@@ -35,6 +35,7 @@
     &_image {
         width: 100%;
         border-radius: 50%;
+        filter: grayscale(1);
         transition: .6s $easeOutCirc border-radius;
 
         .team_item:hover & {
