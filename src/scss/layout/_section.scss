@@ -1,7 +1,9 @@
 .section {
     padding: 50px 0;
     position: relative;
+    overflow-x: hidden;
     @include tablet {
+        overflow-x: initial;
         padding-top: 100px;
         padding-bottom: 110px;
     }

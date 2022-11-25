@@ -40,5 +40,12 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 116.5%;
+
+        &:hover {
+            color: $color;
+        }
+        &:active {
+            opacity: .6;
+        }
     }
 }
