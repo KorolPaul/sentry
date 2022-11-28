@@ -117,7 +117,7 @@
         <path d="M35.9788 32.0295L37.453 34.5155L34.2318 34.5352L33.4768 32.1061L35.9788 32.0295Z" fill="#1C1C1E" />
         <path d="M35.9186 16.4861L37.3699 13.9321L34.2767 13.912L33.5048 16.3951L35.9186 16.4861Z" fill="#1C1C1E" />
 
-        <animateMotion dur="12s" repeatCount="indefinite" rotate="auto" keyPoints="1;0" keyTimes="0;1">
+        <animateMotion dur="12s" repeatCount="indefinite" rotate="auto" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
             <mpath href="#road" />
         </animateMotion>
     </g>
@@ -161,7 +161,7 @@
             </clipPath>
         </defs>
 
-        <animateMotion dur="12s" begin="4.5s" repeatCount="indefinite" rotate="auto" keyPoints="1;0" keyTimes="0;1">
+        <animateMotion dur="12s" begin="4.5s" repeatCount="indefinite" rotate="auto" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
             <mpath href="#road" />
         </animateMotion>
     </g>
