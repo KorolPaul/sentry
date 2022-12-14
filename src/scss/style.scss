@@ -17,6 +17,7 @@
 @import "form-elements/radio";
 @import "form-elements/label";
 @import "form-elements/form";
+@import "form-elements/file-input";
 
 /*layout*/
 @import "layout/headings";
@@ -34,6 +35,8 @@
 @import "layout/intro";
 @import "layout/page-404";
 @import "layout/cookies";
+@import "layout/fade";
+@import "layout/popup";
 
 /* other */
 @import "other/advantages";
@@ -56,6 +59,7 @@
 @import "other/steps";
 @import "other/operations";
 @import "other/themes";
+@import "other/vacancies";
 
 /* plugins */
 @import "plugins/tiny-slider";

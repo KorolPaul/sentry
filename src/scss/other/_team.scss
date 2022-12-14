@@ -3,6 +3,9 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        gap: 40px 20px;
+    }
+    @include desktop {
         gap: 40px 30px;
     }
 
@@ -14,8 +17,11 @@
         @include tablet {
             display: block;
             text-align: center;
-            width: calc(25% - 60px);
+            width: calc(33% - 60px);
             margin: 0;
+        }
+        @include desktop {
+            width: calc(25% - 60px);
         }
 
         &__big {
@@ -27,6 +33,7 @@
     &_image-wrapper {
         width: 70px;
         border-radius: 50%;
+        max-width: 100%;
         @include tablet {
             width: 255px;
             margin: 0 auto 16px;

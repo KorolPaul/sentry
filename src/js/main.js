@@ -160,7 +160,7 @@ menuLinkElements.forEach(el => el.addEventListener('click', () => document.body.
 
 
 /* Popup */
-const popupToggleElements = document.querySelectorAll('.js-popup-toggle');
+const popupToggleElements = document.querySelectorAll('.js-popup-link');
 
 function disableScroll(e) {
     const { target } = e
@@ -186,7 +186,7 @@ function disableScroll(e) {
 }
 
 function openPopup(name) {
-    const popup = document.querySelector(`.popup[data-popup="${name}"]`);
+    const popup = document.querySelector(`.fade[data-popup="${name}"]`);
     if (popup) {
         popup.classList.add('opened');
         document.body.classList.add('popup-opened');
@@ -194,7 +194,7 @@ function openPopup(name) {
     }
 }
 function closePopup(name) {
-    document.querySelector('.popup.opened').classList.remove('opened');
+    document.querySelector('.fade.opened').classList.remove('opened');
     document.body.classList.remove('popup-opened');
     window.removeEventListener(wheelEvent, disableScroll, { passive: false });
 
@@ -205,7 +205,7 @@ popupToggleElements.forEach(el => el.addEventListener('click', (e) => {
     openPopup(el.dataset.popup);
 }));
 
-const popupCloseElements = document.querySelectorAll('.popup_close');
+const popupCloseElements = document.querySelectorAll('.fade_back');
 popupCloseElements.forEach(el => el.addEventListener('click', (e) => {
     e.preventDefault();
     closePopup();
@@ -380,3 +380,35 @@ clientsCategoriesLinks.forEach(el => el.addEventListener('click', function(e) {
         }
     });
 }));
+
+/* vacancies */
+const vacancyMoreButtons = document.querySelectorAll('.vacancy_more');
+vacancyMoreButtons.forEach(el => {
+    function handleMoreButton(e) {
+        e.preventDefault();
+        e.target.parentElement.classList.toggle('active');
+    }
+
+    el.addEventListener('click', handleMoreButton);
+});
+
+const vacancyBackButtons = document.querySelectorAll('.vacancy_back');
+vacancyBackButtons.forEach(el => {
+    function handleMoreButton(e) {
+        e.preventDefault();
+        console.log(e.target.parentElement.parentElement.parentElement);
+        e.target.parentElement.parentElement.parentElement.classList.toggle('active');
+    }
+
+    el.addEventListener('click', handleMoreButton);
+});
+
+/* file input */
+const fileInputs = document.querySelectorAll('input[type="file"]');
+fileInputs.forEach(fileInput => {
+    fileInput.addEventListener('change', function(e) {
+        if (e.target.files[0] && e.target.files[0].name) {
+            e.target.parentElement.querySelector('.file-input_name').innerText = e.target.files[0].name;
+        }
+    })
+});

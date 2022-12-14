@@ -32,6 +32,10 @@
         @include tablet {
             margin: 0;
             order: inherit;
+            max-width: 45%;
+        }
+        @include desktop {
+            max-width: 100%;
         }
     }
 

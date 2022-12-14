@@ -12,11 +12,11 @@
     @include tablet {
         bottom: 40px;
         right: 80px;
-        padding: 40px;
+        padding: 20px 40px;
         display: flex;
         gap: 110px;
         justify-content: space-between;
-        max-width: 850px;
+        max-width: 950px;
         align-items: center;
         flex-direction: row;
     }
@@ -36,10 +36,11 @@
             }
         }
         a {
-            color: $bg_color;
+            color: $color;
+            text-decoration: underline;
 
             &:hover {
-                color: $color;
+                color: $bg_color;
             }
         }
     }

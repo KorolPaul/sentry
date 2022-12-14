@@ -1,26 +1,21 @@
 .popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: $bg_color;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 96px 24px 24px;
+    box-shadow: 0px 0px 50px rgba(28, 30, 35, .2);
+    border-radius: 16px;
+    padding: 60px 56px;
     box-sizing: border-box;
     z-index: 20;
-    pointer-events: none;
-    opacity: 0;
-    transform: translateY(30%);
+    width: 80vw;
+    max-width: 930px;
+    z-index: 1;
     transition: .3s $easingSmooth transform,
-                .3s $easingSmooth opacity;
-    @include desktop {
-        padding: 64px;
-    }
-
-    &.opened {
-        opacity: 1;
-        transform: translateY(0%);
-        pointer-events: all;
+        .3s $easingSmooth opacity;
+    @include tablet {
+        padding: 80px 96px;
     }
 
     &_close {
@@ -40,44 +35,24 @@
         &:hover {
             opacity: .6;
         }
+
         &:active {
             opacity: 1;
         }
     }
+
     &_content {
         overflow: auto;
         height: 100%;
         max-width: 910px;
         margin: auto;
-
-        &__center {
-            @include tablet {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-        }
     }
 
-    h1 {
-        font-weight: 700;
-        text-transform: uppercase;
-    }
     h2 {
-        font-family: $font-family;
-        font-size: 24px;
-        font-weight: 700;
-        @include desktop {
-            font-size: 32px;
-        }
-    }
-    h3 {
-        font-family: $font-family;
-        font-size: 18px;
-        font-weight: 700;
-        margin: 40px 0 20px;
-        @include desktop {
-            font-size: 24px;
-        }
+        color: $cBright;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 120%;
+        margin: 0 0 40px;
     }
 }
