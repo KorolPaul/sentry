@@ -56,6 +56,7 @@ stepsSlider.forEach(el => {
         mouseDrag: true,
         autoplay: false,
         nav: true,
+        center: true,
         navPosition: 'bottom',
         controls: false,
         loop: false,

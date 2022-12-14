@@ -1,8 +1,10 @@
 .steps {
+    text-align: center;
     .tns-controls {
         filter: invert(100%);
     }
     .tns-nav {
+        display: inline-flex;
         margin-top: 80px;
 
         button {
@@ -27,6 +29,7 @@
     border-radius: 16px;
     box-sizing: border-box;
     position: relative;
+    text-align: left;
     @include tablet {
         width: 350px;
         padding: 394px 0 25px;
