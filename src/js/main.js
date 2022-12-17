@@ -269,7 +269,11 @@ function animateElements() {
     animatedElements.forEach(el => {
         const observerCallback = function (e) {
             const {target, intersectionRatio} = e[0];
-            if (intersectionRatio > 0.6) {
+
+            const targetRatio = target.className.includes('tabs') ? 0.3 : 0.6;
+
+            console.log();
+            if (intersectionRatio > targetRatio) {
                 target.classList.add('animated');
 
                 setTimeout(() => {
@@ -346,7 +350,7 @@ odometerBlocks.forEach(el => {
     let od = new Odometer({
         el: el,
         value: 0,
-        format: '',
+        format: '(,ddd)',
         theme: 'default',
         duration: 8000, 
     });
@@ -369,6 +373,12 @@ const clientsCategoriesCards = document.querySelectorAll('.client-card');
 clientsCategoriesLinks.forEach(el => el.addEventListener('click', function(e) {
     e.preventDefault();
     const category = e.target.dataset.category;
+
+    if (category === 'all') {
+        clientsCategoriesLinks.forEach(link => link.classList.remove('inactive'));
+        clientsCategoriesCards.forEach(link => link.classList.remove('hidden'));
+        return;
+    }
 
     clientsCategoriesLinks.forEach(link => link.classList.add('inactive'));
     e.target.classList.remove('inactive');

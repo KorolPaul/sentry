@@ -16,6 +16,9 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
     <meta content="telephone=no" name="format-detection">
     <meta name="HandheldFriendly" content="true">
+
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
 </head>
 <body>
     <header class="header">
@@ -78,6 +81,16 @@
                 <div class="map">
                     <div class="map_holder">
                         <div class="map" id="map"></div>
+
+                         <script>
+                            window.addEventListener('DOMContentLoaded', () => {
+                                mapboxgl.accessToken = 'pk.eyJ1IjoiYW5uYS1nb2x1YmV2YSIsImEiOiJja3d3amwzOG4wNDByMm5sYW1yNGh2OXJiIn0.Krs4AfkVyobEvYXCCSyWUg';
+                                const map = new mapboxgl.Map({
+                                    container: 'map',
+                                    style: 'mapbox://styles/anna-golubeva/clbqcyoq3000u15pnry107gt5', // style URL
+                                });
+                            });
+                        </script>
                     </div>
                     <div class="map_info">
                         <div class="map_info-item">

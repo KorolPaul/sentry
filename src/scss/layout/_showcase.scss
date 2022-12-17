@@ -1,13 +1,13 @@
-@mixin roll-out($left, $duration, $delay) {
-    animation: roll-out $duration $easingSmooth $delay forwards;
+@mixin roll($duration, $delay) {
+    animation: roll $duration linear $delay infinite;
+    transform: translateX(-500%);
 
-    @keyframes roll-out {
-        from {
-            transform: translateX($left);
+    @keyframes roll {
+        0% {
+            transform: translateX(-500%);
         }
-
-        to {
-            transform: translateX(0);
+        100% {
+            transform: translateX(500%);
         }
     }
 }
@@ -137,47 +137,60 @@
         display: block;
     }
     &_ambulance {
-        @include roll-out(-300%, 2s, 0s);
+        @include roll(7s, 0s);
         position: absolute;
         bottom: 15px;
-        left: 40%;
+        left: 50%;
         height: 130px;
         @include tablet {
-            @include roll-out(-300%, 4s, 0s);
             left: 50%;
-            height: auto;
-        }
-    }
-    &_car-green {
-        @include roll-out(-500%, 4s, 0s);
-        position: absolute;
-        bottom: 38px;
-        left: 75%;
-        display: none;
-        @include tablet {
-            display: block;
+            height: 221px;
         }
     }
     &_car-front {
-        @include roll-out(-200%, 4s, 0s);
+        @include roll(7s, 5s);
         position: absolute;
         bottom: 15px;
-        left: 5%;
+        left: 50%;
         height: 72px;
         z-index: 2;
+
         @include tablet {
-            left: 20%;
-            height: auto
+            height: 115px;
         }
     }
-    &_car-back {
-        @include roll-out(-200%, 4s, 0s);
+    &_car-green {
+        @include roll(9s, 0s);
         position: absolute;
         bottom: 38px;
-        left: 6%;
+        left: 70%;
         display: none;
         @include tablet {
             display: block;
+            height: 81px;
+        }
+    }
+    &_car-orange {
+        @include roll(9s, 1s);
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        display: none;
+        @include tablet {
+            display: block;
+            height: 96px;
+        }
+    }
+
+    &_car-back {
+        @include roll(9s, 2s);
+        position: absolute;
+        bottom: 38px;
+        left: 50%;
+        display: none;
+        @include tablet {
+            display: block;
+            height: 126px;
         }
     }
 }

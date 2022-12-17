@@ -4,6 +4,7 @@
     padding: 0 0 60px;
     user-select: none;
     @include tablet {
+        text-align: center;
         padding: 0 0 80px;
     }
 
@@ -97,7 +98,8 @@
         position: relative;
         top: 70px;
         @include tablet {
-            top:110px;
+            top: 110px;
+            display: inline-flex;
         }
     }
 }

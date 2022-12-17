@@ -20,7 +20,7 @@
             margin: 0;
             white-space: normal;
             flex-shrink: 0;
-            max-width: 255px;
+            max-width: 275px;
             overflow: visible;
         }
     }
@@ -47,6 +47,10 @@
             padding: 0;
             white-space: normal;
             background-color: transparent;
+        }
+
+        &:first-child {
+            max-width: 255px;
         }
 
         &:hover,

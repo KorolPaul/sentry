@@ -1,0 +1,35 @@
+.map-main {
+    @include tablet {
+
+        display: flex;
+    }
+
+    &_holder {
+        position: relative;
+        min-height: 400px;
+        @include tablet {
+            width: 60%;
+        }
+    }
+
+    &_info {
+        background: $color;
+        color: $bg_color;
+        box-sizing: border-box;
+        padding: 60px 36px 20px;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 130%;
+        @include tablet {
+            width: 40%;
+            padding: 40px 96px;
+        }
+    }
+    &_title {
+        color: $cBright;
+        font-weight: 600;
+        font-size: 44px;
+        line-height: 127%;
+        margin: 0 0 40px;
+    }
+}

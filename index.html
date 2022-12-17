@@ -14,6 +14,9 @@
     <link rel="icon" type="image/png" href="48x48px.png" sizes="48x48">
     <meta content="telephone=no" name="format-detection">
     <meta name="HandheldFriendly" content="true">
+
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
 </head>
 <body>
     <header class="header">
@@ -50,6 +53,7 @@
                             <span class="showcase_point js-animation animation-delay">corporate</span>
                         </div>
                     </div>
+                    <img src="src/img/car-orange.png" alt="" class="showcase_car-orange">
                     <img src="src/img/car-green.png" alt="" class="showcase_car-green">
                     <img src="src/img/car-back.png" alt="" class="showcase_car-back">
                     <img src="src/img/car-fromt.png" alt="" class="showcase_car-front">
@@ -159,6 +163,7 @@
                     <h1 class="bright js-animation">Our clients</h1>
                     <p class="clients_subtitle js-animation">Clients prefer our services due to our customer service approach, innovative IT solutions and a strong transportation network.</p>
                     <div class="clients_categories">
+                        <a href="#" class="clients_category js-animation animation-delay" data-category="all">All clients</a>
                         <a href="#" class="clients_category js-animation animation-delay" data-category="Transportation">Transportation providers & drivers</a>
                         <a href="#" class="clients_category js-animation animation-delay" data-category="Hospitals">Hospitals</a>
                         <a href="#" class="clients_category js-animation animation-delay" data-category="professionals">Healthcare professionals</a>
@@ -240,6 +245,91 @@
                                 <span class="client-card_tag">Health</span>
                             </div>
                         </span>
+                    </div>
+                    <button class="clients_more">Show more</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section__no-top-indent">
+            <div class="map-main js-animation">
+                <div class="map-main_holder" id="map">
+
+                </div>
+                <script>
+                    window.addEventListener('DOMContentLoaded', () => {
+                        mapboxgl.accessToken = 'pk.eyJ1IjoiYW5uYS1nb2x1YmV2YSIsImEiOiJja3d3amwzOG4wNDByMm5sYW1yNGh2OXJiIn0.Krs4AfkVyobEvYXCCSyWUg';
+                        const map = new mapboxgl.Map({
+                            container: 'map', // container ID
+                            style: 'mapbox://styles/anna-golubeva/clbqcyoq3000u15pnry107gt5', // style URL
+                            // center: [40.7, -73.99], // starting position [lng, lat]
+                            // zoom: 9 // starting zoom
+                        });
+                    });
+                </script>
+                <div class="map-main_info">
+                    <h3 class="map-main_title">Transportation Providers Network</h3>
+                    <p>Our partners are the largest independent transportation companies in the New York City area.</p>
+                    <p>Together, we effectively cover the services of NEMT trips.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section__no-top-indent">
+            <div class="section_holder">
+                <h2 class="js-animation">Loved by thousands of customers</h2>
+                <div class="reviews">
+                    <div class="review">
+                        <span class="review_text">“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.”</span>
+                        <div class="review_bottom">
+                            <span class="review_author">Alex</span>
+                            <div class="review_rating">
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <span class="review_text">“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.”</span>
+                        <div class="review_bottom">
+                            <span class="review_author">Alex</span>
+                            <div class="review_rating">
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <span class="review_text">“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.”</span>
+                        <div class="review_bottom">
+                            <span class="review_author">Alex</span>
+                            <div class="review_rating">
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <span class="review_text">“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.”</span>
+                        <div class="review_bottom">
+                            <span class="review_author">Alex</span>
+                            <div class="review_rating">
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                                <div class="review_star"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
