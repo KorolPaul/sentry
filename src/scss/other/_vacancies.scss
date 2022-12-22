@@ -16,13 +16,19 @@
 
     &_meta {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        gap: 10px;
         font-weight: 500;
         font-size: 16px;
         line-height: 140%;
         opacity: .7;
         margin: 0 0 16px;
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
+        }
     }
 
     &_subtitle {
@@ -41,10 +47,15 @@
         max-height: 0;
         box-sizing: border-box;
         padding: 32px 0 0;
-        transition: .6s ease max-height;
+        @include tablet {
+            transition: .6s ease max-height;
+        }
 
         .active & {
-            max-height: 2000px;
+            max-height: 20000px;
+            @include tablet {
+                max-height: 2000px;
+            }
         }
 
         h4 {
@@ -81,7 +92,7 @@
         font-size: 14px;
         color: $cBright;
         padding: 0 23px 0 0;
-        background: url(#{$img}/arrow.svg) no-repeat right center;
+        background: url(#{$img}/arrow-small.svg) no-repeat right center;
         transition: .3s ease opacity;
 
         &:hover {

@@ -52,7 +52,7 @@
     &_top {
         background: url(#{$img}/main.png) no-repeat center bottom / auto 300px;
         position: relative;
-        padding-bottom: 330px;
+        padding-bottom: 280px;
         @include desktop {
             padding-bottom: 26vw;
             background-size: 100% auto;

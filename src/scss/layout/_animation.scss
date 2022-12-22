@@ -1,15 +1,19 @@
 .js-animation {
-    filter: blur(5px);
-    opacity: 0;
-    transform: translateY(100px);
-    transition: .8s $easeOutCirc opacity,
-                1s $easeOutCirc filter,
-                1.3s $easeOutCirc transform;
+    @include tablet {
+        filter: blur(5px);
+        opacity: 0;
+        transform: translateY(100px);
+        transition: .8s $easeOutCirc opacity,
+                    1s $easeOutCirc filter,
+                    1.3s $easeOutCirc transform;
+    }
 
     &.animated {
-        filter: blur(0);
-        opacity: 1;
-        transform: translateY(0);
+        @include tablet {
+
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
     &.animation-delay {
         transition-delay: .2s;

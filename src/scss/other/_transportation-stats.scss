@@ -45,12 +45,16 @@
         font-weight: 500;
         min-height: 60px;
         @include tablet {
-            font-size: 20px;
+            font-size: 19px;
             line-height: 140%;
         }
     }
     &_card-image {
         margin: 6px 0 0;
+        @include tablet {
+            height: 158px;
+            object-fit: contain;
+        }
     }
 
     .tns-outer {

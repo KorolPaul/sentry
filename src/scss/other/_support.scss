@@ -5,15 +5,18 @@
         @include tablet {
             display: flex;
             justify-content: space-between;
-            gap: 30px;
+            gap: 20px;
         }
+    }
+    &_column {
+        flex-grow: 1;
     }
     &_grid {
         @include tablet {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: auto;
-            gap: 0 30px;
+            gap: 0 20px;
             max-width: 920px;
             margin: auto;
         }

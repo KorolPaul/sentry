@@ -66,11 +66,14 @@
     }
     &_more {
         @include button-reset;
+
+        order: 4;
         font-size: 20px;
         line-height: 120%;
         text-decoration-line: underline;
         color: $color;
         margin: 40px auto 0;
+        font-weight: 500;
         @include tablet {
             font-size: 24px;
             margin-top: 64px;

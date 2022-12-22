@@ -641,63 +641,65 @@
         <div class="fade_back"></div>
         <div class="popup">
             <button class="popup_close"></button>
-            <h2>Application</h2>
-
-            <form class="form" id="feedback-form">
-                <div class="form_row js-animation">
-                    <div class="form_item">
-                        <label for="name">*First name</label>
-                        <input type="text" id="name" >
-                    </div>
-                    <div class="form_item">
-                        <label for="surname">*Last name</label>
-                        <input type="text" id="surname" >
-                    </div>
-                </div>
-                <div class="form_row js-animation">
-                    <div class="form_item">
-                        <label for="tel">Phone</label>
-                        <input type="tel" id="tel" >
-                    </div>
-                    <div class="form_item">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" >
-                    </div>
-                </div>
-                <div class="form_row js-animation">
-                    <div class="form_item">
-                        <label for="ln">LinkedIn page</label>
-                        <input type="text" id="ln" >
-                    </div>
-                    <div class="form_item">
-                        <label for="resume">Resume</label>
-                        <div class="file-input">
-                            <div class="file-input_icon"></div>
-                            <span class="file-input_name">Attach file</span>
-                            <input type="file" id="resume" >
+            <div class="popup_content">
+                <h2>Application</h2>
+    
+                <form class="form" id="feedback-form">
+                    <div class="form_row">
+                        <div class="form_item">
+                            <label for="name">*First name</label>
+                            <input type="text" id="name" >
+                        </div>
+                        <div class="form_item">
+                            <label for="surname">*Last name</label>
+                            <input type="text" id="surname" >
                         </div>
                     </div>
-                </div>
-                <div class="form_row js-animation">
-                    <div class="form_item">
-                        <label for="ln">Cover letter (Optional)</label>
-                        <textarea></textarea>
+                    <div class="form_row">
+                        <div class="form_item">
+                            <label for="tel">*Phone</label>
+                            <input type="tel" id="tel" >
+                        </div>
+                        <div class="form_item">
+                            <label for="email">*E-mail</label>
+                            <input type="email" id="email" >
+                        </div>
                     </div>
-                </div>
-                <div class="form_row js-animation">
-                    <div class="form_item">
-                        <input type="checkbox" name="agree" id="agree">
-                        <label for="agree">
-                            Our <a href="/terms.html">privacy policy</a> is intended to inform you of the type of personal information collected from you, how it is used, and what steps are taken to ensure that your personal information is kept confidential and safe.
-                        </label>
+                    <div class="form_row">
+                        <div class="form_item">
+                            <label for="ln">LinkedIn page</label>
+                            <input type="text" id="ln" >
+                        </div>
+                        <div class="form_item">
+                            <label for="resume">*Resume</label>
+                            <div class="file-input">
+                                <div class="file-input_icon"></div>
+                                <span class="file-input_name">Attach file</span>
+                                <input type="file" id="resume" >
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form_row js-animation">
-                    <div class="form_item form_item__right">
-                        <input type="submit" value="Send">
+                    <div class="form_row">
+                        <div class="form_item">
+                            <label for="ln">Cover letter (Optional)</label>
+                            <textarea></textarea>
+                        </div>
                     </div>
-                </div>
-            </form>
+                    <div class="form_row">
+                        <div class="form_item">
+                            <input type="checkbox" name="agree" id="agree">
+                            <label for="agree">
+                                Our <a href="/terms.html">privacy policy</a> is intended to inform you of the type of personal information collected from you, how it is used, and what steps are taken to ensure that your personal information is kept confidential and safe.
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form_row">
+                        <div class="form_item form_item__right">
+                            <input type="submit" value="Send">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 

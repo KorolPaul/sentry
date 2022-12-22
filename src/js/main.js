@@ -38,6 +38,7 @@ appSlider.forEach(el => {
         navPosition: 'bottom',
         controls: false,
         loop: false,
+        gutter: 0,
         responsive: {
             744: {
                 controls: true,
@@ -191,13 +192,13 @@ function openPopup(name) {
     if (popup) {
         popup.classList.add('opened');
         document.body.classList.add('popup-opened');
-        window.addEventListener(wheelEvent, disableScroll, { passive: false });
+        //window.addEventListener(wheelEvent, disableScroll, { passive: false });
     }
 }
 function closePopup(name) {
     document.querySelector('.fade.opened').classList.remove('opened');
     document.body.classList.remove('popup-opened');
-    window.removeEventListener(wheelEvent, disableScroll, { passive: false });
+    //window.removeEventListener(wheelEvent, disableScroll, { passive: false });
 
 }
 
@@ -375,7 +376,8 @@ clientsCategoriesLinks.forEach(el => el.addEventListener('click', function(e) {
     const category = e.target.dataset.category;
 
     if (category === 'all') {
-        clientsCategoriesLinks.forEach(link => link.classList.remove('inactive'));
+        clientsCategoriesLinks.forEach(link => link.classList.add('inactive'));
+        e.target.classList.remove('inactive');
         clientsCategoriesCards.forEach(link => link.classList.remove('hidden'));
         return;
     }

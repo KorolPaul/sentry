@@ -172,11 +172,31 @@
         }
     }
     &_slider-wrapper {
-        overflow: hidden;
+        position: relative;
+        width: 90%;
+        margin: 50px auto 150px;
+        border: 20px solid $color;
+        border-radius: 20px;
+        @include tablet {
+            border: 40px solid #222;
+            border-radius: 40px;
+            max-width: $max-width;
+            margin-bottom: 210px;
+        }
 
-        .tns-outer[id] {
+        .tns-nav {
+            position: absolute;
+            left: 50%;
+            bottom: -70px;
+            transform: translateX(-50%);
             @include tablet {
-                margin: 0 0 170px;
+                bottom: -100px;
+            }
+        }
+        .tns-controls {
+            bottom: -78px;
+            @include tablet {
+                bottom: -108px;
             }
         }
     }
@@ -191,17 +211,6 @@
             }
         }
     }
-    &_slide-screen {
-        position: relative;
-        margin: auto;
-        display: inline-block;
-        padding: 15px;
-        width: 90%;
-        @include tablet {
-            padding: 30px;
-            max-width: $max-width;
-        }
-    }
     &_slide-frame[src] {
         position: absolute;
         left: 0;
@@ -210,21 +219,12 @@
         height: 100%;
         z-index: 1;
         max-width: none;
+        pointer-events: none;
     }
 
     .tns-outer {
-        margin-left: -30px;
-        margin-right: -30px;
         @include tablet {
             margin: 0;
-        }
-    }
-    .tns-ovh {
-        padding-left: 30px;
-        padding-right: 30px;
-        @include tablet {
-            padding-left: 30px;
-            padding-right: 30px;
         }
     }
 }
