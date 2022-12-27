@@ -41,6 +41,9 @@
             &:hover {
                 color: $bg_color;
             }
+            &:active {
+                text-decoration: none;
+            }
         }
     }
 
@@ -51,6 +54,13 @@
         width: auto;
         display: inline-block;
         @include tablet {
+        }
+
+        &:hover {
+            color: $bg_color;
+        }
+        &:active {
+            text-decoration: none;
         }
     }
 }

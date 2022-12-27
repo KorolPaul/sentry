@@ -10,7 +10,7 @@
 
     &.animated {
         @include tablet {
-
+            filter: blur(0px);
             opacity: 1;
             transform: translateY(0);
         }
