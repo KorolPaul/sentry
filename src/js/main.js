@@ -1,4 +1,4 @@
-const wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+// const wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
 const thresholdSteps = [...Array(10).keys()].map(i => i / 10);
 const isMobile = window.innerWidth <= 768
 const isDesktop = window.innerWidth >= 1000
@@ -25,6 +25,7 @@ roadSlider.forEach(el => {
     });
 })
 
+
 const appSlider = document.querySelectorAll('.app_slider');
 appSlider.forEach(el => {
     tns({
@@ -38,7 +39,6 @@ appSlider.forEach(el => {
         navPosition: 'bottom',
         controls: false,
         loop: false,
-        gutter: 0,
         responsive: {
             744: {
                 controls: true,
@@ -57,7 +57,6 @@ stepsSlider.forEach(el => {
         mouseDrag: true,
         autoplay: false,
         nav: true,
-        center: true,
         navPosition: 'bottom',
         controls: false,
         loop: false,
@@ -157,15 +156,25 @@ function closeAllOpened() {
 //     fadeElement.addEventListener('click', closeAllOpened);
 // }
 
+function openPopup(name) {
+    const popup = document.querySelector(`.fade[data-popup="${name}"]`);
+    if (popup) {
+        popup.classList.add('opened');
+        document.body.classList.add('popup-opened');
+        //window.addEventListener(wheelEvent, disableScroll, { passive: false });
+    }
+}
+
+
 const menuLinkElements = document.querySelectorAll('.menu_link, .menu_close');
 menuLinkElements.forEach(el => el.addEventListener('click', () => document.body.classList.remove('menu-opened')));
 
 
 /* Popup */
-const popupToggleElements = document.querySelectorAll('.js-popup-link');
+const popupToggleElements = document.querySelectorAll('.js-popup-toggle');
 
 function disableScroll(e) {
-    const { target } = e
+    const {target} = e
     let isInPopup = false;
 
     function findParentPopup(el) {
@@ -187,18 +196,20 @@ function disableScroll(e) {
     }
 }
 
+
 function openPopup(name) {
-    const popup = document.querySelector(`.fade[data-popup="${name}"]`);
+    const popup = document.querySelector(`.popup[data-popup="${name}"]`);
     if (popup) {
         popup.classList.add('opened');
         document.body.classList.add('popup-opened');
-        //window.addEventListener(wheelEvent, disableScroll, { passive: false });
+        window.addEventListener(wheelEvent, disableScroll, {passive: false});
     }
 }
+
 function closePopup(name) {
-    document.querySelector('.fade.opened').classList.remove('opened');
+    document.querySelector('.popup.opened').classList.remove('opened');
     document.body.classList.remove('popup-opened');
-    //window.removeEventListener(wheelEvent, disableScroll, { passive: false });
+    // window.removeEventListener(wheelEvent, disableScroll, { passive: false });
 
 }
 
@@ -207,7 +218,7 @@ popupToggleElements.forEach(el => el.addEventListener('click', (e) => {
     openPopup(el.dataset.popup);
 }));
 
-const popupCloseElements = document.querySelectorAll('.fade_back');
+const popupCloseElements = document.querySelectorAll('.popup_close');
 popupCloseElements.forEach(el => el.addEventListener('click', (e) => {
     e.preventDefault();
     closePopup();
@@ -241,7 +252,6 @@ function initTabs() {
 initTabs()
 
 
-
 if (Cookies) {
     const hasCookies = Cookies.get('CookieNotificationCookie');
 
@@ -253,7 +263,7 @@ if (Cookies) {
             e.preventDefault();
 
             cookiesBanner.style.display = 'none';
-            Cookies.set('CookieNotificationCookie', 'true', { expires: 365 });
+            Cookies.set('CookieNotificationCookie', 'true', {expires: 365});
         });
     }
 
@@ -266,15 +276,13 @@ if (Cookies) {
 /* animation */
 const animatedElements = document.querySelectorAll('.js-animation');
 animateElements();
+
 function animateElements() {
     animatedElements.forEach(el => {
+        const ratio = el.classList.contains('tabs') ? 0.1 : 0.6;
         const observerCallback = function (e) {
             const {target, intersectionRatio} = e[0];
-
-            const targetRatio = target.className.includes('tabs') ? 0.3 : 0.6;
-
-            console.log();
-            if (intersectionRatio > targetRatio) {
+            if (intersectionRatio > ratio) {
                 target.classList.add('animated');
 
                 setTimeout(() => {
@@ -338,6 +346,7 @@ if ('NiceSelect' in window) {
 const stepTitleElements = document.querySelectorAll('.step_title');
 stepTitleElements.forEach(el => {
 
+
     el.addEventListener('click', (e) => {
         e.preventDefault();
 
@@ -353,9 +362,9 @@ odometerBlocks.forEach(el => {
         value: 0,
         format: '(,ddd)',
         theme: 'default',
-        duration: 8000, 
+        duration: 8000,
     });
-    
+
     const observer = new IntersectionObserver((e) => {
         if (e[0].intersectionRatio > 0.8) {
             od.update(parseInt(el.dataset.value));
@@ -371,57 +380,35 @@ odometerBlocks.forEach(el => {
 // clients Categories filter
 const clientsCategoriesLinks = document.querySelectorAll('.clients_category');
 const clientsCategoriesCards = document.querySelectorAll('.client-card');
-clientsCategoriesLinks.forEach(el => el.addEventListener('click', function(e) {
+clientsCategoriesLinks.forEach(el => el.addEventListener('click', function (e) {
     e.preventDefault();
     const category = e.target.dataset.category;
 
-    if (category === 'all') {
-        clientsCategoriesLinks.forEach(link => link.classList.add('inactive'));
-        e.target.classList.remove('inactive');
-        clientsCategoriesCards.forEach(link => link.classList.remove('hidden'));
-        return;
-    }
-
     clientsCategoriesLinks.forEach(link => link.classList.add('inactive'));
     e.target.classList.remove('inactive');
-
     clientsCategoriesCards.forEach(card => {
         if (card.dataset.category === category) {
             card.classList.remove('hidden');
         } else {
             card.classList.add('hidden');
         }
+        if (category == 'all'){
+            card.classList.remove('hidden');
+        }
+
+
     });
 }));
 
-/* vacancies */
-const vacancyMoreButtons = document.querySelectorAll('.vacancy_more');
-vacancyMoreButtons.forEach(el => {
-    function handleMoreButton(e) {
-        e.preventDefault();
-        e.target.parentElement.classList.toggle('active');
-    }
+//
+// let clients_category = document.querySelector('.clients_category ');
+// let client-card = document.querySelector('.client-card');
+// clients_category.onclick = () => {
+//     // let category = clients_category.getAttribute('data-category')
+//     //
+//     // if(category == 'all'){
+//     //    alert(1)
+//     //
+//     // }
+// }
 
-    el.addEventListener('click', handleMoreButton);
-});
-
-const vacancyBackButtons = document.querySelectorAll('.vacancy_back');
-vacancyBackButtons.forEach(el => {
-    function handleMoreButton(e) {
-        e.preventDefault();
-        console.log(e.target.parentElement.parentElement.parentElement);
-        e.target.parentElement.parentElement.parentElement.classList.toggle('active');
-    }
-
-    el.addEventListener('click', handleMoreButton);
-});
-
-/* file input */
-const fileInputs = document.querySelectorAll('input[type="file"]');
-fileInputs.forEach(fileInput => {
-    fileInput.addEventListener('change', function(e) {
-        if (e.target.files[0] && e.target.files[0].name) {
-            e.target.parentElement.querySelector('.file-input_name').innerText = e.target.files[0].name;
-        }
-    })
-});
