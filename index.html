@@ -266,10 +266,10 @@
                                     'type': 'Feature',
                                     'geometry': {
                                         'type': 'Point',
-                                        'coordinates': [-77.032, 38.913]
+                                        'coordinates': [3.7038,40.4168]
                                     },
                                     'properties': {
-                                        'title': 'Mapbox',
+                                        'title': 'kdfbkldsbfvkuwbkvwe',
                                         'description': 'Washington, D.C.'
                                     }
                                 },
@@ -287,12 +287,32 @@
                             ]
                         };
 
+                        const edgeLng = [geojson.features[0].geometry.coordinates[0], geojson.features[0].geometry.coordinates[0]];
+                        const edgeLat = [geojson.features[0].geometry.coordinates[1], geojson.features[0].geometry.coordinates[1]];
+
+                        for (const feature of geojson.features) {
+                            if (feature.geometry.coordinates[0] < edgeLng[0]) {
+                                edgeLng[0] = feature.geometry.coordinates[0];
+                            }
+                            if (feature.geometry.coordinates[0] > edgeLng[1]) {
+                                edgeLng[1] = feature.geometry.coordinates[0];
+                            }
+                            if (feature.geometry.coordinates[1] < edgeLat[0]) {
+                                edgeLat[0] = feature.geometry.coordinates[1];
+                            }
+                            if (feature.geometry.coordinates[1] > edgeLat[1]) {
+                                edgeLat[1] = feature.geometry.coordinates[1];
+                            }
+                        }
+
+                        console.log(edgeLat, (edgeLat[0] - edgeLat[1]) / 2);
+
                         mapboxgl.accessToken = 'pk.eyJ1IjoiYW5uYS1nb2x1YmV2YSIsImEiOiJja3d3amwzOG4wNDByMm5sYW1yNGh2OXJiIn0.Krs4AfkVyobEvYXCCSyWUg';
                         const map = new mapboxgl.Map({
                             container: 'map', // container ID
                             style: 'mapbox://styles/anna-golubeva/clbqcyoq3000u15pnry107gt5', // style URL
-                            // center: [40.7, -73.99], // starting position [lng, lat]
-                            // zoom: 9 // starting zoom
+                            center: [(edgeLng[0] - edgeLng[1]) / 2, (edgeLat[0] - edgeLat[1]) / 2], // starting position [lng, lat]
+                            zoom: 2 // starting zoom
                         });
 
                         
@@ -310,6 +330,8 @@
                                     new mapboxgl.Popup({ offset: 25 }).setHTML(`<strong>${feature.properties.title}</strong><p>${feature.properties.description}</p>`))
                                 .addTo(map)
                         }
+
+
                     });
                 </script>
                 <div class="map-main_info">
