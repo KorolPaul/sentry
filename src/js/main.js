@@ -277,11 +277,9 @@ animateElements();
 
 function animateElements() {
     animatedElements.forEach(el => {
-        const ratio = el.classList.contains('tabs') ? 0.1 : 0.6;
+        const ratio = el.classList.contains('tabs') ? 0.00001 : 0.6;
         const observerCallback = function (e) {
             const {target, intersectionRatio} = e[0];
-
-            const targetRatio = target.className.includes('tabs') ? 0.000001 : 0.6;
 
             if (intersectionRatio > ratio) {
                 target.classList.add('animated');
