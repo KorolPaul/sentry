@@ -1,0 +1,26 @@
+.mapboxgl-popup-content {
+    // background: url(#{$img}/map-popup.svg) no-repeat center / 100% 100% !important;
+    padding-right: 54px !important;
+    padding-left: 24px !important;
+}
+
+.mapboxgl-popup-close-button {
+    @include button-reset;
+    background: url(#{$img}/map-close.svg) no-repeat center / 50% 50%;
+    width: 16px;
+    height: 16px;
+    font-size: 0;
+    top: 8px !important;
+    right: 16px !important;
+    outline: none !important;
+    transition: .2s $easing opacity;
+
+    &:hover {
+        background-color: transparent !important;
+        opacity: .6;
+    }
+    &:active {
+        background-color: transparent !important;
+        opacity: .8;
+    }
+}

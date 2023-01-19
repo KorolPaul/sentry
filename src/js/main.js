@@ -241,25 +241,22 @@ function initTabs() {
 initTabs()
 
 
+const hasCookies = localStorage.getItem('accept');
 
-if (Cookies) {
-    const hasCookies = Cookies.get('CookieNotificationCookie');
+const cookiesBanner = document.querySelector('.cookies');
+const cookiesAcceptButton = document.querySelector('.cookies_button');
 
-    const cookiesBanner = document.querySelector('.cookies');
-    const cookiesAcceptButton = document.querySelector('.cookies_button');
+if (cookiesAcceptButton) {
+    cookiesAcceptButton.addEventListener('click', function (e) {
+        e.preventDefault();
 
-    if (cookiesAcceptButton) {
-        cookiesAcceptButton.addEventListener('click', function (e) {
-            e.preventDefault();
+        localStorage.setItem('accept', 'true');
+        cookiesBanner.style.display = 'none';
+    });
+}
 
-            cookiesBanner.style.display = 'none';
-            Cookies.set('CookieNotificationCookie', 'true', { expires: 365 });
-        });
-    }
-
-    if (cookiesBanner && !hasCookies) {
-        cookiesBanner.style.display = 'flex';
-    }
+if (cookiesBanner && !hasCookies) {
+    cookiesBanner.style.display = 'flex';
 }
 
 
@@ -273,7 +270,6 @@ function animateElements() {
 
             const targetRatio = target.className.includes('tabs') ? 0.3 : 0.6;
 
-            console.log();
             if (intersectionRatio > targetRatio) {
                 target.classList.add('animated');
 

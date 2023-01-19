@@ -80,17 +80,7 @@
             <div class="section_holder">
                 <div class="map">
                     <div class="map_holder">
-                        <div class="map" id="map"></div>
-
-                         <script>
-                            window.addEventListener('DOMContentLoaded', () => {
-                                mapboxgl.accessToken = 'pk.eyJ1IjoiaG9sdWJldmExIiwiYSI6ImNrdWNpd2oyMDEweDUyem12NXJoejhiMXEifQ.SSvOMEbvURfxISRSaZwYWQ';
-                                const map = new mapboxgl.Map({
-                                    container: 'map',
-                                    style: 'mapbox://styles/anna-golubeva/clbqcyoq3000u15pnry107gt5', // style URL
-                                });
-                            });
-                        </script>
+                        <iframe width='100%' height='100%' src="https://api.mapbox.com/styles/v1/anna-golubeva/clbqcyoq3000u15pnry107gt5.html?title=false&access_token=pk.eyJ1IjoiYW5uYS1nb2x1YmV2YSIsImEiOiJja3d3amwzOG4wNDByMm5sYW1yNGh2OXJiIn0.Krs4AfkVyobEvYXCCSyWUg&zoomwheel=false#13.83/40.83661/-73.90726" title="Sentry Map" style="border:none;"></iframe>
                     </div>
                     <div class="map_info">
                         <div class="map_info-item">
@@ -232,19 +222,5 @@
     <script src="./src/js/nice-select2.min.js"></script>
     
     <script src="./src/js/main.js"></script>
-    <script>
-            // TO MAKE THE MAP APPEAR YOU MUST
-            // ADD YOUR ACCESS TOKEN FROM
-            // https://account.mapbox.com
-            mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
-                const map = new mapboxgl.Map({
-                container: 'map', // container ID
-                // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-                style: 'mapbox://styles/mapbox/streets-v11', // style URL
-                center: [-74.5, 40], // starting position [lng, lat]
-                zoom: 9, // starting zoom
-                projection: 'globe' // display the map as a 3D globe
-            });
-    </script>
 </body>
 </html>
