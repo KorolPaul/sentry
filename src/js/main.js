@@ -62,6 +62,7 @@ stepsSlider.forEach(el => {
         loop: false,
         responsive: {
             744: {
+                center: true,
                 items: 3.5,
                 fixedWidth: 350,
                 controls: true,

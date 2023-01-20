@@ -170,7 +170,7 @@
                     <div class="clients_cards">
                         <?php $ourclientsData = \App\Models\OurClientsData::with('categories')->limit(9)->get() ?>
                         @foreach($ourclientsData as $ourclientData)
-
+                                <?php $ids[] = $ourclientData->id ?>
                             <span class="client-card js-animation animation-delay"
                                   data-category="{{$ourclientData->categories_id}}">
                             <img src="{{asset('uploads/'.$ourclientData->photo)}}" alt="" class="client-card_icon">
@@ -187,7 +187,7 @@
                             </div>
                         </span>
                         @endforeach
-                        <?php $ourclientsData2 = \App\Models\OurClientsData::with('categories')->get()   ?>
+                        <?php $ourclientsData2 = \App\Models\OurClientsData::Wherenotin('id', $ids)->with('categories')->get()   ?>
                         @foreach($ourclientsData2 as $rty)
                             <span class="client-card hidden js-animation animation-delay"
                                   data-category="{{$Client->name}}">

@@ -184,7 +184,6 @@
                             <div class="fade" data-popup="apply">
                                 <div class="fade_back"></div>
                                 <div class="popup">
-{{--                                    <button class="popup_close"></button>--}}
                                     <div class="popup_content">
                                         <h2>Application</h2>
                                         <form action="" method="post" class="form feedback-form" id="feedback-form"  enctype="multipart/form-data">
