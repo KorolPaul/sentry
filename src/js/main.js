@@ -1,4 +1,4 @@
-// const wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+const wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
 const thresholdSteps = [...Array(10).keys()].map(i => i / 10);
 const isMobile = window.innerWidth <= 768
 const isDesktop = window.innerWidth >= 1000
@@ -151,10 +151,10 @@ function closeAllOpened() {
     document.querySelectorAll('.filters_content').forEach(el => el.classList.remove('opened'));
 }
 
-// const fadeElement = document.querySelector('.fade');
-// if (fadeElement) {
-//     fadeElement.addEventListener('click', closeAllOpened);
-// }
+const fadeElement = document.querySelector('.fade_back');
+if (fadeElement) {
+    fadeElement.addEventListener('click', closeAllOpened);
+}
 
 function openPopup(name) {
     const popup = document.querySelector(`.fade[data-popup="${name}"]`);
@@ -171,8 +171,7 @@ menuLinkElements.forEach(el => el.addEventListener('click', () => document.body.
 
 
 /* Popup */
-const popupToggleElements = document.querySelectorAll('.js-popup-toggle');
-
+const popupToggleElements = document.querySelectorAll('.js-popup-link');
 function disableScroll(e) {
     const {target} = e
     let isInPopup = false;
@@ -198,11 +197,11 @@ function disableScroll(e) {
 
 
 function openPopup(name) {
-    const popup = document.querySelector(`.popup[data-popup="${name}"]`);
+    const popup = document.querySelector(`.fade[data-popup="${name}"]`);
     if (popup) {
         popup.classList.add('opened');
         document.body.classList.add('popup-opened');
-        window.addEventListener(wheelEvent, disableScroll, {passive: false});
+        // window.addEventListener(wheelEvent, disableScroll, {passive: false});
     }
 }
 
@@ -216,12 +215,6 @@ function closePopup(name) {
 popupToggleElements.forEach(el => el.addEventListener('click', (e) => {
     e.preventDefault();
     openPopup(el.dataset.popup);
-}));
-
-const popupCloseElements = document.querySelectorAll('.popup_close');
-popupCloseElements.forEach(el => el.addEventListener('click', (e) => {
-    e.preventDefault();
-    closePopup();
 }));
 
 /* Tabs */
@@ -267,7 +260,7 @@ if (cookiesAcceptButton) {
 }
 
 if (cookiesBanner && !hasCookies) {
-        cookiesBanner.style.display = 'flex';
+    cookiesBanner.style.display = 'flex';
 }
 
 
@@ -277,10 +270,9 @@ animateElements();
 
 function animateElements() {
     animatedElements.forEach(el => {
-        const ratio = el.classList.contains('tabs') ? 0.00001 : 0.6;
+        const ratio = el.classList.contains('tabs') || el.classList.contains('showcase_stats-item') ? 0.000001 : 0.6;
         const observerCallback = function (e) {
             const {target, intersectionRatio} = e[0];
-
             if (intersectionRatio > ratio) {
                 target.classList.add('animated');
 
@@ -337,7 +329,7 @@ themesButtons.forEach(el => {
 });
 
 /* custom select input */
-if ('NiceSelect' in window) {
+if ('NiceSelect' in window && document.querySelector('select')) {
     NiceSelect.bind(document.querySelector('select'));
 }
 
@@ -379,35 +371,61 @@ odometerBlocks.forEach(el => {
 // clients Categories filter
 const clientsCategoriesLinks = document.querySelectorAll('.clients_category');
 const clientsCategoriesCards = document.querySelectorAll('.client-card');
-clientsCategoriesLinks.forEach(el => el.addEventListener('click', function (e) {
-    e.preventDefault();
-    const category = e.target.dataset.category;
+const clientsMoreButton = document.querySelector('#clients_more');
+let activeCategory = 'all';
+let isAllClientCardsShown = false;
 
-    clientsCategoriesLinks.forEach(link => link.classList.add('inactive'));
-    e.target.classList.remove('inactive');
+function showClientsCategory() {
+    let i = 0;
+
     clientsCategoriesCards.forEach(card => {
-        if (card.dataset.category === category) {
+        if (!isAllClientCardsShown && i >= 9) {
+            return;
+        }
+
+        if (card.dataset.category === activeCategory) {
             card.classList.remove('hidden');
+            i++;
         } else {
             card.classList.add('hidden');
         }
-        if (category == 'all'){
+        if (activeCategory == 'all') {
+            i++;
             card.classList.remove('hidden');
         }
-
-
     });
+
+    clientsMoreButton.style.display = isAllClientCardsShown || i <= 9 ? 'none' : 'block';
+}
+
+clientsCategoriesLinks.forEach(el => el.addEventListener('click', function (e) {
+    e.preventDefault();
+    activeCategory = e.target.dataset.category;
+    isAllClientCardsShown = false;
+
+    clientsCategoriesLinks.forEach(link => link.classList.add('inactive'));
+    e.target.classList.remove('inactive');
+    showClientsCategory();
 }));
 
-//
-// let clients_category = document.querySelector('.clients_category ');
-// let client-card = document.querySelector('.client-card');
-// clients_category.onclick = () => {
-//     // let category = clients_category.getAttribute('data-category')
-//     //
-//     // if(category == 'all'){
-//     //    alert(1)
-//     //
-//     // }
-// }
+if (clientsMoreButton) {
+    clientsMoreButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        isAllClientCardsShown = true;
+        showClientsCategory();
+    });
+}
 
+const vacancyMoreButtons = document.querySelectorAll('.vacancy_more');
+vacancyMoreButtons.forEach(el => {
+    el.addEventListener('click', (e) => {
+        e.target.parentElement.classList.toggle('active')
+    })
+});
+
+const vacancyBackButtons = document.querySelectorAll('.vacancy_back');
+vacancyBackButtons.forEach(el => {
+    el.addEventListener('click', (e) => {
+        e.target.parentElement.parentElement.parentElement.classList.toggle('active')
+    })
+});

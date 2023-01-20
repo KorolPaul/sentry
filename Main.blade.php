@@ -30,21 +30,13 @@
                         {{--                    @dd($mainheader)--}}
                         <h2 class="js-animation">
                             {{$mainheader->header}}
-<<<<<<< HEAD
                             <div class="bright">{{$mainheader->SubHeader}}</div>
-=======
-                            <div class="bright"></div>
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                         </h2>
                         <div class="showcase_stats">
                             <div class="showcase_stats-item js-animation animation-delay">
                                 <span class="showcase_stats-title">
                                     <span class="showcase_stats-number odometer"
-<<<<<<< HEAD
                                           data-value="{{$mainheader->number}}"> {{$mainheader->number}}</span>
-=======
-                                          data-value="{{$mainheader->number}}">{{$mainheader->number}}</span>
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                                     {{$mainheader->text1}}
                                 </span>
                                 <p>{{$mainheader->text2}}</p>
@@ -76,11 +68,7 @@
                 <div class="advantages_holder">
                     <?php $maincontent = \App\Models\MainContent::first() ?>
                     {{--                @dd($maincontent->photo)--}}
-<<<<<<< HEAD
                     <h1 class="js-animation">{{$maincontent->header}}</h1>
-=======
-                    <h1 class="js-animation">{{$maincontent->header}}?</h1>
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                     <div class="advantages_item js-animation">
                         <div class="advantages_description">
                             <h3 class="advantages_title">{{$maincontent->description}} </h3>
@@ -177,41 +165,18 @@
                             <a href="#" class="clients_category js-animation animation-delay"
                                @if($Client->id == 1)   data-category="all"
                                @else data-category="{{$Client->id}}" @endif>{{$Client->name}}</a>
-<<<<<<< HEAD
                         @endforeach
                     </div>
                     <div class="clients_cards">
                         <?php $ourclientsData = \App\Models\OurClientsData::with('categories')->limit(9)->get() ?>
                         @foreach($ourclientsData as $ourclientData)
 
-=======
-                            {{--                        <a href="#" class="clients_category js-animation animation-delay"--}}
-                            {{--                           data-category="Transportation">{{$ourclients->transportation_providers}}</a>--}}
-                            {{--                        <a href="#" class="clients_category js-animation animation-delay"--}}
-                            {{--                           data-category="Hospitals">{{$ourclients->hospitals}}</a>--}}
-                            {{--                        <a href="#" class="clients_category js-animation animation-delay"--}}
-                            {{--                           data-category="professionals">{{$ourclients->healthcare_professionals}}</a>--}}
-                            {{--                        <a href="#" class="clients_category js-animation animation-delay"--}}
-                            {{--                           data-category="systems">{{$ourclients->health_systems}}</a>--}}
-                            {{--                        <a href="#" class="clients_category js-animation animation-delay"--}}
-                            {{--                           data-category="Insurance">{{$ourclients->insurance_companies}}</a>--}}
-                            {{--                        <a href="#" class="clients_category js-animation animation-delay"--}}
-                            {{--                           data-category="MCO">{{$ourclients->mco}}</a>--}}
-                            {{--                        <a href="#" class="clients_category js-animation animation-delay"--}}
-                            {{--                           data-category="providers">{{$ourclients->dispatching_software}} </a>--}}
-                        @endforeach
-                    </div>
-                    <div class="clients_cards">
-                        <?php $ourclientsData = \App\Models\OurClientsData::limit(9)->get() ?>
-                        @foreach($ourclientsData as $ourclientData)
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                             <span class="client-card js-animation animation-delay"
                                   data-category="{{$ourclientData->categories_id}}">
                             <img src="{{asset('uploads/'.$ourclientData->photo)}}" alt="" class="client-card_icon">
                             <p class="client-card_title">{{$ourclientData->header}} </p>
                             <p class="client-card_text">{{$ourclientData->description}} </p>
                             <div class="client-card_tags">
-<<<<<<< HEAD
 
 {{--                                <span class="client-card_tag"> Health</span>--}}
                                 @if($ourclientData->categories->id != 1)
@@ -223,210 +188,26 @@
                         </span>
                         @endforeach
                         <?php $ourclientsData2 = \App\Models\OurClientsData::with('categories')->get()   ?>
-=======
-                                <span class="client-card_tag">Health</span>
-                            </div>
-                        </span>
-                        @endforeach
-                        <?php $ourclientsData2 = \App\Models\OurClientsData::get()   ?>
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                         @foreach($ourclientsData2 as $rty)
-                            <span style="display: none;" class="panel client-card js-animation animation-delay"
+                            <span class="client-card hidden js-animation animation-delay"
                                   data-category="{{$Client->name}}">
                             <img src="{{asset('uploads/'.$rty->photo)}}" alt="" class="client-card_icon">
                             <p class="client-card_title">{{$rty->header}} </p>
                             <p class="client-card_text">{{$rty->description}} </p>
                             <div class="client-card_tags">
-<<<<<<< HEAD
 
                                 @if($rty->categories->id !=1)
                                 <span class="client-card_tag">{{$rty->categories->name}}</span>
                             @else
                                     <span class="client-card_tag">Uncategorized</span>
                                 @endif
-=======
-                                <span class="client-card_tag">Health</span>
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                             </div>
                         </span>
                         @endforeach
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-                        <script>
-                            $('.clients_category').click(function (e) {
-                                event.preventDefault()
-                                let category = $(this).attr('data-category')
-<<<<<<< HEAD
-
-                                if(category == 'all'){
-                                    $('#clients_moreAS').hide()
-                                }
-=======
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
-                                let main_div = $('.clients_cards');
-                                var formData = {
-                                    category: category,
-                                };
-                                $.ajax({
-                                    headers: {
-                                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                                    },
-                                    type: "POST",
-                                    url: "/GetCategoryClient",
-                                    data: formData,
-                                    dataType: "json",
-                                    encode: true,
-                                    success: function (response) {
-
-                                        if (response.status == true) {
-                                            main_div.html(' ')
-                                            let i = 0;
-                                            $.each(response.data, function (index, value) {
-                                                i++;
-<<<<<<< HEAD
-                                               let  cate = '';
-                                                if(value.categories.name == 'All clients'){
-                                                    cate = 'Uncategorized'
-                                                }else{
-                                                    cate = value.categories.name
-                                                }
-=======
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
-
-                                                if (i <= 9) {
-                                                    main_div.append(
-                                                        `
-<<<<<<< HEAD
-                                                                     <span class="client-card  animation-delay" id="ClientCard" data-category="${value.categories_id}">
-=======
-                                                                     <span class="client-card js-animation animation-delay" id="ClientCard" data-category="${value.categories_id}">
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
-                            <img src="/uploads/${value.photo}" alt="" class="client-card_icon">
-                            <p class="client-card_title">${value.header} </p>
-                            <p class="client-card_text">${value.description}</p>
-                            <div class="client-card_tags">
-<<<<<<< HEAD
-                                <span class="client-card_tag"> ${cate}</span>
-=======
-                                <span class="client-card_tag">Health</span>
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
-                            </div>
-                        </span>
-                                                `)
-                                                } else {
-                                                    main_div.append(
-                                                        `
-                                                                     <span class="contetTwo client-card  animation-delay"  style="display: none" id="ClientCard" data-category="${value.categories_id}">
-                            <img src="/uploads/${value.photo}" alt="" class="client-card_icon">
-                            <p class="client-card_title">${value.header} </p>
-                            <p class="client-card_text">${value.description}</p>
-                            <div class="client-card_tags">
-                                <span class="client-card_tag">${cate}</span>
-                            </div>
-                        </span>
-                                                `)
-                                                }
-                                            });
-
-                                            $('#clients_more').click(function (e) {
-                                                event.preventDefault()
-                                                $('.contetTwo').css('display', 'block')
-                                                $('#clients_more').css('display', 'none')
-                                            })
-                                            if (response.data.length >= 9) {
-                                                // alert(1)
-                                                $('#clients_more').css('display', 'block')
-                                                $('#clients_more').css('margin-top', '126px')
-                                            } else {
-
-                                                $('#clients_more').css('display', 'none')
-                                            }
-                                        }
-                                    },
-                                });
-
-                            })
-                        </script>
-<<<<<<< HEAD
                     </div>
 
-                    <button class="clients_more" style="display: none;" id="clients_more">Show more</button>
-                    <button class="clients_more" id="clients_moreAS">Show  more</button>
-=======
-
-
-                        {{--                    <span class="client-card js-animation animation-delay" data-category="professionals">--}}
-                        {{--                            <img src="src/img/clients/client-3.png" alt="" class="client-card_icon">--}}
-                        {{--                            <p class="client-card_title">VillageCare MAX</p>--}}
-                        {{--                            <p class="client-card_text">Serves people with chronic care needs, seniors and individuals in need of continuous care.</p>--}}
-                        {{--                            <div class="client-card_tags">--}}
-                        {{--                                <span class="client-card_tag">Health</span>--}}
-                        {{--                            </div>--}}
-                        {{--                        </span>--}}
-                        {{--                    <span class="client-card js-animation animation-delay" data-category="systems">--}}
-                        {{--                            <img src="src/img/clients/client-4.png" alt="" class="client-card_icon">--}}
-                        {{--                            <p class="client-card_title">Metropolitan Transportation Authority</p>--}}
-                        {{--                            <p class="client-card_text">The largest transportation network in New York State and in the USA.</p>--}}
-                        {{--                            <div class="client-card_tags">--}}
-                        {{--                                <span class="client-card_tag">Health</span>--}}
-                        {{--                            </div>--}}
-                        {{--                        </span>--}}
-                        {{--                    <span class="client-card js-animation animation-delay" data-category="Insurance">--}}
-                        {{--                            <img src="src/img/clients/client-5.png" alt="" class="client-card_icon">--}}
-                        {{--                            <p class="client-card_title">Centers Plan for Healthy Living</p>--}}
-                        {{--                            <p class="client-card_text">Creates the ultimate healthcare experience for their members with the guidance and plans.</p>--}}
-                        {{--                            <div class="client-card_tags">--}}
-                        {{--                                <span class="client-card_tag">Health</span>--}}
-                        {{--                            </div>--}}
-                        {{--                        </span>--}}
-                        {{--                    <span class="client-card js-animation animation-delay" data-category="MCO">--}}
-                        {{--                            <img src="src/img/clients/client-6.png" alt="" class="client-card_icon">--}}
-                        {{--                            <p class="client-card_title">M.B.S.C.C.</p>--}}
-                        {{--                            <p class="client-card_text">Supports the residents of the South and Mid-Bronx through their far-reaching social programs.</p>--}}
-                        {{--                            <div class="client-card_tags">--}}
-                        {{--                                <span class="client-card_tag">Health</span>--}}
-                        {{--                            </div>--}}
-                        {{--                        </span>--}}
-                        {{--                    <span class="client-card js-animation animation-delay" data-category="providers">--}}
-                        {{--                            <img src="src/img/clients/client-7.png" alt="" class="client-card_icon">--}}
-                        {{--                            <p class="client-card_title">Bronx Lebanon</p>--}}
-                        {{--                            <p class="client-card_text">BronxCare is now among the largest providers of outpatient services in New York City, its ER is one of the busiest in NY.</p>--}}
-                        {{--                            <div class="client-card_tags">--}}
-                        {{--                                <span class="client-card_tag">Health</span>--}}
-                        {{--                            </div>--}}
-                        {{--                        </span>--}}
-                        {{--                    <span class="client-card js-animation animation-delay" data-category="Transportation">--}}
-                        {{--                            <img src="src/img/clients/client-8.png" alt="" class="client-card_icon">--}}
-                        {{--                            <p class="client-card_title">NYC Health + Hospitals</p>--}}
-                        {{--                            <p class="client-card_text">The nation’s largest municipal health system empowering New Yorkers to live their healthiest life.</p>--}}
-                        {{--                            <div class="client-card_tags">--}}
-                        {{--                                <span class="client-card_tag">Health</span>--}}
-                        {{--                            </div>--}}
-                        {{--                        </span>--}}
-                        {{--                    <span class="client-card js-animation animation-delay" data-category="Transportation">--}}
-                        {{--                            <img src="src/img/clients/client-9.png" alt="" class="client-card_icon">--}}
-                        {{--                            <p class="client-card_title">NYC Health</p>--}}
-                        {{--                            <p class="client-card_text">The department of the government of New York City responsible for public health and hygiene. </p>--}}
-                        {{--                            <div class="client-card_tags">--}}
-                        {{--                                <span class="client-card_tag">Health</span>--}}
-                        {{--                            </div>--}}
-                        {{--                        </span>--}}
-                    </div>
-
-                    <button class="clients_more" style="display: none;" id="clients_more">Show more</button>
-                    <button class="clients_more" id="clients_moreAS">Show as more</button>
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
-
-                    <script>
-
-                        $('#clients_moreAS').click(function (e) {
-                            event.preventDefault()
-                            $('.client-card').css('display', 'none');
-                            $('.panel').css('display', 'block');
-                            $('#clients_moreAS').css('display', 'none');
-
-                        })
-
-                    </script>
+                    <button class="clients_more" id="clients_more">Show more</button>
 
                 </div>
             </div>
@@ -446,13 +227,8 @@
                     ?>
                 @foreach ($row as $TYU)
                    <?php  $data[] = array(
-<<<<<<< HEAD
                         'lat' => $TYU[1],
                         'long' => $TYU[0],
-=======
-                        'lat' => $TYU[0],
-                        'long' => $TYU[1],
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                         'address' => $TYU[3],
                         'title' =>  $TYU[2]
                     );  $js = json_encode($data) ?>
@@ -467,7 +243,6 @@
                             'features': cordinate
                         };
 
-<<<<<<< HEAD
                         const edgeLng = [Number(geojson.features[0].lat), Number(geojson.features[0].lat)];
                         const edgeLat = [Number(geojson.features[0].long), Number(geojson.features[0].long)];
 
@@ -486,48 +261,17 @@
                             }
                         }
 
-                        console.log(edgeLng, edgeLat, [edgeLng[1] + ((edgeLng[0] - edgeLng[1]) / 2), edgeLat[1] + ((edgeLat[0] - edgeLat[1]) / 2)])
-
-=======
-                        const edgeLng = [geojson.features[0].lat, geojson.features[0].lat];
-                        const edgeLat = [geojson.features[0].long, geojson.features[0].long];
-
-                        for (const feature of geojson.features) {
-                            if (feature.lat < edgeLng[0]) {
-                                edgeLng[0] = feature.lat;
-                            }
-                            if (feature.lat > edgeLng[1]) {
-                                edgeLng[1] = feature.lat;
-                            }
-                            if (feature.long < edgeLat[0]) {
-                                edgeLat[0] = feature.long;
-                            }
-                            if (feature.long > edgeLat[1]) {
-                                edgeLat[1] = feature.long;
-                            }
-                        }
-
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
 
                         mapboxgl.accessToken = 'pk.eyJ1IjoiYW5uYS1nb2x1YmV2YSIsImEiOiJja3d3amwzOG4wNDByMm5sYW1yNGh2OXJiIn0.Krs4AfkVyobEvYXCCSyWUg';
 
                         const map = new mapboxgl.Map({
                             container: 'map',
                             style: 'mapbox://styles/anna-golubeva/clbqcyoq3000u15pnry107gt5',
-<<<<<<< HEAD
                             center: [edgeLng[1] + ((edgeLng[0] - edgeLng[1]) / 2), edgeLat[1] + ((edgeLat[0] - edgeLat[1]) / 2)],
                             zoom: 6
                         });
 
                         for (const feature of geojson.features) {
-=======
-                            center: [(edgeLng[0] - edgeLng[1]) / 2, (edgeLat[0] - edgeLat[1]) / 2],
-                            zoom: 2
-                        });
-
-                        for (const feature of geojson.features) {
-                            console.log('feature', feature)
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                             const marker = document.createElement('div');
                             marker.className = 'marker';
                             marker.style.width = `60px`;
@@ -549,17 +293,13 @@
 
                     <h3 class="map-main_title">{{$ourclientsDataS->header}}</h3>
                     <p>{{$ourclientsDataS->description}}</p>
-<<<<<<< HEAD
                     <p>{{$ourclientsDataS->subdescription}}</p>
-=======
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                 </div>
             </div>
         </section>
         <section class="section section__no-top-indent">
             <?php $customer = \App\Models\Customers::get() ?>
             <div class="section_holder">
-<<<<<<< HEAD
                 <h2 class="js-animation">{{$customer[0]->header}}</h2>
                 <div class="reviews">
                                         @foreach($customer as $customers)
@@ -577,65 +317,6 @@
                                                 </div>
                                             </div>
                                         @endforeach
-=======
-
-                <h2 class="js-animation">{{$customer[0]->header}}</h2>
-                <div class="reviews">
-                    {{--                    @foreach($customer as $customers)--}}
-                    {{--                        <div class="review">--}}
-                    {{--                            <span class="review_text">{{$customers->text}}</span>--}}
-                    {{--                            <div class="review_bottom">--}}
-                    {{--                                <span class="review_author">{{$customers->name}}</span>--}}
-                    {{--                                <div class="review_rating">--}}
-                    {{--                                    <div class="review_star"></div>--}}
-                    {{--                                    <div class="review_star"></div>--}}
-                    {{--                                    <div class="review_star"></div>--}}
-                    {{--                                    <div class="review_star"></div>--}}
-                    {{--                                    <div class="review_star"></div>--}}
-                    {{--                                </div>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                    @endforeach--}}
-                    {{--                <div class="review">--}}
-                    {{--                    <span class="review_text">“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.”</span>--}}
-                    {{--                    <div class="review_bottom">--}}
-                    {{--                        <span class="review_author">Alex</span>--}}
-                    {{--                        <div class="review_rating">--}}
-                    {{--                            <div class="review_star"></div>--}}
-                    {{--                            <div class="review_star"></div>--}}
-                    {{--                            <div class="review_star"></div>--}}
-                    {{--                            <div class="review_star"></div>--}}
-                    {{--                            <div class="review_star"></div>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-                    {{--                </div>--}}
-                    {{--                <div class="review">--}}
-                    {{--                    <span class="review_text">“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.”</span>--}}
-                    {{--                    <div class="review_bottom">--}}
-                    {{--                        <span class="review_author">Alex</span>--}}
-                    {{--                        <div class="review_rating">--}}
-                    {{--                            <div class="review_star"></div>--}}
-                    {{--                            <div class="review_star"></div>--}}
-                    {{--                            <div class="review_star"></div>--}}
-                    {{--                            <div class="review_star"></div>--}}
-                    {{--                            <div class="review_star"></div>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-                    {{--                </div>--}}
-                    {{--                <div class="review">--}}
-                    {{--                    <span class="review_text">“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.”</span>--}}
-                    {{--                    <div class="review_bottom">--}}
-                    {{--                        <span class="review_author">Alex</span>--}}
-                    {{--                        <div class="review_rating">--}}
-                    {{--                            <div class="review_star"></div>--}}
-                    {{--                            <div class="review_star"></div>--}}
-                    {{--                            <div class="review_star"></div>--}}
-                    {{--                            <div class="review_star"></div>--}}
-                    {{--                            <div class="review_star"></div>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-                    {{--                </div>--}}
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                 </div>
             </div>
 
@@ -644,15 +325,8 @@
 
         @if(session('true'))
             <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<<<<<<< HEAD
             <script>
                 $('html, body').scrollTop( 7200 );
-=======
-
-
-            <script>
-                $('html, body').scrollTop( 6400 );
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
 
                 Swal.fire({
                     position: 'center',
@@ -685,11 +359,7 @@
                             <input name="name" type="text" id="name" value="{{old('name')}}">
                             @error('name')
                             <script>
-<<<<<<< HEAD
                                 $('html, body').scrollTop( 7200 );
-=======
-                                $('html, body').scrollTop( 6400 );
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                             </script>
                             <style>
                                 #name {
@@ -704,11 +374,7 @@
                             <input name="surname" type="text" id="surname" value="{{old('surname')}}">
                             @error('surname')
                             <script>
-<<<<<<< HEAD
                                 $('html, body').scrollTop( 7200 );
-=======
-                                $('html, body').scrollTop( 6400 );
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                             </script>
                             <style>
                                 #surname {
@@ -730,11 +396,7 @@
                             </select>
                             @error('category_name')
                             <script>
-<<<<<<< HEAD
                                 $('html, body').scrollTop( 7200 );
-=======
-                                $('html, body').scrollTop( 6400 );
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                             </script>
                             <style>
                                 #tel {
@@ -749,11 +411,7 @@
                             <input name="company" type="text" id="Company" value="{{old('company')}}">
                             @error('company')
                             <script>
-<<<<<<< HEAD
                                 $('html, body').scrollTop( 7200 );
-=======
-                                $('html, body').scrollTop( 6400 );
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                             </script>
                             <style>
                                 #Company {
@@ -770,11 +428,7 @@
                             <input name="email" type="email" id="email" value="{{old('email')}}">
                             @error('email')
                             <script>
-<<<<<<< HEAD
                                 $('html, body').scrollTop( 7200 );
-=======
-                                $('html, body').scrollTop( 6400 );
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                             </script>
                             <style>
                                 #email {
@@ -786,27 +440,10 @@
                         </div>
                         <div class="form_item">
                             <label for="tel">Phone</label>
-<<<<<<< HEAD
-                            <input class="MyNumberInput" value="{{old('number')}}" name="number" id="tel" type="number" >
+                            <input class="MyNumberInput" value="{{old('number')}}" name="number" id="tel" type="tel" >
                             @error('number')
                             <script>
                                 $('html, body').scrollTop( 7200 );
-=======
-                            <input value="{{old('number')}}" name="number" id="tel" type="number" style="    color: #222;
-    background: rgba(0, 0, 0, 0);
-    border: 1px solid #9ca3af;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font: 400 16px Montserrat, helvetica, monospace;
-                        height: 56px;
-                        line-height: 34px;
-                        padding: 0 0 0 20px;
-                        width: 100%;
-                        transition: .2s ease-in border-color;">
-                            @error('number')
-                            <script>
-                                $('html, body').scrollTop( 6400 );
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
                             </script>
                             <style>
                                 #tel {
@@ -825,89 +462,24 @@
                 </form>
             </div>
         </section>
-<<<<<<< HEAD
-=======
-
-
-        {{--    <section class="section section__grey section__small-top-indent  section__small-bottom-indent">--}}
-        {{--        <div class="section_holder">--}}
-        {{--            <h2 class="js-animation">Message Us</h2>--}}
-        {{--            <form class="form" id="feedback-form">--}}
-        {{--                <div class="form_row js-animation">--}}
-        {{--                    <div class="form_item">--}}
-        {{--                        <label for="name">Name</label>--}}
-        {{--                        <input type="text" id="name" >--}}
-        {{--                    </div>--}}
-        {{--                    <div class="form_item">--}}
-        {{--                        <label for="surname">Surname</label>--}}
-        {{--                        <input type="text" id="surname" >--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--                <div class="form_row js-animation">--}}
-        {{--                    <div class="form_item">--}}
-        {{--                        <label for="name">Company category</label>--}}
-        {{--                        <select>--}}
-        {{--                            <option>Hospitals</option>--}}
-        {{--                            <option>Health systems</option>--}}
-        {{--                        </select>--}}
-        {{--                    </div>--}}
-        {{--                    <div class="form_item">--}}
-        {{--                        <label for="surname">Company</label>--}}
-        {{--                        <input type="text" id="Company" >--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--                <div class="form_row js-animation">--}}
-        {{--                    <div class="form_item">--}}
-        {{--                        <label for="email">E-mail</label>--}}
-        {{--                        <input type="email" id="email" >--}}
-        {{--                    </div>--}}
-        {{--                    <div class="form_item">--}}
-        {{--                        <label for="tel">Phone</label>--}}
-        {{--                        <input type="tel" id="tel" >--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--                <div class="form_row js-animation">--}}
-        {{--                    <div class="form_item form_item__center">--}}
-        {{--                        <input type="submit" value="Submit Message">--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--            </form>--}}
-        {{--            <script>--}}
-        {{--                const form = document.getElementById('feedback-form');--}}
-        {{--                form.addEventListener('submit', function(e) {--}}
-        {{--                    e.preventDefault();--}}
-        {{--                    const submitEl = form.querySelector('[type=submit]');--}}
-        {{--                    submitEl.setAttribute('disabled', true);--}}
-
-        {{--                    // FORM SUBMIT AJAX LOGIC--}}
-
-        {{--                    submitEl.value = '✔ Sent';--}}
-        {{--                    submitEl.classList.add('done');--}}
-        {{--                })--}}
-        {{--            </script>--}}
-        {{--        </div>--}}
-        {{--    </section>--}}
-
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
         <section class="section">
             <div class="section_holder">
                 <h1 class="bright js-animation">FAQ</h1>
                 <div class="tabs js-animation">
                     <div class="tabs_buttons">
-<<<<<<< HEAD
                         <?php $category = \App\Models\Category::get(); $i = 0; ?>
                         @foreach($category as $POi)
-                        <button class="tabs_button active" data-tab="{{$POi->id}}">{{$POi["name"]}}</button>
+                        <button class="tabs_button" data-tab="{{$POi->id}}">{{$POi["name"]}}</button>
                     @endforeach
                     </div>
 
                     <div class="tabs_content-holder">
                         @foreach($category as $POi)
                             <?php $categoryContext = \App\Models\Categorycontext::where('category_id',$POi->id)->get() ?>
-                        <div class="tabs_content active" data-tab="{{$POi->id}}">
+                        <div class="tabs_content" data-tab="{{$POi->id}}">
                             <div class="faq">
                                 @foreach($categoryContext  as $context)
-                                <div class="faq_item opened">
+                                <div class="faq_item">
                                     <span class="faq_header">
                                         {{$context['header']}}
                                         <div class="faq_header-arrow"></div>
@@ -924,1060 +496,17 @@
                             @endforeach
 
 
-=======
-                        <?php $category = \App\Models\Category::get() ?>
-
-
-                        <button class="tabs_button active" data-tab="1">{{$category[0]["name"]}}</button>
-                        <button class="tabs_button" data-tab="2">{{$category[1]["name"]}}</button>
-                        <button class="tabs_button" data-tab="3">{{$category[2]["name"]}}</button>
                     </div>
-                    <?php $categoryContext = \App\Models\Categorycontext::get() ?>
-                    <div class="tabs_content-holder">
-                        <div class="tabs_content active" data-tab="1">
-                            <div class="faq">
-                                <div class="faq_item opened">
-                                    <span class="faq_header">
-                                        {{$categoryContext[0]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                    <div class="faq_content">
-                                        {!! $categoryContext[0]['description'] !!}
-                                        {{--                                    <div class="faq_text">--}}
-                                        {{--                                        <p>Federal regulations say that Medicaid beneficiaries can get rides to and from providers when necessary.[1] States have different rules about when rides are necessary, so make sure you check with your State. Generally, when you enroll in Medicaid, you will receive instructions about when a ride is necessary and how and when you can schedule a ride. You may have to call a Medicaid caseworker, a ride service, or another agency. That contact should:</p>--}}
-                                        {{--                                        <ul>--}}
-                                        {{--                                            <li>Help you decide if you have an immediate need for care;</li>--}}
-                                        {{--                                            <li>Make sure you are eligible for Medicaid;</li>--}}
-                                        {{--                                            <li>Verify that you have an appointment with a Medicaid provider;</li>--}}
-                                        {{--                                        </ul>--}}
-                                        {{--                                        <p>--}}
-                                        {{--                                            Based on this information, your contact will either set up the ride you need or will tell you how to set up the ride yourself. A person or ride service approved by the State Medicaid program will take you to and from your appointment. Generally, if you are enrolled in a Medicaid managed care plan, the customer service staff can give you facts about ride benefits.--}}
-                                        {{--                                        </p>--}}
-                                        {{--                                    </div>--}}
-                                    </div>
-                                </div>
-                                <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[1]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                    <div class="faq_content">
-                                        {!! $categoryContext[1]['description'] !!}
-                                        {{--                                    <div class="faq_text">--}}
-                                        {{--                                        <p>Federal regulations say that Medicaid beneficiaries can get rides to and from providers when necessary.[1] States have different rules about when rides are necessary, so make sure you check with your State. Generally, when you enroll in Medicaid, you will receive instructions about when a ride is necessary and how and when you can schedule a ride. You may have to call a Medicaid caseworker, a ride service, or another agency. That contact should:</p>--}}
-                                        {{--                                        <ul>--}}
-                                        {{--                                            <li>Help you decide if you have an immediate need for care;</li>--}}
-                                        {{--                                            <li>Make sure you are eligible for Medicaid;</li>--}}
-                                        {{--                                            <li>Verify that you have an appointment with a Medicaid provider;</li>--}}
-                                        {{--                                        </ul>--}}
-                                        {{--                                        <p>--}}
-                                        {{--                                            Based on this information, your contact will either set up the ride you need or will tell you how to set up the ride yourself. A person or ride service approved by the State Medicaid program will take you to and from your appointment. Generally, if you are enrolled in a Medicaid managed care plan, the customer service staff can give you facts about ride benefits.--}}
-                                        {{--                                        </p>--}}
-                                        {{--                                    </div>--}}
-                                    </div>
-                                </div>
-                                <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[2]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                    <div class="faq_content">
-                                        {!! $categoryContext[2]['description'] !!}
-                                        {{--                                    <div class="faq_text">--}}
-                                        {{--                                        <p>Federal regulations say that Medicaid beneficiaries can get rides to and from providers when necessary.[1] States have different rules about when rides are necessary, so make sure you check with your State. Generally, when you enroll in Medicaid, you will receive instructions about when a ride is necessary and how and when you can schedule a ride. You may have to call a Medicaid caseworker, a ride service, or another agency. That contact should:</p>--}}
-                                        {{--                                        <ul>--}}
-                                        {{--                                            <li>Help you decide if you have an immediate need for care;</li>--}}
-                                        {{--                                            <li>Make sure you are eligible for Medicaid;</li>--}}
-                                        {{--                                            <li>Verify that you have an appointment with a Medicaid provider;</li>--}}
-                                        {{--                                        </ul>--}}
-                                        {{--                                        <p>--}}
-                                        {{--                                            Based on this information, your contact will either set up the ride you need or will tell you how to set up the ride yourself. A person or ride service approved by the State Medicaid program will take you to and from your appointment. Generally, if you are enrolled in a Medicaid managed care plan, the customer service staff can give you facts about ride benefits.--}}
-                                        {{--                                        </p>--}}
-                                        {{--                                    </div>--}}
-                                    </div>
-                                </div>
-                                <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[3]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                    <div class="faq_content">
-                                        {!! $categoryContext[3]['description'] !!}
-                                        {{--                                    <div class="faq_text">--}}
-                                        {{--                                        <p>Federal regulations say that Medicaid beneficiaries can get rides to and from providers when necessary.[1] States have different rules about when rides are necessary, so make sure you check with your State. Generally, when you enroll in Medicaid, you will receive instructions about when a ride is necessary and how and when you can schedule a ride. You may have to call a Medicaid caseworker, a ride service, or another agency. That contact should:</p>--}}
-                                        {{--                                        <ul>--}}
-                                        {{--                                            <li>Help you decide if you have an immediate need for care;</li>--}}
-                                        {{--                                            <li>Make sure you are eligible for Medicaid;</li>--}}
-                                        {{--                                            <li>Verify that you have an appointment with a Medicaid provider;</li>--}}
-                                        {{--                                        </ul>--}}
-                                        {{--                                        <p>--}}
-                                        {{--                                            Based on this information, your contact will either set up the ride you need or will tell you how to set up the ride yourself. A person or ride service approved by the State Medicaid program will take you to and from your appointment. Generally, if you are enrolled in a Medicaid managed care plan, the customer service staff can give you facts about ride benefits.--}}
-                                        {{--                                        </p>--}}
-                                        {{--                                    </div>--}}
-                                    </div>
-                                </div>
-                                <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[4]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                    <div class="faq_content">
-                                        {!! $categoryContext[4]['description'] !!}
-                                        {{--                                    <div class="faq_text">--}}
-                                        {{--                                        <p>Federal regulations say that Medicaid beneficiaries can get rides to and from providers when necessary.[1] States have different rules about when rides are necessary, so make sure you check with your State. Generally, when you enroll in Medicaid, you will receive instructions about when a ride is necessary and how and when you can schedule a ride. You may have to call a Medicaid caseworker, a ride service, or another agency. That contact should:</p>--}}
-                                        {{--                                        <ul>--}}
-                                        {{--                                            <li>Help you decide if you have an immediate need for care;</li>--}}
-                                        {{--                                            <li>Make sure you are eligible for Medicaid;</li>--}}
-                                        {{--                                            <li>Verify that you have an appointment with a Medicaid provider;</li>--}}
-                                        {{--                                        </ul>--}}
-                                        {{--                                        <p>--}}
-                                        {{--                                            Based on this information, your contact will either set up the ride you need or will tell you how to set up the ride yourself. A person or ride service approved by the State Medicaid program will take you to and from your appointment. Generally, if you are enrolled in a Medicaid managed care plan, the customer service staff can give you facts about ride benefits.--}}
-                                        {{--                                        </p>--}}
-                                        {{--                                    </div>--}}
-                                    </div>
-                                </div>
-                                @if(isset($categoryContext[14]) && $categoryContext[14]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[14]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[14]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[15]) && $categoryContext[15]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[15]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[15]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[16]) && $categoryContext[16]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[16]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[16]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[17]) && $categoryContext[17]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[17]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[17]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[18]) && $categoryContext[18]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[18]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[18]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[19]) && $categoryContext[19]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[19]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[19]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[20]) && $categoryContext[20]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[20]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[20]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[21]) && $categoryContext[21]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[21]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[21]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[22]) && $categoryContext[22]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[22]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[22]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[23]) && $categoryContext[23]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[23]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[23]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[24]) && $categoryContext[24]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[24]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[24]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[25]) && $categoryContext[25]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[25]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[25]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[26]) && $categoryContext[26]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[26]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[26]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[27]) && $categoryContext[27]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[27]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[27]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[28]) && $categoryContext[28]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[28]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[28]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[29]) && $categoryContext[29]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[29]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[29]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[30]) && $categoryContext[30]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[30]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[30]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[31]) && $categoryContext[31]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[31]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[31]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[32]) && $categoryContext[32]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[32]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[32]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[33]) && $categoryContext[33]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[33]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[33]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[34]) && $categoryContext[34]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[34]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[34]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[35]) && $categoryContext[35]["category_id"] == 1)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[35]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[35]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="tabs_content" data-tab="2">
-                            <div class="faq">
-                                <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[5]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                    <div class="faq_content">
-                                        {!! $categoryContext[5]['description'] !!}
-
-                                        {{--                                    <div class="faq_text">--}}
-                                        {{--                                        <p>Federal regulations say that Medicaid beneficiaries can get rides to and from providers when necessary.[1] States have different rules about when rides are necessary, so make sure you check with your State. Generally, when you enroll in Medicaid, you will receive instructions about when a ride is necessary and how and when you can schedule a ride. You may have to call a Medicaid caseworker, a ride service, or another agency. That contact should:</p>--}}
-                                        {{--                                        <ul>--}}
-                                        {{--                                            <li>Help you decide if you have an immediate need for care;</li>--}}
-                                        {{--                                            <li>Make sure you are eligible for Medicaid;</li>--}}
-                                        {{--                                            <li>Verify that you have an appointment with a Medicaid provider;</li>--}}
-                                        {{--                                        </ul>--}}
-                                        {{--                                        <p>--}}
-                                        {{--                                            Based on this information, your contact will either set up the ride you need or will tell you how to set up the ride yourself. A person or ride service approved by the State Medicaid program will take you to and from your appointment. Generally, if you are enrolled in a Medicaid managed care plan, the customer service staff can give you facts about ride benefits.--}}
-                                        {{--                                        </p>--}}
-                                        {{--                                    </div>--}}
-                                    </div>
-                                </div>
-                                <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[6]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                    <div class="faq_content">
-                                        {!! $categoryContext[6]['description'] !!}
-                                        {{--                                    <div class="faq_text">--}}
-                                        {{--                                        <p>Federal regulations say that Medicaid beneficiaries can get rides to and from providers when necessary.[1] States have different rules about when rides are necessary, so make sure you check with your State. Generally, when you enroll in Medicaid, you will receive instructions about when a ride is necessary and how and when you can schedule a ride. You may have to call a Medicaid caseworker, a ride service, or another agency. That contact should:</p>--}}
-                                        {{--                                        <ul>--}}
-                                        {{--                                            <li>Help you decide if you have an immediate need for care;</li>--}}
-                                        {{--                                            <li>Make sure you are eligible for Medicaid;</li>--}}
-                                        {{--                                            <li>Verify that you have an appointment with a Medicaid provider;</li>--}}
-                                        {{--                                        </ul>--}}
-                                        {{--                                        <p>--}}
-                                        {{--                                            Based on this information, your contact will either set up the ride you need or will tell you how to set up the ride yourself. A person or ride service approved by the State Medicaid program will take you to and from your appointment. Generally, if you are enrolled in a Medicaid managed care plan, the customer service staff can give you facts about ride benefits.--}}
-                                        {{--                                        </p>--}}
-                                        {{--                                    </div>--}}
-                                    </div>
-                                </div>
-                                <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[7]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                    <div class="faq_content">
-                                        {!! $categoryContext[7]['description'] !!}
-                                        {{--                                    <div class="faq_text">--}}
-                                        {{--                                        <p>Federal regulations say that Medicaid beneficiaries can get rides to and from providers when necessary.[1] States have different rules about when rides are necessary, so make sure you check with your State. Generally, when you enroll in Medicaid, you will receive instructions about when a ride is necessary and how and when you can schedule a ride. You may have to call a Medicaid caseworker, a ride service, or another agency. That contact should:</p>--}}
-                                        {{--                                        <ul>--}}
-                                        {{--                                            <li>Help you decide if you have an immediate need for care;</li>--}}
-                                        {{--                                            <li>Make sure you are eligible for Medicaid;</li>--}}
-                                        {{--                                            <li>Verify that you have an appointment with a Medicaid provider;</li>--}}
-                                        {{--                                        </ul>--}}
-                                        {{--                                        <p>--}}
-                                        {{--                                            Based on this information, your contact will either set up the ride you need or will tell you how to set up the ride yourself. A person or ride service approved by the State Medicaid program will take you to and from your appointment. Generally, if you are enrolled in a Medicaid managed care plan, the customer service staff can give you facts about ride benefits.--}}
-                                        {{--                                        </p>--}}
-                                        {{--                                    </div>--}}
-                                    </div>
-                                </div>
-                                <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[8]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                    <div class="faq_content">
-                                        {!! $categoryContext[8]['description'] !!}
-                                        {{--                                    <div class="faq_text">--}}
-                                        {{--                                        <p>Federal regulations say that Medicaid beneficiaries can get rides to and from providers when necessary.[1] States have different rules about when rides are necessary, so make sure you check with your State. Generally, when you enroll in Medicaid, you will receive instructions about when a ride is necessary and how and when you can schedule a ride. You may have to call a Medicaid caseworker, a ride service, or another agency. That contact should:</p>--}}
-                                        {{--                                        <ul>--}}
-                                        {{--                                            <li>Help you decide if you have an immediate need for care;</li>--}}
-                                        {{--                                            <li>Make sure you are eligible for Medicaid;</li>--}}
-                                        {{--                                            <li>Verify that you have an appointment with a Medicaid provider;</li>--}}
-                                        {{--                                        </ul>--}}
-                                        {{--                                        <p>--}}
-                                        {{--                                            Based on this information, your contact will either set up the ride you need or will tell you how to set up the ride yourself. A person or ride service approved by the State Medicaid program will take you to and from your appointment. Generally, if you are enrolled in a Medicaid managed care plan, the customer service staff can give you facts about ride benefits.--}}
-                                        {{--                                        </p>--}}
-                                        {{--                                    </div>--}}
-                                    </div>
-                                </div>
-                                @if(isset($categoryContext[14]) && $categoryContext[14]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[14]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[14]['description'] !!}
-                                        </div>
-                                    </div>
-
-                                @endif
-                                @if(isset($categoryContext[15]) && $categoryContext[15]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[15]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[15]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[16]) && $categoryContext[16]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[16]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[16]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[17]) && $categoryContext[17]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[17]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[17]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[18]) && $categoryContext[18]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[18]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[18]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[19]) && $categoryContext[19]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[19]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[19]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[20]) && $categoryContext[20]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[20]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[20]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[21]) && $categoryContext[21]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[21]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[21]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[22]) && $categoryContext[22]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[22]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[22]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[23]) && $categoryContext[23]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[23]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[23]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[24]) && $categoryContext[24]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[24]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[24]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[25]) && $categoryContext[25]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[25]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[25]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[26]) && $categoryContext[26]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[26]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[26]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[27]) && $categoryContext[27]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[27]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[27]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[28]) && $categoryContext[28]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[28]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[28]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[29]) && $categoryContext[29]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[29]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[29]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[30]) && $categoryContext[30]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[30]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[30]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[31]) && $categoryContext[31]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[31]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[31]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[32]) && $categoryContext[32]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[32]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[32]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[33]) && $categoryContext[33]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[33]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[33]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[34]) && $categoryContext[34]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[34]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[34]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[35]) && $categoryContext[35]["category_id"] == 2)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[35]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[35]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-
-
-                            </div>
-                        </div>
-                        <div class="tabs_content" data-tab="3">
-                            <div class="faq">
-                                <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[9]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                    <div class="faq_content">
-                                        {!! $categoryContext[9]['description'] !!}
-                                        {{--                                    <div class="faq_text">--}}
-                                        {{--                                        <p>Federal regulations say that Medicaid beneficiaries can get rides to and from providers when necessary.[1] States have different rules about when rides are necessary, so make sure you check with your State. Generally, when you enroll in Medicaid, you will receive instructions about when a ride is necessary and how and when you can schedule a ride. You may have to call a Medicaid caseworker, a ride service, or another agency. That contact should:</p>--}}
-                                        {{--                                        <ul>--}}
-                                        {{--                                            <li>Help you decide if you have an immediate need for care;</li>--}}
-                                        {{--                                            <li>Make sure you are eligible for Medicaid;</li>--}}
-                                        {{--                                            <li>Verify that you have an appointment with a Medicaid provider;</li>--}}
-                                        {{--                                        </ul>--}}
-                                        {{--                                        <p>--}}
-                                        {{--                                            Based on this information, your contact will either set up the ride you need or will tell you how to set up the ride yourself. A person or ride service approved by the State Medicaid program will take you to and from your appointment. Generally, if you are enrolled in a Medicaid managed care plan, the customer service staff can give you facts about ride benefits.--}}
-                                        {{--                                        </p>--}}
-                                        {{--                                    </div>--}}
-                                    </div>
-                                </div>
-                                <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[10]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                    <div class="faq_content">
-                                        {!! $categoryContext[10]['description'] !!}
-                                        {{--                                    <div class="faq_text">--}}
-                                        {{--                                        <p>Federal regulations say that Medicaid beneficiaries can get rides to and from providers when necessary.[1] States have different rules about when rides are necessary, so make sure you check with your State. Generally, when you enroll in Medicaid, you will receive instructions about when a ride is necessary and how and when you can schedule a ride. You may have to call a Medicaid caseworker, a ride service, or another agency. That contact should:</p>--}}
-                                        {{--                                        <ul>--}}
-                                        {{--                                            <li>Help you decide if you have an immediate need for care;</li>--}}
-                                        {{--                                            <li>Make sure you are eligible for Medicaid;</li>--}}
-                                        {{--                                            <li>Verify that you have an appointment with a Medicaid provider;</li>--}}
-                                        {{--                                        </ul>--}}
-                                        {{--                                        <p>--}}
-                                        {{--                                            Based on this information, your contact will either set up the ride you need or will tell you how to set up the ride yourself. A person or ride service approved by the State Medicaid program will take you to and from your appointment. Generally, if you are enrolled in a Medicaid managed care plan, the customer service staff can give you facts about ride benefits.--}}
-                                        {{--                                        </p>--}}
-                                        {{--                                    </div>--}}
-                                    </div>
-                                </div>
-                                <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[11]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                    <div class="faq_content">
-                                        {!! $categoryContext[11]['description'] !!}
-                                        {{--                                    <div class="faq_text">--}}
-                                        {{--                                        <p>Federal regulations say that Medicaid beneficiaries can get rides to and from providers when necessary.[1] States have different rules about when rides are necessary, so make sure you check with your State. Generally, when you enroll in Medicaid, you will receive instructions about when a ride is necessary and how and when you can schedule a ride. You may have to call a Medicaid caseworker, a ride service, or another agency. That contact should:</p>--}}
-                                        {{--                                        <ul>--}}
-                                        {{--                                            <li>Help you decide if you have an immediate need for care;</li>--}}
-                                        {{--                                            <li>Make sure you are eligible for Medicaid;</li>--}}
-                                        {{--                                            <li>Verify that you have an appointment with a Medicaid provider;</li>--}}
-                                        {{--                                        </ul>--}}
-                                        {{--                                        <p>--}}
-                                        {{--                                            Based on this information, your contact will either set up the ride you need or will tell you how to set up the ride yourself. A person or ride service approved by the State Medicaid program will take you to and from your appointment. Generally, if you are enrolled in a Medicaid managed care plan, the customer service staff can give you facts about ride benefits.--}}
-                                        {{--                                        </p>--}}
-                                        {{--                                    </div>--}}
-                                    </div>
-                                </div>
-                                <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[12]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                    <div class="faq_content">
-                                        {!! $categoryContext[12]['description'] !!}
-                                        {{--                                    <div class="faq_text">--}}
-                                        {{--                                        <p>Federal regulations say that Medicaid beneficiaries can get rides to and from providers when necessary.[1] States have different rules about when rides are necessary, so make sure you check with your State. Generally, when you enroll in Medicaid, you will receive instructions about when a ride is necessary and how and when you can schedule a ride. You may have to call a Medicaid caseworker, a ride service, or another agency. That contact should:</p>--}}
-                                        {{--                                        <ul>--}}
-                                        {{--                                            <li>Help you decide if you have an immediate need for care;</li>--}}
-                                        {{--                                            <li>Make sure you are eligible for Medicaid;</li>--}}
-                                        {{--                                            <li>Verify that you have an appointment with a Medicaid provider;</li>--}}
-                                        {{--                                        </ul>--}}
-                                        {{--                                        <p>--}}
-                                        {{--                                            Based on this information, your contact will either set up the ride you need or will tell you how to set up the ride yourself. A person or ride service approved by the State Medicaid program will take you to and from your appointment. Generally, if you are enrolled in a Medicaid managed care plan, the customer service staff can give you facts about ride benefits.--}}
-                                        {{--                                        </p>--}}
-                                        {{--                                    </div>--}}
-                                    </div>
-                                </div>
-
-                                <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[13]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                    <div class="faq_content">
-                                        {!! $categoryContext[13]['description'] !!}
-                                        {{--                                    <div class="faq_text">--}}
-                                        {{--                                        <p>Federal regulations say that Medicaid beneficiaries can get rides to and from providers when necessary.[1] States have different rules about when rides are necessary, so make sure you check with your State. Generally, when you enroll in Medicaid, you will receive instructions about when a ride is necessary and how and when you can schedule a ride. You may have to call a Medicaid caseworker, a ride service, or another agency. That contact should:</p>--}}
-                                        {{--                                        <ul>--}}
-                                        {{--                                            <li>Help you decide if you have an immediate need for care;</li>--}}
-                                        {{--                                            <li>Make sure you are eligible for Medicaid;</li>--}}
-                                        {{--                                            <li>Verify that you have an appointment with a Medicaid provider;</li>--}}
-                                        {{--                                        </ul>--}}
-                                        {{--                                        <p>--}}
-                                        {{--                                            Based on this information, your contact will either set up the ride you need or will tell you how to set up the ride yourself. A person or ride service approved by the State Medicaid program will take you to and from your appointment. Generally, if you are enrolled in a Medicaid managed care plan, the customer service staff can give you facts about ride benefits.--}}
-                                        {{--                                        </p>--}}
-                                        {{--                                    </div>--}}
-                                    </div>
-                                </div>
-                                {{--                                @dd($categoryContext["category_id"])--}}
-                                @if(isset($categoryContext[14]) && $categoryContext[14]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[14]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[14]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[15]) && $categoryContext[15]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[15]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[15]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[15]) && $categoryContext[15]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[15]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[15]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[16]) && $categoryContext[16]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[16]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[16]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[17]) && $categoryContext[17]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[17]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[17]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[18]) && $categoryContext[18]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[18]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[18]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[19]) && $categoryContext[19]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[19]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[19]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[20]) && $categoryContext[20]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[20]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[20]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[21]) && $categoryContext[21]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[21]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[21]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[22]) && $categoryContext[22]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[22]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[22]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[23]) && $categoryContext[23]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[23]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[23]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[24]) && $categoryContext[24]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[24]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[24]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[25]) && $categoryContext[25]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[25]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[25]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[26]) && $categoryContext[26]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[26]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[26]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[27]) && $categoryContext[27]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[27]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[27]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[28]) && $categoryContext[28]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[28]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[28]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[29]) && $categoryContext[29]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[29]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[29]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[30]) && $categoryContext[30]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[30]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[30]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[31]) && $categoryContext[31]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[31]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[31]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[32]) && $categoryContext[32]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[32]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[32]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[33]) && $categoryContext[33]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[33]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[33]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[34]) && $categoryContext[34]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[34]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[34]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-                                @if(isset($categoryContext[35]) && $categoryContext[35]["category_id"] == 3)
-                                    <div class="faq_item">
-                                    <span class="faq_header">
-                                        {{$categoryContext[35]['header']}}
-                                        <div class="faq_header-arrow"></div>
-                                    </span>
-                                        <div class="faq_content">
-                                            {!! $categoryContext[35]['description'] !!}
-                                        </div>
-                                    </div>
-                                @endif
-
-                            </div>
-                        </div>
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
-                    </div>
+                    <script>
+                        document.querySelector('.faq_item').classList.add('opened')
+                        document.querySelector('.tabs_button').classList.add('active')
+                        document.querySelector('.tabs_content').classList.add('active')
+                    </script>
                 </div>
             </div>
         </section>
 
     </main>
-<<<<<<< HEAD
     <div class="cookies" bis_skin_checked="1">
         <div class="cookies_text" bis_skin_checked="1">
             <p>We use cookies to improve your experience on our website. By browsing this website, you agree to our <a target="_blank" href="{{route('Policy')}}" bis_skin_checked="1">use of cookies</a>.</p>
@@ -1985,8 +514,6 @@
         <button class="cookies_button">Accept all Cookies</button>
     </div>
 
-=======
->>>>>>> ec8dac75d4c5fb62a410d66592158eddf95004ac
     <script src="{{asset("src/js/odometer.js")}}"></script>
     @include('includes_file.footer')
 @endsection
