@@ -34,9 +34,9 @@
             order: inherit;
             max-width: 45%;
         }
-        @include desktop {
-            max-width: 100%;
-        }
+        // @include desktop {
+        //     max-width: 100%;
+        // }
     }
 
     h1 {

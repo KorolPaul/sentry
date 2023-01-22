@@ -212,7 +212,7 @@
 
 
                                     {{--                                The platform includes automatizing dispatch and routing tools for drivers with all real-time information about passengers’ requests. It is created to optimize fleet usage. The Driver Mobile App is a vital part of the Dispatch and Routing Software.</p>--}}
-                                    <div class="app_section-links app_section-links__desktop">
+                                    <div class="app_section-links ">
                                         <a target="_blank" href="{{$appHolder->AppUrl}}" class="button">{{$appHolder->button}}</a>
 
                                         {{--                                        <a href={{$appHolder->AppUrl}} class="app-link">--}}
@@ -272,18 +272,6 @@
 
                     @else
 
-                        <div class="app_section-links app_section-links__mobile">
-                            @if($AppHolder->AppUrl != null)
-                            <a target="_blank" href="{{$AppHolder->AppUrl}}" class="app-link">
-                                <img src="src/img/appstore.svg" alt=""/>
-                            </a>
-                            @endif
-                            @if($AppHolder->GoogleUrl != null)
-                            <a target="_blank" href="{{$AppHolder->GoogleUrl}}" class="app-link">
-                                <img src="src/img/googleplay.svg" alt=""/>
-                            </a>
-                                @endif
-                        </div>
                         <div class="app_holder">
                             <div class="app_section">
                                 <h2 class="app_section-title">
