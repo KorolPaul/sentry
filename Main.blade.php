@@ -322,7 +322,7 @@
 
             {{--            @endforeach--}}
         </section>
-        <section class="section">
+        <section class="section section__small-top-indent section__small-bottom-indent">
             <div class="section_holder">
 
                 <h2 id="MessageUs">Message Us</h2>

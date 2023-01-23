@@ -234,8 +234,8 @@ function initTabs() {
                 tabsButtons.forEach(el => el.classList.remove('active'));
                 tabsBlocks.forEach(el => el.classList.remove('active'));
 
-                tabsButtons[index - 1].classList.add('active');
-                tabsBlocks[index - 1].classList.add('active');
+                document.querySelector(`.tabs_button[data-tab="${index}"]`).classList.add('active');
+                document.querySelector(`.tabs_content[data-tab="${index}"]`).classList.add('active');
             }
 
             tabsButtons.forEach(el => el.addEventListener('click', switchTab));
