@@ -285,7 +285,6 @@
             })
         </script>
 
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             $("input[name='name']").on("keyup", function() {
                 if ($("input[name='name']").val() === "") {
@@ -383,26 +382,8 @@
                     && $("input[name='surname']").val() != "" && $("input[name='name']").val() != ""
                 ) {
 
-                    let timerInterval
-                    Swal.fire({
-                        title: 'Please wait',
-                        html: ' <b></b> ',
-                        // timer: 10000,
-                        timerProgressBar: true,
-                        didOpen: () => {
-                            Swal.showLoading()
-                            const b = Swal.getHtmlContainer().querySelector('b')
-                            timerInterval = setInterval(() => {
-                                b.textContent = Swal.getTimerLeft()
-                            }, 100)
-                        },
-                        willClose: () => {
-                            clearInterval(timerInterval)
-                        }
-                    }).then((result) => {
-                        /* Read more about handling dismissals below */
-
-                    })
+                    const submitEl = document.querySelector('.form [type=submit]');
+                    submitEl.setAttribute('disabled', true);
 
                     var formData = new FormData();
                     formData.append("name", $("input[name='name']").val());
@@ -424,15 +405,6 @@
                         processData: false,  // tell jQuery not to process the data
                         contentType: false,  // tell jQuery not to set contentType
                         success: function(response) {
-                            $('.swal2-backdrop-show').hide()
-                            Swal.fire({
-                                position: 'center',
-                                icon: 'success',
-                                title: 'Your message  delivered',
-                                showConfirmButton: false,
-                                timer: 3000
-                            })
-
                             $("input[name='name']").val('')
                             $("input[name='surname']").val('')
                             $("input[name='phone']").val('')
@@ -444,11 +416,13 @@
                             $("#file-name").hide();
                             $(".file-input_name").show();
 
-                            // setTimeout(function(){
-                            //     location.reload();
-                            // }, 3000);
+                            submitEl.value = '✔ Sent';
+                            submitEl.classList.add('done');
 
-
+                        },
+                        error: function(responce) {
+                            console.log('form error', responce)
+                            submitEl.removeAttribute('disabled');
                         }
                     });
                 }

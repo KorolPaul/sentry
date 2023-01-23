@@ -3,49 +3,6 @@
     @include('includes_file.header')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
-    <script>
-        $('.cookies_button').click(function(){
-            var value = "true";
-            localStorage.setItem("accept", value);
-            $('.cookies').hide()
-        });
-        var value = localStorage.getItem("accept");
-
-        if(value == 'true'){
-            $('.cookies').hide()
-        }else{
-            $('.cookies').show()
-        }
-    </script>
-
-    @if(session('true'))
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script>
-            $('.nice-select').css('display', 'none');
-            $('.swal2-select').css('display', 'none');
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Your message  delivered',
-                showConfirmButton: false,
-                timer: 2000
-            })
-            setTimeout(function() {
-                location.reload();
-            }, 2000);
-        </script>
-        <style>
-            .nice-select{
-                display: none !important;
-            }
-            .swal2-select{
-                display: none !important;
-            }
-        </style>
-
-    @endif
-
     @foreach($contact as $contacts)
 
         <main>
@@ -123,15 +80,6 @@
 
                 @else
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-            <script>
-                $(document).ready(function () {
-                    // Handler for .ready() called.
-                    $('html, body').animate({
-                        scrollTop: $('#scrolrwerl').offset().top
-                    }, 'slow');
-                });
-
-            </script>
             @endif
             <div id="scrolrwerl"></div>
             <section class="section">
@@ -219,17 +167,7 @@
                             </div>
                             <div class="form_item">
                                 <label for="tel">Phone</label>
-                                <input value="{{old('number')}}" name="number" id="tel" type="number" style="    color: #222;
-    background: rgba(0, 0, 0, 0);
-    border: 1px solid #9ca3af;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font: 400 16px Montserrat, helvetica, monospace;
-                        height: 56px;
-                        line-height: 34px;
-                        padding: 0 0 0 20px;
-                        width: 100%;
-                        transition: .2s ease-in border-color;">
+                                <input value="{{old('number')}}" name="number" id="tel" type="tel">
                                 @error('number')
                                 <style>
                                     #tel{
@@ -319,26 +257,9 @@
             }
 
             if(name != '' && surname != '' && company != '' && email != '' !=  number != ''){
-                let timerInterval
-                Swal.fire({
-                    title: 'Please wait',
-                    html: ' <b></b> ',
-                    // timer: 10000,
-                    timerProgressBar: true,
-                    didOpen: () => {
-                        Swal.showLoading()
-                        const b = Swal.getHtmlContainer().querySelector('b')
-                        timerInterval = setInterval(() => {
-                            b.textContent = Swal.getTimerLeft()
-                        }, 100)
-                    },
-                    willClose: () => {
-                        clearInterval(timerInterval)
-                    }
-                }).then((result) => {
-                    /* Read more about handling dismissals below */
-
-                })
+                const submitEl = document.querySelector('.form [type=submit]');
+                submitEl.setAttribute('disabled', true);
+                
                 let formData = new FormData();
                 formData.append('name', name);
                 formData.append('surname', surname);
@@ -356,19 +277,18 @@
                     processData: false,
                     contentType: false,
                     success: function (response) {
-                        $('.swal2-backdrop-show').hide()
-                        Swal.fire({
-                            position: 'center',
-                            icon: 'success',
-                            title: 'Your message  delivered',
-                            showConfirmButton: false,
-                            timer: 3000
-                        })
+                        submitEl.value = '✔ Sent';
+                        submitEl.classList.add('done');
+                        
                         $('input[name="name"]').val('');
                         $('input[name="surname"]').val('');
                         $('input[name="company"]').val('');
                         $('input[name="email"]').val('');
                         $('input[name="number"]').val('');
+                    },
+                    error: function(responce) {
+                        console.log('form error', responce)
+                        submitEl.removeAttribute('disabled');
                     }
                 });
             }

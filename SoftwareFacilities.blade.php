@@ -118,7 +118,7 @@
                                         {{--                                                                            Drivers use the same app to contact the passengers and find out about booking changes or special requests, while fleet providers use the same app to control drivers performance.
                                         --}}
                                     </p>
-                                    <div class="app_section-links app_section-links__desktop">
+                                    <div class="app_section-links">
                                         @if($AppSection->AppStoreUrl && $AppSection->GooglePayUrl == null)
                                             <a target="_blank" href={{$AppSection->AppStoreUrl}} class="app-link">
                                                 <img src="src/img/appstore.svg" alt=""/>
@@ -150,14 +150,6 @@
                                 </div>
                             </div>
                         @endif
-                            <div class="app_section-links app_section-links__mobile">
-                                <a target="_blank" href="{{$AppSection->AppStoreUrl}}" class="app-link">
-                                    <img src="src/img/appstore.svg" alt=""/>
-                                </a>
-                                <a target="_blank" href="{{$AppSection->GooglePayUrl}}" class="app-link">
-                                    <img src="src/img/googleplay.svg" alt=""/>
-                                </a>
-                            </div>
                     @endif
                 </div>
                 <?php $AppScreens = \App\Models\SoftwareContentAppOne::first() ?>
@@ -287,7 +279,7 @@
                                         {{--                                The app is white labeled: health plans can customize the way it looks, add their logo, and use it to communicate with their members.--}}
                                         {{$AppHolder->textTwo}}
                                     </p>
-                                    <div class="app_section-links app_section-links__desktop">
+                                    <div class="app_section-links">
                                         @if($AppHolder->AppUrl != null)
                                         <a target="_blank" href="{{$AppHolder->AppUrl}}" class="app-link">
                                             <img src="src/img/appstore.svg" alt=""/>
@@ -334,20 +326,6 @@
                         </div>
                     @endif
                 @endif
-
-
-                <div class="app_section-links app_section-links__mobile">
-                    @if($AppHolder->AppUrl != null)
-                    <a href="{{$AppHolder->AppUrl}}" class="app-link">
-                        <img src="src/img/appstore.svg" alt=""/>
-                    </a>
-                    @endif
-                    @if($AppHolder->GoogleUrl != null)
-                    <a href="{{$AppHolder->GoogleUrl}}" class="app-link">
-                        <img src="src/img/googleplay.svg" alt=""/>
-                    </a>
-                        @endif
-                </div>
             </div>
         </section>
     </main>

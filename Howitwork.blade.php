@@ -3,12 +3,30 @@
     @include('includes_file.header')
 
     <main>
+        <?php $sectionContent = \App\Models\HowitWorkContent::first() ?>
+
+        <?php
+            $explode = explode(' ', $sectionContent->youtube_url);
+            if (isset($explode[3])) {
+                $video = str_replace('"', '', $explode[3]);
+
+            } else {
+                $video = 'src=""';
+
+            }
+        ?>
+
         <?php $sectionHolder = \App\Models\HowItWork::first() ?>
+
         {{--        @dd($sectionHolder->header)--}}
         @if($sectionHolder != null)
             @if($sectionHolder->header == null &&$sectionHolder->text == null && $sectionHolder->photo == null)
             @else
-                <section class="section @if(isset($explode[3])) section__big-bottom-indent @endif">
+                @if(isset($explode[3]))
+                <section class="section section__big-bottom-indent">
+                @else
+                <section class="section">
+                @endif
                     <div class="section_holder">
                         <div class="intro">
                             <div class="intro_content">
@@ -173,7 +191,6 @@
                                 <path id="_a8" d="M156.8 183.2c0 0-1.4-9.1-5.8-6.5c-4.4 2.5 .3 9.5 3.8 9.1l2-2.6Z"
                                       fill="url(#Gradient-7)" transform="translate(153,181) translate(-153,-181)"/>
                                 <script><![CDATA[/*
- KeyshapeJS v1.2.1 (c) 2018-2022 Pixofield Ltd | pixofield.com/keyshapejs/mit-license */
                                     window.KeyshapeJS = function () {
                                         function r(a) {
                                             return "undefined" !== typeof a
@@ -822,41 +839,7 @@
 
                 <section class="section section__dark section__video">
                     <div class="section_holder">
-                        <?php $sectionContent = \App\Models\HowitWorkContent::first() ?>
-
-{{--                            <style>--}}
-{{--                                .section_video {--}}
-{{--                                    position: relative;--}}
-{{--                                    margin: -170px 0 -534px 0;--}}
-{{--                                    padding: 0 0 56%;--}}
-{{--                                    cursor: pointer;--}}
-{{--                                    transition: .2s cubic-bezier(0.38, 0.005, 0.215, 1) filter;--}}
-{{--                                }--}}
-{{--                                .section_video-image {--}}
-{{--                                    position: absolute;--}}
-{{--                                    left: 0;--}}
-{{--                                    top: 0;--}}
-{{--                                    width: 100%;--}}
-{{--                                    height: 100%;--}}
-{{--                                    -o-object-fit: cover;--}}
-{{--                                    object-fit: cover;--}}
-{{--                                    z-index: 1;--}}
-{{--                                }--}}
-
-{{--                                    .section__big-bottom-indent {--}}
-{{--                                        padding-bottom: 300px;--}}
-{{--                                    }--}}
-{{--                            </style>--}}
-                            <?php
-                            $explode = explode(' ', $sectionContent->youtube_url);
-                            if (isset($explode[3])) {
-                                $video = str_replace('"', '', $explode[3]);
-
-                            } else {
-                                $video = 'src=""';
-
-                            }
-                            ?>
+                        
                         @if(isset($explode[3]))
                         <div class="section_video">
 
@@ -876,9 +859,10 @@
                             @endif
                         <h2>
                             {{$sectionContent->header}}
-                    <div class="bright"> {{$sectionContent->SubHeader}}</div>
+                            <div class="bright"> {{$sectionContent->SubHeader}}</div>
                         </h2>
                     </div>
+                </div>
 
                     <div class="steps">
                         <div class="steps_slider">
@@ -897,87 +881,8 @@
                             </div>
                                                     @endforeach
 
-{{--                            <div class="steps_slide">--}}
-{{--                                <div class="step">--}}
-{{--                                    <img src="src/img/steps/step-2.svg" alt="" class="step_icon">--}}
-{{--                                    <button class="step_title">--}}
-{{--                                        <div class="step_title-icon"></div>--}}
-{{--                                        Confirmation--}}
-{{--                                    </button>--}}
-{{--                                    <p class="step_description">Sentry’s dedicated support team reviews & confirms--}}
-{{--                                        specific trip details, ensuring the reservation information is accurate, meets--}}
-{{--                                        the passenger's needs, & is cost-effective</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="steps_slide">--}}
-{{--                                <div class="step">--}}
-{{--                                    <img src="src/img/steps/step-3.svg" alt="" class="step_icon">--}}
-{{--                                    <button class="step_title">--}}
-{{--                                        <div class="step_title-icon"></div>--}}
-{{--                                        Choosing a provider--}}
-{{--                                    </button>--}}
-{{--                                    <p class="step_description">Routers & dispatchers, utilizing experience & analytics,--}}
-{{--                                        determine what transportation provider across Sentry’s network is optimal</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="steps_slide">--}}
-{{--                                <div class="step">--}}
-{{--                                    <img src="src/img/steps/step-4.svg" alt="" class="step_icon">--}}
-{{--                                    <button class="step_title">--}}
-{{--                                        <div class="step_title-icon"></div>--}}
-{{--                                        Assignment--}}
-{{--                                    </button>--}}
-{{--                                    <p class="step_description">The designated transportation provider assigns a--}}
-{{--                                        credentialed vehicle/driver to the trip’s pickup location</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="steps_slide">--}}
-{{--                                <div class="step">--}}
-{{--                                    <img src="src/img/steps/step-5.svg" alt="" class="step_icon">--}}
-{{--                                    <button class="step_title">--}}
-{{--                                        <div class="step_title-icon"></div>--}}
-{{--                                        All ready!--}}
-{{--                                    </button>--}}
-{{--                                    <p class="step_description">All information about the trip from the transportation--}}
-{{--                                        provider instantly sent to Sentry’s system </p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="steps_slide">--}}
-{{--                                <div class="step">--}}
-{{--                                    <img src="src/img/steps/step-6.svg" alt="" class="step_icon">--}}
-{{--                                    <button class="step_title">--}}
-{{--                                        <div class="step_title-icon"></div>--}}
-{{--                                        Transportation--}}
-{{--                                    </button>--}}
-{{--                                    <p class="step_description">When the vehicle arrives, the passenger is notified,--}}
-{{--                                        picked up, & brought to their destination</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="steps_slide">--}}
-{{--                                <div class="step">--}}
-{{--                                    <img src="src/img/steps/step-7.svg" alt="" class="step_icon">--}}
-{{--                                    <button class="step_title">--}}
-{{--                                        <div class="step_title-icon"></div>--}}
-{{--                                        Trip monitoring--}}
-{{--                                    </button>--}}
-{{--                                    <p class="step_description">The trip is monitored by the Sentry team from beginning--}}
-{{--                                        to end in real-time to ensure on-time, successful transportation service--}}
-{{--                                        delivery</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="steps_slide">--}}
-{{--                                <div class="step">--}}
-{{--                                    <img src="src/img/steps/step-8.svg" alt="" class="step_icon">--}}
-{{--                                    <button class="step_title">--}}
-{{--                                        <div class="step_title-icon"></div>--}}
-{{--                                        Feedbacks--}}
-{{--                                    </button>--}}
-{{--                                    <p class="step_description">Sentry’s customer service contacts the passenger,--}}
-{{--                                        driver, & facility to coordinate effective pick-ups, and drop-offs, & gather--}}
-{{--                                        feedback</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                       
+                        </div>
                     </div>
                 </section>
 
@@ -1232,7 +1137,7 @@
     </main>
 
     <div class="fade"></div>
-        <div class="cookies" bis_skin_checked="1">
+    <div class="cookies" bis_skin_checked="1">
         <div class="cookies_text" bis_skin_checked="1">
             <p>We use cookies to improve your experience on our website. By browsing this website, you agree to our <a target="_blank" href="{{route('Policy')}}" bis_skin_checked="1">use of cookies</a>.</p>
         </div>

@@ -5,11 +5,11 @@
     z-index: 9;
     bottom: $indent;
     right: $indent;
-    padding: 10px 14;
+    padding: 10px 14px;
+    gap: 30px;
     box-sizing: border-box;
     display: none;
     align-items: center;
-    display: flex;
     @include tablet {
         bottom: 40px;
         right: 80px;

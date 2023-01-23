@@ -256,7 +256,6 @@ if (cookiesAcceptButton) {
         e.preventDefault();
 
         localStorage.setItem('accept', 'true');
-        cookiesBanner.style.display = 'none';
     });
 }
 

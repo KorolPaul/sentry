@@ -371,7 +371,6 @@
                         </div>
                     </div>
                 </form>
-                <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                 <script>
                     $("input[name='name']").on("keyup", function() {
                         if ($("input[name='name']").val() === "") {
@@ -438,59 +437,43 @@
                         }
 
                          if(name != '' && surname != '' && company != '' && email != '' !=  number != ''){
-                             let timerInterval
-                             Swal.fire({
-                                 title: 'Please wait',
-                                 html: ' <b></b> ',
-                                 // timer: 10000,
-                                 timerProgressBar: true,
-                                 didOpen: () => {
-                                     Swal.showLoading()
-                                     const b = Swal.getHtmlContainer().querySelector('b')
-                                     timerInterval = setInterval(() => {
-                                         b.textContent = Swal.getTimerLeft()
-                                     }, 100)
-                                 },
-                                 willClose: () => {
-                                     clearInterval(timerInterval)
-                                 }
-                             }).then((result) => {
-                                 /* Read more about handling dismissals below */
+                            const submitEl = document.querySelector('.form [type=submit]');
+                            submitEl.setAttribute('disabled', true);
 
-                             })
-                             let formData = new FormData();
-                        formData.append('name', name);
-                        formData.append('surname', surname);
-                        formData.append('category_name', $('select[name="category_name"]').val());
-                        formData.append('company',company);
-                        formData.append('email', email);
-                        formData.append('number', number);
-                             $.ajax({
-                                 headers: {
-                                     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                                 },
-                                 type: "POST",
-                                 url: "contactmain",
-                                 data: formData,
-                                 processData: false,
-                                 contentType: false,
-                                 success: function (response) {
-                                     $('.swal2-backdrop-show').hide()
-                                     Swal.fire({
-                                         position: 'center',
-                                         icon: 'success',
-                                         title: 'Your message  delivered',
-                                         showConfirmButton: false,
-                                         timer: 3000
-                                     })
-                                     $('input[name="name"]').val('');
-                                     $('input[name="surname"]').val('');
-                                     $('input[name="company"]').val('');
-                                     $('input[name="email"]').val('');
-                                     $('input[name="number"]').val('');
-                                 }
-                             });
-                         }
+                            let formData = new FormData();
+
+
+                            formData.append('name', name);
+                            formData.append('surname', surname);
+                            formData.append('category_name', $('select[name="category_name"]').val());
+                            formData.append('company',company);
+                            formData.append('email', email);
+                            formData.append('number', number);
+                                $.ajax({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                                    },
+                                    type: "POST",
+                                    url: "contactmain",
+                                    data: formData,
+                                    processData: false,
+                                    contentType: false,
+                                    success: function (response) {
+                                        submitEl.value = '✔ Sent';
+                                        submitEl.classList.add('done');
+
+                                        $('input[name="name"]').val('');
+                                        $('input[name="surname"]').val('');
+                                        $('input[name="company"]').val('');
+                                        $('input[name="email"]').val('');
+                                        $('input[name="number"]').val('');
+                                    },
+                                    error: function(responce) {
+                                        console.log('form error', responce)
+                                        submitEl.removeAttribute('disabled');
+                                    }
+                                });
+                            }
                     });
 
                 </script>

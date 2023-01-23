@@ -45,6 +45,10 @@
         padding-bottom: 50%;
         position: relative;
         z-index: 2;
+        margin-bottom: 40px;
+        @include tablet {
+            margin-bottom: 80px;
+        }
 
         iframe {
             position: absolute;
@@ -82,24 +86,17 @@
     }
     &_section-links {
         margin-top: 40px;
+        margin-bottom: 40px;
         display: flex;
         justify-content: space-between;
+        gap: 24px;
         @include tablet {
+            margin-bottom: 0;
             justify-content: flex-start;
         }
 
-        &__mobile {
-            padding: 0 30px;
-            margin: 50px 0 90px;
-            @include tablet {
-                display: none;
-            }
-        }
-        &__desktop {
-            display: none;
-            @include tablet {
-                display: block;
-            }
+        a {
+            margin: 0;
         }
     }
     &_screens {
@@ -142,6 +139,16 @@
         width: 100%;
         height: 100%;
         z-index: 1;
+    }
+    &_screens {
+        .tns-outer {
+            margin-left: -30px;
+            margin-right: -30px;
+    
+            @include tablet {
+                margin: 0;
+            }
+        }
     }
     &_screens-wrapper {
         display: flex;
@@ -203,6 +210,10 @@
                 bottom: -108px;
             }
         }
+        .tns-outer {
+            margin-left: 0;
+            margin-right: 0;
+        }
     }
     &_slide {
         text-align: center;
@@ -224,12 +235,6 @@
         z-index: 1;
         max-width: none;
         pointer-events: none;
-    }
-
-    .tns-outer {
-        @include tablet {
-            margin: 0;
-        }
     }
 }
 
