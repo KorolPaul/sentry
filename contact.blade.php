@@ -72,7 +72,7 @@
                                 <p>
                                     {{$contacts->noc_hours_text}}
                                     <br>
-                                    365 days a year
+{{--                                    365 days a year--}}
                                 </p>
                             </div>
                         </div>
@@ -251,11 +251,135 @@
         </main>
 
     @endforeach
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $("input[name='name']").on("keyup", function() {
+            if ($("input[name='name']").val() === "") {
+                $("input[name='name']").css("border", "1px solid red");
+            }else{
+                $(this).css("border", "1px solid black");
+            }
+        });
+        $("input[name='company']").on("keyup", function() {
+            if ($("input[name='company']").val() === "") {
+                $("input[name='company']").css("border", "1px solid red");
+            }else{
+                $(this).css("border", "1px solid black");
+            }
+        });
+        $("input[name='surname']").on("keyup", function() {
+            if ($("input[name='surname']").val() === "") {
+                $("input[name='surname']").css("border", "1px solid red");
+            }else{
+                $(this).css("border", "1px solid black");
+            }
+        });
+        $("input[name='email']").on("keyup", function() {
+            if ($("input[name='email']").val() === "") {
+                $("input[name='email']").css("border", "1px solid red");
+            }else{
+                $(this).css("border", "1px solid black");
+            }
+        });
+        $("input[name='number']").on("keyup", function() {
+            if ($("input[name='number']").val() === "") {
+                $("input[name='number']").css("border", "1px solid red");
+            }else{
+                $(this).css("border", "1px solid black");
+            }
+        });
+
+
+
+
+        $('.form').on('submit', function(e) {
+            e.preventDefault();
+
+            let name =  $('input[name="name"]').val();
+            let surname = $('input[name="surname"]').val();
+            let company =  $('input[name="company"]').val();
+            let email =  $('input[name="email"]').val();
+            let number =  $('input[name="number"]').val();
+
+            if(name == ''){
+                $('input[name="name"]').css('border', '1px solid red');
+            }
+            if(surname == ''){
+                $('input[name="surname"]').css('border', '1px solid red')
+            }
+            if(company == ''){
+                $('input[name="company"]').css('border', '1px solid red')
+            }
+            if(email == ''){
+                $('input[name="email"]').css('border', '1px solid red')
+            }
+            if(number == ''){
+                $('input[name="number"]').css('border', '1px solid red')
+            }
+
+            if(name != '' && surname != '' && company != '' && email != '' !=  number != ''){
+                let timerInterval
+                Swal.fire({
+                    title: 'Please wait',
+                    html: ' <b></b> ',
+                    // timer: 10000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading()
+                        const b = Swal.getHtmlContainer().querySelector('b')
+                        timerInterval = setInterval(() => {
+                            b.textContent = Swal.getTimerLeft()
+                        }, 100)
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval)
+                    }
+                }).then((result) => {
+                    /* Read more about handling dismissals below */
+
+                })
+                let formData = new FormData();
+                formData.append('name', name);
+                formData.append('surname', surname);
+                formData.append('category_name', $('select[name="category_name"]').val());
+                formData.append('company',company);
+                formData.append('email', email);
+                formData.append('number', number);
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                    },
+                    type: "POST",
+                    url: "contactmain",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        $('.swal2-backdrop-show').hide()
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Your message  delivered',
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                        $('input[name="name"]').val('');
+                        $('input[name="surname"]').val('');
+                        $('input[name="company"]').val('');
+                        $('input[name="email"]').val('');
+                        $('input[name="number"]').val('');
+                    }
+                });
+            }
+        });
+
+    </script>
     <div class="cookies" bis_skin_checked="1">
         <div class="cookies_text" bis_skin_checked="1">
             <p>We use cookies to improve your experience on our website. By browsing this website, you agree to our <a target="_blank" href="{{route('Policy')}}" bis_skin_checked="1">use of cookies</a>.</p>
         </div>
-        <button class="cookies_button">Accept all Cookies</button>
+        <button class="cookies_button">Ok</button>
     </div>
 
 

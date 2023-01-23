@@ -190,15 +190,15 @@
                         <?php $ourclientsData2 = \App\Models\OurClientsData::Wherenotin('id', $ids)->with('categories')->get()   ?>
                         @foreach($ourclientsData2 as $rty)
                             <span class="client-card hidden js-animation animation-delay"
-                                  data-category="{{$Client->name}}">
+{{--                                  data-category="{{$Client->name}}">--}}
+                                  data-category="{{$rty->categories_id}}">
                             <img src="{{asset('uploads/'.$rty->photo)}}" alt="" class="client-card_icon">
                             <p class="client-card_title">{{$rty->header}} </p>
                             <p class="client-card_text">{{$rty->description}} </p>
                             <div class="client-card_tags">
-
                                 @if($rty->categories->id !=1)
                                 <span class="client-card_tag">{{$rty->categories->name}}</span>
-                            @else
+                             @else
                                     <span class="client-card_tag">Uncategorized</span>
                                 @endif
                             </div>
@@ -322,67 +322,22 @@
 
             {{--            @endforeach--}}
         </section>
-
-        @if(session('true'))
-            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-            <script>
-                $('html, body').scrollTop( 7200 );
-
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Your message  delivered',
-                    showConfirmButton: false,
-                    timer: 2000
-                })
-            </script>
-            @endif
         <section class="section">
             <div class="section_holder">
 
                 <h2 id="MessageUs">Message Us</h2>
-                <form class="form" action="{{route('contactmain')}}" method="post">
-                    @csrf
-
-
-                    <style>
-                        .alertss {
-                            font-size: xx-small;
-                            color: red;
-                            padding: 4px;
-                        }
-                    </style>
+                <form class="form ContactUsMain" >
 
                     <div class="form_row">
                         <div class="form_item">
                             <label for="name">Name</label>
-                            <input name="name" type="text" id="name" value="{{old('name')}}">
-                            @error('name')
-                            <script>
-                                $('html, body').scrollTop( 7200 );
-                            </script>
-                            <style>
-                                #name {
-                                    border: 1px solid red;
-                                }
-                            </style>
-                            <div class="alertss alert-danger">{{ $message }}</div>
-                            @enderror
+                            <input name="name" type="text" id="name">
+
                         </div>
                         <div class="form_item">
                             <label for="surname">Surname</label>
-                            <input name="surname" type="text" id="surname" value="{{old('surname')}}">
-                            @error('surname')
-                            <script>
-                                $('html, body').scrollTop( 7200 );
-                            </script>
-                            <style>
-                                #surname {
-                                    border: 1px solid red;
-                                }
-                            </style>
-                            <div class="alertss alert-danger">{{ $message }}</div>
-                            @enderror
+                            <input name="surname" type="text" id="surname">
+
                         </div>
                     </div>
                     <div class="form_row">
@@ -394,64 +349,20 @@
                                     <option value="{{$cat->category_name}}">{{$cat->category_name}} </option>
                                 @endforeach
                             </select>
-                            @error('category_name')
-                            <script>
-                                $('html, body').scrollTop( 7200 );
-                            </script>
-                            <style>
-                                #tel {
-                                    border: 1px solid red;
-                                }
-                            </style>
-                            <div class="alertss alert-danger">{{ $message }}</div>
-                            @enderror
                         </div>
                         <div class="form_item">
                             <label for="surname">Company</label>
-                            <input name="company" type="text" id="Company" value="{{old('company')}}">
-                            @error('company')
-                            <script>
-                                $('html, body').scrollTop( 7200 );
-                            </script>
-                            <style>
-                                #Company {
-                                    border: 1px solid red;
-                                }
-                            </style>
-                            <div class="alertss alert-danger">{{ $message }}</div>
-                            @enderror
+                            <input name="company" type="text" id="Company" >
                         </div>
                     </div>
                     <div class="form_row">
                         <div class="form_item">
                             <label for="email">E-mail</label>
-                            <input name="email" type="email" id="email" value="{{old('email')}}">
-                            @error('email')
-                            <script>
-                                $('html, body').scrollTop( 7200 );
-                            </script>
-                            <style>
-                                #email {
-                                    border: 1px solid red;
-                                }
-                            </style>
-                            <div class="alertss alert-danger">{{ $message }}</div>
-                            @enderror
+                            <input name="email" type="email" id="email" >
                         </div>
                         <div class="form_item">
                             <label for="tel">Phone</label>
-                            <input class="MyNumberInput" value="{{old('number')}}" name="number" id="tel" type="tel" >
-                            @error('number')
-                            <script>
-                                $('html, body').scrollTop( 7200 );
-                            </script>
-                            <style>
-                                #tel {
-                                    border: 1px solid red !important;
-                                }
-                            </style>
-                            <div class="alertss alert-danger">{{ $message }}</div>
-                            @enderror
+                            <input class="MyNumberInput" name="number" id="tel" type="tel" >
                         </div>
                     </div>
                     <div class="form_row ">
@@ -460,6 +371,129 @@
                         </div>
                     </div>
                 </form>
+                <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script>
+                    $("input[name='name']").on("keyup", function() {
+                        if ($("input[name='name']").val() === "") {
+                            $("input[name='name']").css("border", "1px solid red");
+                        }else{
+                            $(this).css("border", "1px solid black");
+                        }
+                    });
+                    $("input[name='company']").on("keyup", function() {
+                        if ($("input[name='company']").val() === "") {
+                            $("input[name='company']").css("border", "1px solid red");
+                        }else{
+                            $(this).css("border", "1px solid black");
+                        }
+                    });
+                    $("input[name='surname']").on("keyup", function() {
+                        if ($("input[name='surname']").val() === "") {
+                            $("input[name='surname']").css("border", "1px solid red");
+                        }else{
+                            $(this).css("border", "1px solid black");
+                        }
+                    });
+                    $("input[name='email']").on("keyup", function() {
+                        if ($("input[name='email']").val() === "") {
+                            $("input[name='email']").css("border", "1px solid red");
+                        }else{
+                            $(this).css("border", "1px solid black");
+                        }
+                    });
+                    $("input[name='number']").on("keyup", function() {
+                        if ($("input[name='number']").val() === "") {
+                            $("input[name='number']").css("border", "1px solid red");
+                        }else{
+                            $(this).css("border", "1px solid black");
+                        }
+                    });
+
+
+
+
+                    $('.ContactUsMain').on('submit', function(e) {
+                        e.preventDefault();
+
+                        let name =  $('input[name="name"]').val();
+                        let surname = $('input[name="surname"]').val();
+                        let company =  $('input[name="company"]').val();
+                        let email =  $('input[name="email"]').val();
+                        let number =  $('input[name="number"]').val();
+
+                        if(name == ''){
+                            $('input[name="name"]').css('border', '1px solid red');
+                        }
+                        if(surname == ''){
+                            $('input[name="surname"]').css('border', '1px solid red')
+                        }
+                         if(company == ''){
+                            $('input[name="company"]').css('border', '1px solid red')
+                        }
+                         if(email == ''){
+                            $('input[name="email"]').css('border', '1px solid red')
+                        }
+                         if(number == ''){
+                            $('input[name="number"]').css('border', '1px solid red')
+                        }
+
+                         if(name != '' && surname != '' && company != '' && email != '' !=  number != ''){
+                             let timerInterval
+                             Swal.fire({
+                                 title: 'Please wait',
+                                 html: ' <b></b> ',
+                                 // timer: 10000,
+                                 timerProgressBar: true,
+                                 didOpen: () => {
+                                     Swal.showLoading()
+                                     const b = Swal.getHtmlContainer().querySelector('b')
+                                     timerInterval = setInterval(() => {
+                                         b.textContent = Swal.getTimerLeft()
+                                     }, 100)
+                                 },
+                                 willClose: () => {
+                                     clearInterval(timerInterval)
+                                 }
+                             }).then((result) => {
+                                 /* Read more about handling dismissals below */
+
+                             })
+                             let formData = new FormData();
+                        formData.append('name', name);
+                        formData.append('surname', surname);
+                        formData.append('category_name', $('select[name="category_name"]').val());
+                        formData.append('company',company);
+                        formData.append('email', email);
+                        formData.append('number', number);
+                             $.ajax({
+                                 headers: {
+                                     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                                 },
+                                 type: "POST",
+                                 url: "contactmain",
+                                 data: formData,
+                                 processData: false,
+                                 contentType: false,
+                                 success: function (response) {
+                                     $('.swal2-backdrop-show').hide()
+                                     Swal.fire({
+                                         position: 'center',
+                                         icon: 'success',
+                                         title: 'Your message  delivered',
+                                         showConfirmButton: false,
+                                         timer: 3000
+                                     })
+                                     $('input[name="name"]').val('');
+                                     $('input[name="surname"]').val('');
+                                     $('input[name="company"]').val('');
+                                     $('input[name="email"]').val('');
+                                     $('input[name="number"]').val('');
+                                 }
+                             });
+                         }
+                    });
+
+                </script>
             </div>
         </section>
         <section class="section">
@@ -511,7 +545,7 @@
         <div class="cookies_text" bis_skin_checked="1">
             <p>We use cookies to improve your experience on our website. By browsing this website, you agree to our <a target="_blank" href="{{route('Policy')}}" bis_skin_checked="1">use of cookies</a>.</p>
         </div>
-        <button class="cookies_button">Accept all Cookies</button>
+        <button class="cookies_button">Ok</button>
     </div>
 
     <script src="{{asset("src/js/odometer.js")}}"></script>

@@ -8,7 +8,7 @@
         @if($sectionHolder != null)
             @if($sectionHolder->header == null &&$sectionHolder->text == null && $sectionHolder->photo == null)
             @else
-                <section class="section section__big-bottom-indent">
+                <section class="section @if(isset($explode[3])) section__big-bottom-indent @endif">
                     <div class="section_holder">
                         <div class="intro">
                             <div class="intro_content">
@@ -857,9 +857,9 @@
 
                             }
                             ?>
-                        <div class="section_video" @if(isset($explode[3])) @else style="    margin: -100px 0 -534px 0;" @endif>
+                        @if(isset($explode[3]))
+                        <div class="section_video">
 
-                            @if(isset($explode[3]))
 {{--                                <div class="app_video">--}}
                                     <div class="app_video-wrapper">
                                         <iframe width="560" height="315" {{ $video}} title="YouTube video player"
@@ -871,9 +871,9 @@
 {{--                                </div>--}}
                             @else
 
+                            
+                            </div>
                             @endif
-
-                        </div>
                         <h2>
                             {{$sectionContent->header}}
                     <div class="bright"> {{$sectionContent->SubHeader}}</div>
@@ -1236,7 +1236,7 @@
         <div class="cookies_text" bis_skin_checked="1">
             <p>We use cookies to improve your experience on our website. By browsing this website, you agree to our <a target="_blank" href="{{route('Policy')}}" bis_skin_checked="1">use of cookies</a>.</p>
         </div>
-        <button class="cookies_button">Accept all Cookies</button>
+        <button class="cookies_button">Ok</button>
     </div>
 
 

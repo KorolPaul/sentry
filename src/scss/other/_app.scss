@@ -1,4 +1,8 @@
 .app {
+    @include tablet {
+        overflow: hidden;
+    }
+
     &_holder {
         @include layout;
         width: 100%;

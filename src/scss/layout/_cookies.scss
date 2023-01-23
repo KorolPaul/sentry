@@ -5,26 +5,25 @@
     z-index: 9;
     bottom: $indent;
     right: $indent;
-    padding: 24px;
+    padding: 10px 14;
     box-sizing: border-box;
     display: none;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    display: flex;
     @include tablet {
         bottom: 40px;
         right: 80px;
-        padding: 20px 40px;
-        gap: 24px;
-        justify-content: space-between;
-        max-width: 400px;
+        padding: 18px 24px;
+        gap: 30px;
+        max-width: 520px;
     }
 
 
     &_text {
         color: $bg_color;
-        font-size: 16px;
+        font-size: 10px;
         @include tablet {
-            font-size: 18px;
+            font-size: 16px;
         }
 
         p {
@@ -47,12 +46,14 @@
     }
 
     &_button {
-        @include button-reset;
         color: $color;
-        text-decoration: underline;
+        background-color: $bg_color;
+        border: 1px solid transparent;
         width: auto;
-        display: inline-block;
+        min-width: 0;
+        flex-shrink: 0;
         @include tablet {
+            min-width: 0;
         }
 
         &:hover {

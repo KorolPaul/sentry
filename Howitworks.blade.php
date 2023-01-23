@@ -1177,7 +1177,7 @@
         <div class="cookies_text" bis_skin_checked="1">
             <p>We use cookies to improve your experience on our website. By browsing this website, you agree to our <a target="_blank" href="{{route('Policy')}}" bis_skin_checked="1">use of cookies</a>.</p>
         </div>
-        <button class="cookies_button">Accept all Cookies</button>
+        <button class="cookies_button">Ok</button>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     </div>
 
