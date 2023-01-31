@@ -61,6 +61,7 @@
 
     }
     &_section {
+        margin-top: 50px;
         @include tablet {
             display: flex;
             justify-content: space-between;
