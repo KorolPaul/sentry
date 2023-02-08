@@ -2,7 +2,7 @@
     @include tablet {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: flex-start;
         gap: 40px 20px;
     }
     @include desktop {
@@ -17,16 +17,16 @@
         @include tablet {
             display: block;
             text-align: center;
-            width: calc(33% - 60px);
+            width: calc(33% - 12px);
             margin: 0;
         }
         @include desktop {
-            width: calc(25% - 60px);
+            width: calc(25% - 24px);
         }
 
         &__big {
             @include tablet {
-                width: calc(50% - 30px);
+                width: calc(50% - 16px);
             }
         }
     }

@@ -48,21 +48,19 @@
                     <div class="section_holder">
                         
                         @if(isset($explode[3]))
-                        <div class="section_video">
+                            <div class="section_video">
 
-{{--                                <div class="app_video">--}}
                                     <div class="app_video-wrapper">
                                         <iframe width="560" height="315" {{ $video}} title="YouTube video player"
                                                 frameborder="0"
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                allowfullscreen></iframe>
-                                        {{--                            <iframe width="560" height="315" src="https://www.youtube.com/embed/V5da2rLyYCg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
+                                                allowfullscreen>
+                                        </iframe>
                                     </div>
-{{--                                </div>--}}
+                                </div>
                             @else
 
                             
-                            </div>
                             @endif
                         <h2>
                             {{$sectionContent->header}}
@@ -201,7 +199,7 @@
                                                      class="operation_icon">
                                                 <div>
                                                     <span class="operation_title">{{$ManagingOperation[2]->list_requirements}}</span>
-                                                    <span>{{$ManagingOperation[2]->list_requirements}}</span>
+                                                    <span>{{$ManagingOperation[2]->list_requirements_content}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -211,7 +209,7 @@
                                                      class="operation_icon">
                                                 <div>
                                                     <span class="operation_title">{{$ManagingOperation[3]->list_requirements}}</span>
-                                                    <span>{{$ManagingOperation[3]->list_requirements}}</span>
+                                                    <span>{{$ManagingOperation[3]->list_requirements_content}}</span>
                                                 </div>
                                             </div>
                                         </div>
