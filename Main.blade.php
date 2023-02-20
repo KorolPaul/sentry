@@ -153,10 +153,12 @@
                 </div>
             </div>
         </section>
+        <?php $ourclients = \App\Models\OurClients::first() ?>
+        @if($ourclients->ShowOrHide == 'Show')
         <section class="section">
             <div class="section_holder">
                 <div class="clients">
-                    <?php $ourclients = \App\Models\OurClients::first() ?>
+
                     <h1 class="bright js-animation">{{$ourclients->header}}</h1>
                     <p class="clients_subtitle js-animation">{{$ourclients->description}}</p>
                     <div class="clients_categories">
@@ -207,11 +209,15 @@
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
                     </div>
 
+                    @if($ourclientsData->count() + $ourclientsData2->count() > 9)
                     <button class="clients_more" id="clients_more">Show more</button>
+                    @else
 
+                    @endif
                 </div>
             </div>
         </section>
+        @endif
 
         <section class="section section__no-top-indent">
             <div class="map-main js-animation">
@@ -243,32 +249,14 @@
                             'features': cordinate
                         };
 
-                        const edgeLng = [Number(geojson.features[0].lat), Number(geojson.features[0].lat)];
-                        const edgeLat = [Number(geojson.features[0].long), Number(geojson.features[0].long)];
-
-                        for (const feature of geojson.features) {
-                            if (feature.lat < edgeLng[0]) {
-                                edgeLng[0] = Number(feature.lat);
-                            }
-                            if (feature.lat > edgeLng[1]) {
-                                edgeLng[1] = Number(feature.lat);
-                            }
-                            if (feature.long < edgeLat[0]) {
-                                edgeLat[0] = Number(feature.long);
-                            }
-                            if (feature.long > edgeLat[1]) {
-                                edgeLat[1] = Number(feature.long);
-                            }
-                        }
-
-
                         mapboxgl.accessToken = 'pk.eyJ1IjoiYW5uYS1nb2x1YmV2YSIsImEiOiJja3d3amwzOG4wNDByMm5sYW1yNGh2OXJiIn0.Krs4AfkVyobEvYXCCSyWUg';
 
+                        
                         const map = new mapboxgl.Map({
                             container: 'map',
-                            style: 'mapbox://styles/anna-golubeva/clbqcyoq3000u15pnry107gt5',
-                            center: [edgeLng[1] + ((edgeLng[0] - edgeLng[1]) / 2), edgeLat[1] + ((edgeLat[0] - edgeLat[1]) / 2)],
-                            zoom: 6
+                            style: 'mapbox://styles/anna-golubeva/clecz5yxh003101pcu5qnxfvm',
+                            center: [-73.8522496, 40.7205235],
+                            zoom: 10
                         });
 
                         for (const feature of geojson.features) {
