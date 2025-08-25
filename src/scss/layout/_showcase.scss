@@ -1,199 +1,222 @@
 @mixin roll($duration, $delay) {
-    animation: roll $duration linear $delay infinite;
-    transform: translateX(-500%);
+  animation: roll $duration linear $delay infinite;
+  transform: translateX(-500%);
 
-    @keyframes roll {
-        0% {
-            transform: translateX(-500%);
-        }
-        100% {
-            transform: translateX(500%);
-        }
+  @keyframes roll {
+    0% {
+      transform: translateX(-500%);
     }
+
+    100% {
+      transform: translateX(500%);
+    }
+  }
 }
 
 .showcase {
-    text-align: center;
-    overflow: hidden;
+  text-align: center;
+  overflow: hidden;
+  @include desktop {
+    padding-top: 50px;
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 140%;
+    text-align: left;
+    width: 100%;
+    @include tablet {
+      font-weight: 600;
+      font-size: 70px;
+      line-height: 1.14;
+      text-align: center
+    }
     @include desktop {
-        padding-top: 50px;
+      font-size: 44px;
+    }
+  }
+
+  h2 {
+    text-align: left;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    @include tablet {
+      text-align: center;
+      width: 70%;
+    }
+  }
+
+  &_holder {
+    @include layout;
+  }
+
+  &_top {
+    background: url(#{$img}/main.png) no-repeat center bottom / auto 300px;
+    position: relative;
+    padding-bottom: 280px;
+    @include desktop {
+      padding-bottom: 26vw;
+      background-size: 100% auto;
+    }
+  }
+
+  &_bottom {
+    background-color: $color;
+    color: $bg_color;
+    padding: 60px 0 80px;
+  }
+
+  &_points {
+    text-align: left;
+    margin-top: -7px;
+    font-size: 18px;
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      gap: 74px;
+      text-align: center;
+    }
+  }
+
+  &_point {
+    background: url(#{$img}/arrow.svg) no-repeat left center / 23px;
+    padding-left: 46px;
+    margin: 0 0 22px;
+    display: block;
+    line-height: 28px;
+    @include tablet {
+      margin: 0;
+      background-size: auto;
     }
 
-    h1 {
-        font-weight: 700;
-        font-size: 26px;
-        line-height: 140%;
-        text-align: left;
-        width: 100%;
-        @include tablet {
-            font-weight: 600;
-            font-size: 70px;
-            line-height: 1.14;
-            text-align: center
-        }
-        @include desktop {
-            font-size: 44px;
-        }
+    &:last-child {
+      margin: 0;
     }
-    h2 {
-        text-align: left;
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        @include tablet {
-            text-align: center;
-            width: 70%;
-        }
+  }
+
+  &_stats {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: -12px;
+    }
+  }
+
+  &_stats-item {
+    background: $cBright;
+    padding: 30px 25px;
+    border-radius: 16px;
+    color: $color;
+    font-weight: 500;
+    text-align: left;
+    @include tablet {
+      flex-grow: 1;
+      width: calc(33% - 60px);
+      text-align: center;
+      padding: 30px 16px 26px;
     }
 
-    &_holder {
-        @include layout;
+    p {
+      margin: 0;
+      font-size: 22px;
+      line-height: 27px;
     }
-    &_top {
-        background: url(#{$img}/main.png) no-repeat center bottom / auto 300px;
-        position: relative;
-        padding-bottom: 280px;
-        @include desktop {
-            padding-bottom: 26vw;
-            background-size: 100% auto;
-        }
-    }
-    &_bottom {
-        background-color: $color;
-        color: $bg_color;
-        padding: 60px 0 80px;
-    }
-    &_points {
-        text-align: left;
-        margin-top: -7px;
-        font-size: 18px;
-        @include tablet {
-            display: flex;
-            justify-content: space-between;
-            gap: 74px;
-            text-align: center;
-        }
-    }
-    &_point {
-        background: url(#{$img}/arrow.svg) no-repeat left center / 23px;
-        padding-left: 46px;
-        margin: 0 0 22px;
-        display: block;
-        line-height: 28px;
-        @include tablet {
-            margin: 0;
-            background-size: auto;
-        }
+  }
 
-        &:last-child {
-            margin: 0;
-        }
+  &_stats-title {
+    font-size: 36px;
+    line-height: 1;
+    display: block;
+    font-weight: 600;
+    color: $bg_color;
+    margin-bottom: 30px;
+    @include tablet {
+      font-size: 44px;
+      line-height: 48px;
+      margin-bottom: 24px;
     }
-    &_stats {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        @include tablet {
-            flex-direction: row;
-            justify-content: space-between;
-            gap: 30px;
-            margin-top: -12px;
-        }
-    }
-    &_stats-item {
-        background: $cBright;
-        padding: 30px 25px;
-        border-radius: 16px;
-        color: $color;
-        font-weight: 500;
-        text-align: left;
-        @include tablet {
-            flex-grow: 1;
-            width: calc(33% - 60px);
-            text-align: center;
-            padding: 30px 16px 26px;
-        }
+  }
 
-        p {
-            margin: 0;
-            font-size: 22px;
-            line-height: 27px;
-        }
-    }
-    &_stats-title {
-        font-size: 36px;
-        line-height: 1;
-        display: block;
-        font-weight: 600;
-        color: $bg_color;
-        margin-bottom: 30px;
-        @include tablet {
-            font-size: 44px;
-            line-height: 48px;
-            margin-bottom: 24px;
-        }
-    }
-    &_stats-number {
-        display: block;
-    }
-    &_ambulance {
-        @include roll(7s, 0s);
-        position: absolute;
-        bottom: 15px;
-        left: 50%;
-        height: 130px;
-        @include tablet {
-            left: 50%;
-            height: 221px;
-        }
-    }
-    &_car-front {
-        @include roll(7s, 5s);
-        position: absolute;
-        bottom: 15px;
-        left: 50%;
-        height: 72px;
-        z-index: 2;
+  &_stats-number {
+    display: block;
+  }
 
-        @include tablet {
-            height: 115px;
-        }
+  &_ambulance {
+    @include roll(7s, 0s);
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    height: 130px;
+    @include tablet {
+      left: 50%;
+      height: 221px;
     }
-    &_car-green {
-        @include roll(9s, 0s);
-        position: absolute;
-        bottom: 38px;
-        left: 70%;
-        display: none;
-        @include tablet {
-            display: block;
-            height: 81px;
-        }
-    }
-    &_car-orange {
-        @include roll(9s, 1s);
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        display: none;
-        @include tablet {
-            display: block;
-            height: 96px;
-        }
-    }
+  }
 
-    &_car-back {
-        @include roll(9s, 2s);
-        position: absolute;
-        bottom: 38px;
-        left: 50%;
-        display: none;
-        @include tablet {
-            display: block;
-            height: 126px;
-        }
+  &_car-front {
+    @include roll(7s, 5s);
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    height: 72px;
+    z-index: 2;
+    @include tablet {
+      height: 115px;
     }
+  }
+
+  &_car-green {
+    @include roll(9s, 0s);
+    position: absolute;
+    bottom: 38px;
+    left: 70%;
+    display: none;
+    @include tablet {
+      display: block;
+      height: 81px;
+    }
+  }
+
+  &_car-orange {
+    @include roll(9s, 1s);
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    display: none;
+    @include tablet {
+      display: block;
+      height: 96px;
+    }
+  }
+
+  &_car-back {
+    @include roll(9s, 2s);
+    position: absolute;
+    bottom: 38px;
+    left: 50%;
+    display: none;
+    @include tablet {
+      display: block;
+      height: 126px;
+    }
+  }
+
+  &_bus {
+    @include roll(11s, 2s);
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    height: 130px;
+    @include tablet {
+      left: 50%;
+      height: 221px;
+    }
+  }
 }
-
-
-
