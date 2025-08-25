@@ -1,153 +1,178 @@
 .section {
-    padding: 50px 0;
-    position: relative;
-    overflow-x: hidden;
+  padding: 50px 0;
+  position: relative;
+  overflow-x: hidden;
+  @include tablet {
+    overflow-x: initial;
+    padding-top: 100px;
+    padding-bottom: 110px;
+  }
+
+  &__grey {
+    background-color: $cGrey;
+  }
+
+  &__dark {
+    background-color: $color;
+    color: $bg_color;
+    padding-top: 55px;
+    padding-bottom: 55px;
     @include tablet {
-        overflow-x: initial;
-        padding-top: 100px;
-        padding-bottom: 110px;
+      padding-top: 80px;
+      padding-bottom: 80px;
     }
 
-    &__grey {
-        background-color: $cGrey;
+    .section_holder h1,
+    .section_holder h2 {
+      width: 100%;
     }
-    &__dark {
-        background-color: $color;
-        color: $bg_color;
-        padding-top: 55px;
-        padding-bottom: 55px;
-        @include tablet {
-            padding-top: 80px;
-            padding-bottom: 80px;
-        }
+  }
 
-        .section_holder h1,
-        .section_holder h2 {
-            width: 100%;
-        } 
+  &__bright {
+    background-color: $cBright;
+    padding-top: 55px;
+    padding-bottom: 55px;
+    @include tablet {
+      padding-top: 80px;
+      padding-bottom: 80px;
     }
-    &__bright {
-        background-color: $cBright;
-        padding-top: 55px;
-        padding-bottom: 55px;
-    
-        @include tablet {
-            padding-top: 80px;
-            padding-bottom: 80px;
-        }
-    }
-    &__no-indent {
-        padding: 0;
-    }
-    &__no-top-indent {
-        padding-top: 0;
-    }
-    &__no-bottom-indent {
-        padding-bottom: 0;
-    }
-    &__big-top-indent {
-        @include tablet {
-            padding-top: 400px;
-        }
-    }
-    &__small-top-indent {
-        padding-top: 80px;
-    }
-    &__small-bottom-indent {
-        padding-bottom: 80px;
-    }
-    &__big-bottom-indent {
-        padding-bottom: 140px;
-        @include tablet {
-            padding-bottom: 440px;
-        }
-    }
-    &__video {
-        overflow: visible;
-    }
+  }
 
-    &_holder {
-        @include layout;
-        position: relative;
-        z-index: 1;
-    }
-    &_bg {
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        z-index: 0;
-        max-width: 200%;
-        min-width: 100%;
-        max-height: 100%;
-        transform: translateX(-50%);
-        opacity: .2;
-        pointer-events: none;
-        @include tablet {
-            left: 0;
-            width: 100%;
-            max-height: 100%;
-            transform: none;
-        }
+  &__no-indent {
+    padding: 0;
+  }
 
-        &__big {
-            opacity: 1;
-        }
-        &__desktop {
-            display: none;
-            @include tablet {
-                display: block;
-            }
-        }
-    }
-    &_video {
-        position: relative;
-        margin: -170px 0 80px 0;
-        cursor: pointer;
-        transition: .2s $easingSmooth filter;
-        @include tablet {
-            margin-top: -400px;
-        }
+  &__no-top-indent {
+    padding-top: 0;
+  }
 
-        &:hover {
-            filter: saturate(1.5);
-        }
-        &:active {
-            filter: saturate(1.2);
-        }
+  &__no-bottom-indent {
+    padding-bottom: 0;
+  }
 
-        // &::before {
-        //     content: '';
-        //     background: url(#{$img}/play.svg) no-repeat center / 100% 100%;
-        //     height: 90px;
-        //     width: 90px;
-        //     position: absolute;
-        //     left: 50%;
-        //     top: 50%;
-        //     margin: -45px 0 0 -45px;
-        //     z-index: 2;
-        // }
+  &__big-top-indent {
+    @include tablet {
+      padding-top: 400px;
     }
-    &_video-image {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 1;
+  }
+
+  &__small-top-indent {
+    padding-top: 80px;
+  }
+
+  &__small-bottom-indent {
+    padding-bottom: 80px;
+  }
+
+  &__big-bottom-indent {
+    padding-bottom: 140px;
+    @include tablet {
+      padding-bottom: 440px;
+    }
+  }
+
+  &__video {
+    overflow: visible;
+  }
+
+  &_holder {
+    @include layout;
+    position: relative;
+    z-index: 1;
+  }
+
+  &_bg {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    z-index: 0;
+    max-width: 200%;
+    min-width: 100%;
+    max-height: 100%;
+    transform: translateX(-50%);
+    opacity: .2;
+    pointer-events: none;
+    @include tablet {
+      left: 0;
+      width: 100%;
+      max-height: 100%;
+      transform: none;
     }
 
-    h1,
-    h2 {
-        width: 70%;
-        @include tablet {
-            text-align: center;
-            width: 100%;
-        }
+    &__big {
+      opacity: 1;
     }
-    h1 {
-        margin-top: -8px;
-        @include tablet {
-        }
+
+    &__desktop {
+      display: none;
+
+      @include tablet {
+        display: block;
+      }
     }
+  }
+
+  &_bg-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+  }
+
+  &_video {
+    position: relative;
+    margin: -170px 0 80px 0;
+    cursor: pointer;
+    transition: .2s $easingSmooth filter;
+
+    @include tablet {
+      margin-top: -400px;
+    }
+
+    &:hover {
+      filter: saturate(1.5);
+    }
+
+    &:active {
+      filter: saturate(1.2);
+    }
+
+    // &::before {
+    //     content: '';
+    //     background: url(#{$img}/play.svg) no-repeat center / 100% 100%;
+    //     height: 90px;
+    //     width: 90px;
+    //     position: absolute;
+    //     left: 50%;
+    //     top: 50%;
+    //     margin: -45px 0 0 -45px;
+    //     z-index: 2;
+    // }
+  }
+
+  &_video-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  h1,
+  h2 {
+    width: 70%;
+
+    @include tablet {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  h1 {
+    margin-top: -8px;
+
+    @include tablet {}
+  }
 }

@@ -1,0 +1,47 @@
+.text-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @include tablet {
+    gap: 80px;
+  }
+
+  &_item {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    &:nth-child(even) {
+      @include tablet {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  &_item-content {
+    font-size: 18px;
+    @include tablet {
+      width: 50%;
+      max-width: 500px;
+    }
+  }
+
+  &_item-title {
+    color: $cBright;
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 0 0 32px;
+  }
+
+  &_item-image {
+    @include tablet {
+      width: 50%;
+      max-width: 500px;
+    }
+  }
+}

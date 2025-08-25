@@ -1,0 +1,86 @@
+.benefits {
+  &_title[class] {
+    font-size: 26px;
+    width: 100%;
+    color: $bg_color;
+    @include tablet {
+      font-size: 36px;
+      margin: 0 auto 40px;
+      max-width: 840px;
+    }
+  }
+
+  &_cards {
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      gap: 30px;
+    }
+  }
+
+  &_card {
+    background-color: $bg_color;
+    border-radius: 16px;
+    padding: 18px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    box-sizing: border-box;
+    user-select: none;
+  }
+
+  &_card-title {
+    color: $cBright;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 600;
+    min-height: 60px;
+    display: block;
+    margin: 0 0 8px;
+  }
+
+  &_card-text {
+    font-size: 18px;
+  }
+
+  &_card-image {
+    margin: 6px 0 0;
+
+    @include tablet {
+      height: 158px;
+      object-fit: contain;
+    }
+  }
+
+  .tns-outer {
+    margin-left: -30px;
+    margin-right: -30px;
+  }
+
+  .tns-ovh {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .tns-nav {
+    margin-top: 40px;
+
+    button {
+      &.tns-nav-active {
+        background-color: #fff;
+        width: 50px;
+      }
+
+      &:hover {
+        opacity: .6;
+        background-color: #fff;
+      }
+
+      &:active {
+        opacity: .8;
+      }
+    }
+  }
+}

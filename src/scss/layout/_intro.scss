@@ -1,51 +1,65 @@
 .intro {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: -20px;
+  }
+
+  &_content {
+    text-align: left;
+    display: contents;
     @include tablet {
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 40px;
-        align-items: center;
-        margin-bottom: -20px;
+      display: block;
+      max-width: 45%;
+    }
+  }
+
+  &_button {
+    @include button;
+  }
+
+  &_background {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &_text {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
+    order: 3;
+    @include tablet {
+      order: inherit;
+    }
+  }
+
+  &_image {
+    order: 2;
+    margin: 15px 0 54px;
+    @include tablet {
+      margin: 0;
+      order: inherit;
+      max-width: 45%;
     }
 
-    &_content {
-        text-align: left;
-        display: contents;
-        @include tablet {
-            display: block;
-            max-width: 45%;
-        }
-    }
-    &_text {
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 140%;
-        order: 3;
-        @include tablet {
-            order: inherit;
-        }
-    }
-    &_image {
-        order: 2;
-        margin: 15px 0 54px;
-        @include tablet {
-            margin: 0;
-            order: inherit;
-            max-width: 45%;
-        }
-        // @include desktop {
-        //     max-width: 100%;
-        // }
-    }
+    // @include desktop {
+    //     max-width: 100%;
+    // }
+  }
 
-    h1 {
-        color: $cBright;
-        margin: 0 0 24px;
-        text-align: left;
-        order: 1;
-        @include tablet {
-            order: inherit;
-        }
+  h1 {
+    color: $cBright;
+    margin: 0 0 24px;
+    text-align: left;
+    order: 1;
+
+    @include tablet {
+      order: inherit;
     }
+  }
 }
