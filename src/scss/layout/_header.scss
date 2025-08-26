@@ -4,4 +4,14 @@
     align-items: center;
     justify-content: space-between;
     position: relative;
+    @include tablet {
+      background-color: rgba($bg_color, .8);
+      min-height: 78px;
+    }
+    @include desktop {
+      padding-top: 32px;
+      padding-bottom: 32px;
+      min-height: 0;
+      justify-content: flex-end;
+    }
 }

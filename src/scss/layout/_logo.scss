@@ -1,29 +1,31 @@
 .logo {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    z-index: 12;
-    transition: .5s linear opacity, .2s linear filter;
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  z-index: 12;
+  transition: .5s linear opacity, .2s linear filter;
+  @include desktop {
+    left: 0;
+  }
+
+  .menu-opened & {
+    filter: invert(100%);
+  }
+
+  &:hover {
+    opacity: .6;
+  }
+
+  &:active {
+    opacity: .8;
+  }
+
+  &_image {
+    display: block;
+    width: 110px;
+
     @include desktop {
-        left: 0;
+      width: 160px;
     }
-
-    .menu-opened & {
-        filter: invert(100%);
-    }
-
-    &:hover {
-        opacity: .6;
-    }
-    &:active {
-        opacity: .8;
-    }
-
-    &_image {
-        display: block;
-        width: 110px;
-        @include desktop {
-            width: 160px;
-        }
-    }
+  }
 }

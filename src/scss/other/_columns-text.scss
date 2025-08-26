@@ -1,0 +1,30 @@
+.columns-text {
+  @include layout;
+  margin-top: 50px;
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+  }
+
+  &_title[class] {
+    color: $cBright;
+    text-align: left;
+    font-weight: 700;
+    @include tablet {
+      font-weight: 600;
+      width: 40%;
+      max-width: 370px;
+    }
+  }
+
+  &_content {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 140%;
+    @include tablet {
+      width: 70%;
+      max-width: 534px;
+    }
+  }
+}

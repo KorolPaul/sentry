@@ -11,6 +11,9 @@
   }
 
   &_cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     @include tablet {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -22,13 +25,17 @@
   &_card {
     background-color: $bg_color;
     border-radius: 16px;
-    padding: 18px 14px;
+    padding: 18px 24px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 20px;
+    gap: 30px;
     box-sizing: border-box;
     user-select: none;
+    @include tablet {
+      padding: 35px 50px 35px 55px;
+      gap: 55px;
+    }
   }
 
   &_card-title {
@@ -36,7 +43,6 @@
     font-size: 18px;
     line-height: 1.5;
     font-weight: 600;
-    min-height: 60px;
     display: block;
     margin: 0 0 8px;
   }
@@ -46,10 +52,8 @@
   }
 
   &_card-image {
-    margin: 6px 0 0;
-
     @include tablet {
-      height: 158px;
+      height: 99px;
       object-fit: contain;
     }
   }

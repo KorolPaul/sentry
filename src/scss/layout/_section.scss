@@ -26,6 +26,12 @@
     .section_holder h2 {
       width: 100%;
     }
+
+    .tns-nav {
+      button {
+        background-color: $bg_color;
+      }
+    }
   }
 
   &__bright {
@@ -117,6 +123,7 @@
     right: 0;
     top: 0;
     height: 100%;
+    object-fit: cover;
   }
 
   &_video {

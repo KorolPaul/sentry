@@ -52,6 +52,14 @@
     // }
   }
 
+  &_title[class] {
+    color: $color;
+
+    span {
+      color: $cBright;
+    }
+  }
+
   h1 {
     color: $cBright;
     margin: 0 0 24px;

@@ -1,254 +1,314 @@
 .app {
+  @include tablet {
+    overflow: hidden;
+  }
+
+  &_holder {
+    @include layout;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &_video-title {
+    margin: 30px 0;
     @include tablet {
-        overflow: hidden;
+      display: none;
+    }
+  }
+
+  &_video {
+    position: relative;
+    border: 20px solid $color;
+    border-radius: 20px;
+    margin: 40px 0;
+    @include tablet {
+      margin: 110px 0 190px;
+      border: 40px solid $color;
+      border-radius: 40px;
     }
 
-    &_holder {
-        @include layout;
-        width: 100%;
-        box-sizing: border-box;
+    &::before {
+      content: '';
+      background: url(#{$img}/video-city.svg) no-repeat center / 100% auto;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      height: 100%;
+      width: 100vw;
+      pointer-events: none;
+      transform: translateX(-50%);
+      z-index: -1;
+      @include tablet {
+        bottom: 100px;
+      }
     }
-    &_video-title {
-        margin: 30px 0;
-        @include tablet {
-            display: none;
-        }
-    }
-    &_video {
-        position: relative;
-        border: 20px solid $color;
-        border-radius: 20px;
-        margin: 40px 0;
-        @include tablet {
-            margin: 110px 0 190px;
-            border: 40px solid $color;
-            border-radius: 40px;
-        }
+  }
 
-        &::before {
-            content: '';
-            background: url(#{$img}/video-city.svg) no-repeat center / 100% auto;
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            height: 100%;
-            width: 100vw;
-            pointer-events: none;
-            transform: translateX(-50%);
-            z-index: -1;
-            @include tablet {
-                bottom: 100px;
-            }
-        }
-    }
-    &_video-wrapper {
-        padding-bottom: 50%;
-        position: relative;
-        z-index: 2;
-        // margin-bottom: 40px;
-        // @include tablet {
-        //     margin-bottom: 80px;
-        // }
+  &_video-wrapper {
+    padding-bottom: 50%;
+    position: relative;
+    z-index: 2;
+    // margin-bottom: 40px;
+    // @include tablet {
+    //     margin-bottom: 80px;
+    // }
 
-        iframe {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            z-index: 1;
-        }
+    iframe {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+    }
 
-    }
-    &_section {
-        margin-top: 50px;
-        @include tablet {
-            display: flex;
-            justify-content: space-between;
-            margin: 0 0 74px;
-        }
-    }
-    &_section-title[class] {
-        color: $cBright;
-        text-align: left;
-        font-weight: 700;
-        @include tablet {
-            font-weight: 600;
-            width: 40%;
-        }
-    }
-    &_section-content {
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 140%;
-        @include tablet {
-            width: 47%;
-        }
-    }
-    &_section-links {
-        margin-top: 40px;
-        margin-bottom: 40px;
-        display: flex;
-        justify-content: space-between;
-        gap: 24px;
-        @include tablet {
-            margin-bottom: 0;
-            justify-content: flex-start;
-        }
+  }
 
-        a {
-            margin: 0;
-        }
+  &_section {
+    margin-top: 50px;
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0 74px;
     }
-    &_screens {
-        position: relative;
-        margin: 0 0 50px;
-        // overflow: hidden;
-        @include tablet {
-            margin: 0 0 150px;
-        }
+  }
 
-        &:last-child {
-            margin: 0;
-        }
-
-        .tns-ovh[id] {
-            @include tablet {
-                padding: 0;
-            }
-        }
+  &_section-title[class] {
+    color: $cBright;
+    text-align: left;
+    font-weight: 700;
+    @include tablet {
+      font-weight: 600;
+      width: 40%;
     }
-    &_phone-screen {
-        position: relative;
-        padding: 20px 0;
-        background-color: $color;
-        border-radius: 16px;
-        @include tablet {
-            padding-top: 40px;
-            padding-bottom: 40px;
-        }
+  }
 
-        &__alternate {
-            padding-left: 10px;
-            padding-right: 10px;
-        }
+  &_section-content {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 140%;
+    @include tablet {
+      width: 47%;
     }
-    &_phone-frame {
+  }
+
+  &_section-links {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    @include tablet {
+      margin-bottom: 0;
+      justify-content: flex-start;
+    }
+
+    a {
+      margin: 0;
+    }
+  }
+
+  &_screens {
+    position: relative;
+    margin: 0 0 50px;
+    @include tablet {
+      margin: 0 0 150px;
+    }
+
+    &__grey {
+      padding: 50px 0 0 ; 
+      @include tablet {
+        padding-top: 100px;
+      }
+
+      &::before {
+        content: '';
+        background-color: $cGrey;
         position: absolute;
-        left: 0;
         top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-    }
-    &_screens {
-        .tns-outer {
-            margin-left: -30px;
-            margin-right: -30px;
-    
-            @include tablet {
-                margin: 0;
-            }
-        }
-    }
-    &_screens-wrapper {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-    }
-    &_screen {
-        width: 80vw;
-        margin: auto;
-        display: block;
-        @include tablet {
-            width: auto;
-        }
-    }
-    &_screens-bg {
-        position: absolute;
-        left: 50%;
-        bottom: 50px;
-        width: 1200px;
-        max-width: none;
-        transform: translateX(-65%);
-        z-index: -1;
-        @include media(500px) {
-            bottom: 100px;
-        }
-        @include tablet {
-            width: calc(100vw + 1px);
-            bottom: 50px;
-            margin-left: -1px;
-            max-width: 100%;
-            transform: translateX(-50%);
-        }
-    }
-    &_slider-wrapper {
-        position: relative;
-        width: 90%;
-        margin: 50px auto 150px;
-        border: 20px solid $color;
-        border-radius: 20px;
-        @include tablet {
-            border: 40px solid #222;
-            border-radius: 40px;
-            max-width: $max-width;
-            margin-bottom: 210px;
-        }
-
-        .tns-nav {
-            position: absolute;
-            left: 50%;
-            bottom: -70px;
-            transform: translateX(-50%);
-            @include tablet {
-                bottom: -100px;
-            }
-        }
-        .tns-controls {
-            bottom: -78px;
-            @include tablet {
-                bottom: -108px;
-            }
-        }
-        .tns-outer {
-            margin-left: 0;
-            margin-right: 0;
-        }
-    }
-    &_slide {
-        text-align: center;
-        position: relative;
-
-        img {
-            display: block;
-            @include desktop {
-                width: 100%;
-            }
-        }
-    }
-    &_slide-frame[src] {
-        position: absolute;
         left: 0;
-        top: 0;
-        width: 100%;
         height: 100%;
-        z-index: 1;
-        max-width: none;
-        pointer-events: none;
+        width: 100%;
+        z-index: -2;
+      }
     }
+
+    &:last-child {
+      margin: 0;
+    }
+
+    .tns-ovh[id] {
+      @include tablet {
+        padding: 0;
+      }
+    }
+
+    .tns-outer {
+      margin-left: -30px;
+      margin-right: -30px;
+      @include tablet {
+        margin: 0;
+      }
+    }
+  }
+
+  &_gallery {
+    position: relative;
+    margin: 0 0 50px;
+    @include tablet {
+      margin: 0 0 150px;
+    }
+  }
+
+  &_screens-title {
+    color: $cBright;
+    font-size: 70px;
+    text-align: center;
+    margin: 0 auto 40px;
+  }
+
+  &_screens-subtitle {
+    font-size: 24px;
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 630px;
+  }
+
+  &_phone-screen {
+    position: relative;
+    padding: 20px 0;
+    background-color: $color;
+    border-radius: 16px;
+    @include tablet {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    &__alternate {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  &_phone-frame {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &_screens-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  &_screen {
+    width: 80vw;
+    margin: auto;
+    display: block;
+
+    @include tablet {
+      width: auto;
+    }
+  }
+
+  &_screens-bg {
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    width: 1200px;
+    max-width: none;
+    transform: translateX(-65%);
+    z-index: -1;
+    @include media(500px) {
+      bottom: 100px;
+    }
+    @include tablet {
+      width: calc(100vw + 1px);
+      bottom: 50px;
+      margin-left: -1px;
+      max-width: 100%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &_slider-wrapper {
+    position: relative;
+    width: 90%;
+    margin: 50px auto 150px;
+    border: 20px solid $color;
+    border-radius: 20px;
+
+    @include tablet {
+      border: 40px solid #222;
+      border-radius: 40px;
+      max-width: $max-width;
+      margin-bottom: 210px;
+    }
+
+    .tns-nav {
+      position: absolute;
+      left: 50%;
+      bottom: -70px;
+      transform: translateX(-50%);
+
+      @include tablet {
+        bottom: -100px;
+      }
+    }
+
+    .tns-controls {
+      bottom: -78px;
+
+      @include tablet {
+        bottom: -108px;
+      }
+    }
+
+    .tns-outer {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  &_slide {
+    text-align: center;
+    position: relative;
+
+    img {
+      display: block;
+
+      @include desktop {
+        width: 100%;
+      }
+    }
+  }
+
+  &_slide-frame[src] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    max-width: none;
+    pointer-events: none;
+  }
 }
 
 .app-link {
-    display: inline-block;
-    margin: 0 24px 0 0;
-    transition: .2s $easing opacity;
-    
-    &:hover {
-        opacity: .6;
-    }
+  display: inline-block;
+  margin: 0 24px 0 0;
+  transition: .2s $easing opacity;
 
-    &:active {
-        opacity: .8;
-    }
+  &:hover {
+    opacity: .6;
+  }
+
+  &:active {
+    opacity: .8;
+  }
 }
