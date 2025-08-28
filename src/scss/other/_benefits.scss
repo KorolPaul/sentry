@@ -1,11 +1,12 @@
 .benefits {
   &_title[class] {
-    font-size: 26px;
+    font-size: 44px;
     width: 100%;
     color: $bg_color;
+    text-align: center;
     @include tablet {
-      font-size: 36px;
-      margin: 0 auto 40px;
+      font-size: 70px;
+      margin: 0 auto 80px;
       max-width: 840px;
     }
   }

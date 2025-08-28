@@ -137,3 +137,10 @@
     }
   }
 }
+
+.steps-title {
+  @extend %heading-1;
+  @include tablet {
+    margin-bottom: 80px;
+  }
+}

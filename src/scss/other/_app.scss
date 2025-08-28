@@ -143,11 +143,23 @@
       }
     }
 
-    .tns-outer {
-      margin-left: -30px;
-      margin-right: -30px;
-      @include tablet {
-        margin: 0;
+    &__infinite {
+      .tns-outer {
+        margin-left: 0;
+        margin-right: 0;
+        @include tablet {
+          max-width: $max-width;
+          padding-left: 0;
+          padding-right: 0;
+          margin: auto;
+        }
+      }
+
+      .tns-controls {
+        top: 50%;
+        bottom: auto;
+        width: calc(100% + 156px);
+        transform: translate(-50%, -75%);
       }
     }
   }
@@ -209,7 +221,6 @@
     width: 80vw;
     margin: auto;
     display: block;
-
     @include tablet {
       width: auto;
     }
@@ -232,6 +243,13 @@
       margin-left: -1px;
       max-width: 100%;
       transform: translateX(-50%);
+    }
+
+    .app_screens__infinite & {
+      bottom: 85px;
+      @include desktop {
+        bottom: 170px;
+      }
     }
   }
 

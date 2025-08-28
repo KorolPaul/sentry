@@ -118,23 +118,24 @@ const photoGallerySlider = document.querySelectorAll('.js-photo-gallery');
 photoGallerySlider.forEach(el => {
   tns({
     container: el,
-    items: 2,
+    items: 1,
     gutter: 30,
     mouseDrag: true,
     autoplay: false,
-    nav: true,
+    nav: false,
     gap: 0,
     center: true,
     navPosition: 'bottom',
-    controls: false,
-    loop: false,
+    controls: true,
+    loop: true,
     fixedWidth: 255,
     responsive: {
       744: {
-        items: 4,
+        center: false,
+        items: 3,
       },
       1024: {
-        items: 5,
+        items: 4,
       }
     }
   });
@@ -452,6 +453,10 @@ vacancyMoreButtons.forEach(el => {
 const vacancyBackButtons = document.querySelectorAll('.vacancy_back');
 vacancyBackButtons.forEach(el => {
   el.addEventListener('click', (e) => {
-    e.target.parentElement.parentElement.parentElement.classList.toggle('active')
+    const parent = e.target.parentElement.parentElement.parentElement;
+    parent.classList.toggle('active');
+    const rect = parent.getBoundingClientRect();
+    
+    window.scrollTo(0, rect.top + window.scrollY);
   })
 });
