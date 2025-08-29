@@ -2,12 +2,6 @@
   &_title[class] {
     text-align: left;
 
-    .themes__alternate & {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
     span {
       color: $cBright;
     }
@@ -47,6 +41,11 @@
       width: 50%;
       order: initial;
     }
+
+    .themes__alternate & {
+      position: relative;
+    }
+
   }
 
   &_button {
@@ -194,5 +193,18 @@
     &.active {
       display: block;
     }
+
+    .themes__alternate & {
+      padding: 20px 0;
+      @include tablet {
+        padding: 0;
+        position: absolute;
+        top: 0;
+        left: calc(100% + 50px);
+        transform: none;
+        width: 100%;
+      }
+    }
   }
+
 }
