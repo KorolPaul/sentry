@@ -1,133 +1,145 @@
 .vacancies {}
 
 .vacancy {
-    background-color: #FBFBFB;
-    border-radius: 16px;
-    padding: 32px 40px;
+  background-color: #FBFBFB;
+  border-radius: 16px;
+  padding: 32px 40px;
+  margin: 0 0 16px;
+
+  &_title {
+    color: $cBright;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    margin: 0 0 6px;
+  }
+
+  &_meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    opacity: .7;
     margin: 0 0 16px;
 
-    &_title {
-        color: $cBright;
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 120%;
-        margin: 0 0 6px;
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+  }
+
+  &_subtitle {
+    padding: 0 0 24px;
+    margin: 0;
+    border-bottom: 1px solid transparent;
+    transition: .3s ease border;
+
+    .active & {
+      border-bottom-color: $cBright;
+    }
+  }
+
+  &_text {
+    overflow: hidden;
+    max-height: 0;
+    box-sizing: border-box;
+    padding: 32px 0 0;
+
+    @include tablet {
+      transition: .6s ease max-height;
     }
 
-    &_meta {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 140%;
-        opacity: .7;
-        margin: 0 0 16px;
-        @include tablet {
-            flex-direction: row;
-            justify-content: space-between;
-            gap: 20px;
-            align-items: center;
-        }
+    .active & {
+      max-height: 20000px;
+
+      @include tablet {
+        max-height: 2000px;
+      }
     }
 
-    &_subtitle {
-        padding: 0 0 24px;
-        margin: 0;
-        border-bottom: 1px solid transparent;
-        transition: .3s ease border;
-
-        .active & {
-            border-bottom-color: $cBright;
-        }
+    h4 {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 24px 0 0;
     }
 
-    &_text {
-        overflow: hidden;
-        max-height: 0;
-        box-sizing: border-box;
-        padding: 32px 0 0;
-        @include tablet {
-            transition: .6s ease max-height;
-        }
-
-        .active & {
-            max-height: 20000px;
-            @include tablet {
-                max-height: 2000px;
-            }
-        }
-
-        h4 {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 24px 0 0;
-        }
-
-        ul {
-            margin: 10px 0 0;
-            padding-left: 16px;
-        }
-
-        li::before {
-            top: 10px;
-        }
+    ul {
+      margin: 10px 0 0;
+      padding-left: 16px;
     }
 
-    &_buttons {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 30px 0 0;
+    li::before {
+      top: 10px;
+    }
+  }
+
+  &_buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0 0;
+    gap: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    @include tablet {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &_buttons-left {
+    position: relative;
+    height: 20px;
+  }
+
+  &_more {
+    @include button-reset;
+    font-weight: 500;
+    font-size: 14px;
+    color: $cBright;
+    padding: 0 23px 0 0;
+    background: url(#{$img}/arrow-small.svg) no-repeat right center;
+    transition: .3s ease opacity;
+
+    &:hover {
+      opacity: .6;
     }
 
-    &_buttons-left {
-        position: relative;
-        height: 20px;
+    &:active {
+      opacity: .8;
     }
 
-    &_more {
-        @include button-reset;
-        font-weight: 500;
-        font-size: 14px;
-        color: $cBright;
-        padding: 0 23px 0 0;
-        background: url(#{$img}/arrow-small.svg) no-repeat right center;
-        transition: .3s ease opacity;
+    .active & {
+      opacity: 0;
+    }
+  }
 
-        &:hover {
-            opacity: .6;
-        }
-        &:active {
-            opacity: .8;
-        }
+  &_back {
+    @include button-reset;
+    font-weight: 500;
+    font-size: 14px;
+    color: $cBright;
+    padding: 0 0 0 22px;
+    background: url(#{$img}/arrow-left.svg) no-repeat left center;
+    transition: .3s ease opacity;
 
-        .active & {
-            opacity: 0;
-        }
+    &:hover {
+      opacity: .6;
     }
 
-    &_back {
-        @include button-reset;
-        font-weight: 500;
-        font-size: 14px;
-        color: $cBright;
-        padding: 0 0 0 22px;
-        background: url(#{$img}/arrow-left.svg) no-repeat left center;
-        transition: .3s ease opacity;
-
-        &:hover {
-            opacity: .6;
-        }
-        &:active {
-            opacity: .8;
-        }
+    &:active {
+      opacity: .8;
     }
+  }
 
-    &_apply {
-        padding-left: 40px;
-        padding-right: 40px;
-        min-width: auto;
-        width: auto;
-    }
+  &_apply {
+    padding-left: 40px;
+    padding-right: 40px;
+    min-width: auto;
+    width: auto;
+  }
 }

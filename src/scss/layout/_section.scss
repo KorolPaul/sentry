@@ -119,11 +119,15 @@
   }
 
   &_bg-image {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    object-fit: cover;
+    display: none;
+    @include tablet {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &_video {

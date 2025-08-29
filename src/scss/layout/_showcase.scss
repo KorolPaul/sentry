@@ -75,8 +75,7 @@
     @include tablet {
       display: flex;
       justify-content: space-between;
-      gap: 74px;
-      text-align: center;
+      gap: 10px;
     }
   }
 
@@ -84,7 +83,8 @@
     background: url(#{$img}/arrow.svg) no-repeat left center / 23px;
     padding-left: 46px;
     margin: 0 0 22px;
-    display: block;
+    display: flex;
+    align-items: center;
     line-height: 28px;
     @include tablet {
       margin: 0;
