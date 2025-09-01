@@ -50,6 +50,14 @@
     // @include desktop {
     //     max-width: 100%;
     // }
+
+    &__mobile {
+      margin-top: 6px;
+      margin-bottom: 40px;
+      @include tablet {
+        display: none;
+      }
+    }
   }
 
   &_title[class] {
