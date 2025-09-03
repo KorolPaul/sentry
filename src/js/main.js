@@ -163,6 +163,28 @@ operationsSlider.forEach(el => {
   });
 });
 
+const socialsSlider = document.querySelectorAll('.js-socials-slider');
+socialsSlider.forEach(el => {
+  tns({
+    container: el,
+    items: 1,
+    gutter: 20,
+    mouseDrag: true,
+    autoplay: false,
+    nav: true,
+    gap: 0,
+    center: true,
+    navPosition: 'bottom',
+    controls: false,
+    loop: false,
+    responsive: {
+      744: {
+        disable: true
+      }
+    }
+  });
+});
+
 
 // menu
 const menuToggleElement = document.querySelector('.menu-toggle');

@@ -1,6 +1,9 @@
 .themes {
   &_title[class] {
     text-align: left;
+    @include tablet {
+      text-align: center;
+    }
 
     span {
       color: $cBright;
@@ -200,7 +203,7 @@
         padding: 0;
         position: absolute;
         top: 0;
-        left: calc(100% + 50px);
+        left: calc(50px);
         transform: none;
         width: 100%;
       }
