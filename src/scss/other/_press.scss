@@ -1,93 +1,128 @@
 .press {
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 40px 30px;
+  }
+
+  &__slider {
+    display: block;
+  }
+
+  &_card {
+    border-radius: 16px;
+    background-color: $bg_color;
+    padding: 24px 24px 32px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    box-sizing: border-box;
+    transition: .2s $easing background;
+    position: relative;
+    margin: 0 0 20px;
+
     @include tablet {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto;
-        gap: 40px 30px;
+      margin-bottom: 0;
+      min-height: 500px;
     }
 
-    &_card {
-        border-radius: 16px;
-        background-color: $bg_color;
-        padding: 24px 24px 32px 24px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: stretch;
-        box-sizing: border-box;
-        transition: .2s $easing background;
-        position: relative;
-        margin: 0 0 20px;
-        @include tablet {
-            margin-bottom: 0;
-            min-height: 500px;
-        }
+    &:hover {
+      background: #F6F5F3;
+    }
 
-        &:hover {
-            background: #F6F5F3;
-        }
+    &::after {
+      content: '';
+      background: url(#{$img}/link.svg) no-repeat center / 100%;
+      height: 32px;
+      width: 32px;
+      position: absolute;
+      right: 24px;
+      bottom: 32px;
+      opacity: 0;
+      transition: .2s $easing opacity;
+    }
 
-        &::after {
-            content: '';
-            background: url(#{$img}/link.svg) no-repeat center / 100%;
-            height: 32px;
-            width: 32px;
-            position: absolute;
-            right: 24px;
-            bottom: 32px;
-            opacity: 0;
-            transition: .2s $easing opacity;
-        }
-        &:hover::after {
-            opacity: 1;
-        }
+    &:hover::after {
+      opacity: 1;
     }
-    &_image {
-        border-radius: 16px;
-        margin-bottom: 20px;
-        width: 100%;
-        @include tablet {
-            margin-bottom: 32px;
-        }
+
+    .press__slider & {
+      background-color: #fff;
     }
-    &_card-title {
-        font-size: 18px;
-        line-height: 120%;
-        font-weight: 600;
-        margin: 0 0 20px;
-        color: $color;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        @include tablet {
-            font-size: 24px;
-        }
+    
+    .press__slider &::after {
+      opacity: 1;
     }
-    &_card-bottom {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        @include tablet {
-            display: block;
-        }
+  }
+
+  &_image {
+    border-radius: 16px;
+    margin-bottom: 20px;
+    width: 100%;
+
+    @include tablet {
+      margin-bottom: 32px;
     }
-    &_card-logo {
-        @include tablet {
-            display: block;
-            margin-bottom: 16px;
-        }
+  }
+
+  &_card-title {
+    font-size: 18px;
+    line-height: 120%;
+    font-weight: 600;
+    margin: 0 0 20px;
+    color: $color;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    @include tablet {
+      font-size: 24px;
     }
-    &_card-source {
-        display: block;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 15px;
-        color: $color;
-        width: 40%;
-        @include tablet{
-            color: #A9A9A9;
-            width: 75%;
-        }
+  }
+
+  &_card-bottom {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    @include tablet {
+      display: block;
     }
+  }
+
+  &_card-logo {
+    width: 50px;
+
+    @include tablet {
+      display: block;
+      margin-bottom: 16px;
+    }
+  }
+
+  &_card-source {
+    display: block;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: $color;
+    width: 40%;
+
+    @include tablet {
+      color: #A9A9A9;
+      width: 75%;
+    }
+  }
+
+  .tns-controls {
+    top: 50%;
+    bottom: auto;
+    width: calc(100% + 136px);
+    transform: translate(-50%, -75%);
+    @include tablet {
+      width: calc(100% + 156px);
+    }
+  }
 }

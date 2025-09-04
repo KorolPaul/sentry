@@ -12,6 +12,10 @@
     background-color: $cGrey;
   }
 
+  &__grey-dark {
+    background-color: #F7F7F7;
+  }
+
   &__dark {
     background-color: $color;
     color: $bg_color;
@@ -169,6 +173,13 @@
     height: 100%;
     object-fit: cover;
     z-index: 1;
+  }
+
+  &_subtitle {
+    font-size: 24px;
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 630px;
   }
 
   h1,

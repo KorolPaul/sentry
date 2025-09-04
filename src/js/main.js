@@ -122,21 +122,19 @@ photoGallerySlider.forEach(el => {
     gutter: 30,
     mouseDrag: true,
     autoplay: false,
-    nav: false,
+    nav: true,
     gap: 0,
     center: true,
     navPosition: 'bottom',
-    controls: true,
+    controls: false,
     loop: true,
-    fixedWidth: 255,
     responsive: {
       744: {
         center: false,
         items: 3,
+        nav: false,
+        controls: true,
       },
-      1024: {
-        items: 4,
-      }
     }
   });
 });
